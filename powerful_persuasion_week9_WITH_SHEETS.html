@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Powerful Persuasion -- Week 9 | Year 9 English | BCC</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;font-size:15px;line-height:1.65;background:#f0f7f5;color:#1a1025}
+.shell{max-width:860px;margin:0 auto;padding:0 0 60px}
+.nav{background:#004D40;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.bcc-pill{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:5px;padding:2px 9px;font-size:11px;font-weight:700;letter-spacing:.1em;color:#fff}
+.nav-title{font-family:Georgia,serif;font-size:15px;font-weight:700;color:#fff}
+.nav-sub{font-size:11px;color:rgba(255,255,255,.6)}
+.nav-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab-btn{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);border-radius:6px;padding:6px 14px;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s}
+.tab-btn.active{background:#fff;color:#004D40;font-weight:700;border-color:#fff}
+.tab-btn:hover:not(.active){background:rgba(255,255,255,.2)}
+.prog-bar{background:#e0f2f1;padding:9px 22px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(0,77,64,.08)}
+.prog-label{font-size:11px;font-weight:700;color:#00695C;white-space:nowrap}
+.prog-track{flex:1;height:6px;background:rgba(0,77,64,.12);border-radius:100px;overflow:hidden}
+.prog-fill{height:100%;width:0%;background:linear-gradient(90deg,#00695C,#2E7D32);border-radius:100px;transition:width .4s ease}
+.prog-pct{font-size:11px;font-weight:700;color:#00695C;min-width:30px;text-align:right}
+.hero{background:linear-gradient(135deg,#004D40,#00695C 55%,#2E7D32);color:#fff;padding:46px 22px 54px;text-align:center}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:4px 16px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-family:Georgia,serif;font-size:clamp(26px,5vw,44px);font-weight:900;line-height:1.05;margin-bottom:10px;color:#fff}
+.hero h1 em{color:#a7f3d0;font-style:italic}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.82);max-width:490px;margin:0 auto 22px}
+.hero-pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.hero-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8);border-radius:100px;padding:7px 16px;font-size:12px;cursor:pointer;transition:all .2s}
+.hero-pill.active,.hero-pill:hover{background:rgba(255,255,255,.22);color:#fff}
+.content{padding:26px 18px 0}
+.lesson{display:none}
+.lesson.active{display:block;animation:fadein .25s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.lesson-hd{border-radius:10px;padding:20px 24px;margin-bottom:20px;color:#fff}
+.lesson-hd h2{font-family:Georgia,serif;font-size:21px;font-weight:700;margin:6px 0;color:#fff}
+.lesson-hd p{font-size:13px;color:rgba(255,255,255,.85);margin-bottom:12px}
+.l1-hd{background:linear-gradient(135deg,#004D40,#00695C)}
+.l2-hd{background:linear-gradient(135deg,#1b5e20,#2E7D32)}
+.l3-hd{background:linear-gradient(135deg,#004D40,#1A2E4A)}
+.lesson-num{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);border-radius:5px;display:inline-block;padding:2px 9px;margin-bottom:8px}
+.badge-row{display:flex;flex-wrap:wrap;gap:6px}
+.badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:2px 10px;font-size:10px;color:#fff}
+.intentions{border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px}
+.int-teal{background:#e0f2f1;border-left:4px solid #00695C}
+.int-teal h3{color:#004D40}
+.int-green{background:#e8f5e9;border-left:4px solid #2E7D32}
+.int-green h3{color:#1b5e20}
+.int-navy{background:#e4eaf2;border-left:4px solid #1A2E4A}
+.int-navy h3{color:#1A2E4A}
+.intentions h3{font-family:Georgia,serif;font-size:13px;margin-bottom:8px}
+.check-item{font-size:13px;padding:3px 0 3px 18px;position:relative}
+.check-item::before{content:"ok";position:absolute;left:0;color:#00695C;font-weight:700;font-size:11px}
+.checklist{background:#fff;border:1px solid rgba(0,77,64,.12);border-radius:8px;padding:14px 18px;margin-bottom:18px}
+.checklist h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#00695C;margin-bottom:10px}
+.ck-row{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;-webkit-user-select:none;user-select:none}
+.ck-row:last-child{border-bottom:none}
+.ck-box{width:20px;height:20px;min-width:20px;border:2px solid rgba(0,77,64,.3);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;color:transparent;transition:all .15s;margin-top:1px;flex-shrink:0}
+.ck-row.done .ck-box{background:#00695C;border-color:#00695C;color:#fff}
+.ck-row.done .ck-text{text-decoration:line-through;opacity:.45}
+.ck-text{font-size:13px}
+.phase{border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,.08);margin-bottom:10px}
+.phase-hd{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;-webkit-user-select:none;user-select:none;transition:filter .1s}
+.phase-hd:hover{filter:brightness(1.06)}
+.phase-icon{font-size:14px;flex-shrink:0}
+.phase-meta{flex:1}
+.phase-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75;display:block;margin-bottom:1px}
+.phase-title{font-family:Georgia,serif;font-size:14px;font-weight:600}
+.phase-time{font-size:10px;font-weight:600;background:rgba(255,255,255,.2);border-radius:100px;padding:2px 9px;color:rgba(255,255,255,.85);flex-shrink:0}
+.chevron{font-size:11px;opacity:.75;transition:transform .25s;flex-shrink:0}
+.phase.open .chevron{transform:rotate(180deg)}
+.phase-body{display:none;background:#fff;border-top:1px solid rgba(0,0,0,.06);padding:16px 18px}
+.phase.open .phase-body{display:block}
+.ph-hook .phase-hd{background:linear-gradient(135deg,#c55a00,#e07000);color:#fff}
+.ph-teal .phase-hd{background:linear-gradient(135deg,#004D40,#00695C);color:#fff}
+.ph-green .phase-hd{background:linear-gradient(135deg,#1b5e20,#2E7D32);color:#fff}
+.ph-navy .phase-hd{background:linear-gradient(135deg,#1A2E4A,#2E5077);color:#fff}
+.ph-exit .phase-hd{background:linear-gradient(135deg,#004D40,#1b5e20);color:#fff}
+.callout{border-radius:0 6px 6px 0;padding:10px 14px;margin:10px 0;font-size:12px;line-height:1.6}
+.callout strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+.callout-faith{background:#e0f2f1;border-left:3px solid #004D40}
+.callout-faith strong{color:#004D40}
+.callout-ext{background:#e8f5e9;border-left:3px solid #2E7D32}
+.callout-ext strong{color:#2E7D32}
+.callout-info{background:#e4eaf2;border-left:3px solid #1A2E4A}
+.callout-info strong{color:#1A2E4A}
+/* Analysis framework table */
+.framework-table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
+.framework-table th{background:#00695C;color:#fff;padding:7px 10px;text-align:left}
+.framework-table td{padding:7px 10px;border-bottom:1px solid #e0f2f1;vertical-align:top}
+.framework-table tr:nth-child(even) td{background:#f0f9f8}
+/* Speech selector */
+.speech-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.speech-card{background:#fff;border:2px solid rgba(0,77,64,.15);border-radius:8px;padding:12px 14px;cursor:pointer;transition:all .15s}
+.speech-card:hover,.speech-card.sel{border-color:#00695C;background:#e0f2f1}
+.speech-card h5{font-size:12px;font-weight:700;color:#004D40;margin-bottom:3px}
+.speech-card p{font-size:11px;color:#555;line-height:1.4}
+/* Quiz */
+.quiz{background:#f0f9f8;border:1px solid #b2dfdb;border-radius:8px;padding:14px 18px;margin:12px 0}
+.quiz h4{font-size:13px;font-weight:700;color:#004D40;margin-bottom:8px}
+.quiz-q{font-size:13px;margin-bottom:10px}
+.quiz-opts{display:flex;flex-direction:column;gap:6px}
+.opt{background:#fff;border:2px solid rgba(0,77,64,.15);border-radius:7px;padding:9px 12px;font-size:12px;text-align:left;cursor:pointer;transition:all .15s;font-family:Arial,sans-serif;width:100%}
+.opt:hover{border-color:#00695C}
+.opt.correct{background:#e8f5e9;border-color:#2E7D32;color:#1b5e20;font-weight:700}
+.opt.wrong{background:#fce4ec;border-color:#b5294e;color:#880e4f}
+.opt:disabled{cursor:default}
+.quiz-fb{display:none;margin-top:8px;padding:8px 12px;border-radius:6px;font-size:12px}
+.quiz-fb.show{display:block}
+.quiz-fb.ok{background:#e8f5e9;color:#1b5e20}
+.quiz-fb.bad{background:#fce4ec;color:#880e4f}
+/* Text areas */
+.ta-block{margin:10px 0}
+.ta-block label{font-size:11px;font-weight:700;color:#00695C;display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em}
+.ta-block textarea{width:100%;background:#fff;border:1px solid rgba(0,77,64,.2);border-radius:6px;padding:8px;font-family:Arial,sans-serif;font-size:13px;resize:vertical;min-height:44px}
+/* Exit reflection */
+.exit-box{background:#e0f2f1;border-radius:8px;padding:14px 18px}
+.exit-box h4{font-family:Georgia,serif;font-size:13px;color:#004D40;margin-bottom:10px}
+.exit-box textarea{width:100%;background:#fff;border:1px solid rgba(0,77,64,.2);border-radius:6px;padding:8px;font-family:Arial,sans-serif;font-size:12px;resize:vertical;min-height:48px;margin-bottom:10px}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:20px;border-top:1px solid rgba(0,77,64,.1)}
+.nav-prev{background:#fff;color:#00695C;border:2px solid #00695C;border-radius:8px;padding:10px 18px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer}
+.nav-prev:hover{background:#e0f2f1}
+.nav-next{background:#00695C;color:#fff;border:none;border-radius:8px;padding:10px 18px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer}
+.nav-next:hover{background:#004D40}
+.complete-badge{background:#004D40;color:#fff;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:700}
+.footer{background:#004D40;color:rgba(255,255,255,.6);text-align:center;padding:16px 20px;font-size:11px}
+.footer strong{color:rgba(255,255,255,.9)}
+
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.portal-id-bar{background:#1a1025;padding:10px 22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-bottom:3px solid #00695C;position:sticky;top:0;z-index:100}
+.portal-id-bar label{font-size:12px;color:rgba(255,255,255,.7);font-weight:600;white-space:nowrap}
+.portal-id-bar input{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:5px;color:#fff;padding:5px 10px;font-size:13px;font-family:Arial,sans-serif;width:155px}
+.portal-id-bar input::placeholder{color:rgba(255,255,255,.35)}
+.portal-id-bar input:focus{outline:none;border-color:#22c55e}
+.portal-confirm-btn{background:#00695C;color:#fff;border:none;border-radius:6px;padding:6px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif}
+.portal-confirm-btn:hover{background:#004D40}
+.portal-id-status{font-size:11px;padding:3px 10px;border-radius:100px;font-weight:600;background:rgba(255,255,255,.15);color:rgba(255,255,255,.8)}
+.portal-submit-btn{display:block;width:100%;background:#1565c0;color:#fff;border:none;border-radius:8px;padding:12px 20px;font-size:14px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;margin:16px 0 8px;text-align:center;transition:background .15s}
+.portal-submit-btn:hover{background:#1976d2}
+.portal-submit-btn:disabled{background:#888;cursor:not-allowed}
+.portal-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#1a1025;color:#fff;padding:12px 24px;border-radius:8px;font-size:13px;font-weight:600;font-family:Arial,sans-serif;z-index:9999;transition:transform .3s ease;max-width:420px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.4);pointer-events:none}
+.portal-toast.show{transform:translateX(-50%) translateY(0)}
+.portal-toast.ok{background:#1b5e20}
+.portal-toast.err{background:#b71c1c}
+
+</style>
+</head>
+<body>
+<div class="shell">
+<div class="portal-id-bar" id="portal-id-bar">
+  <label>Your name:</label>
+  <input type="text" id="portal-name" placeholder="First Last">
+  <label>Class:</label>
+  <input type="text" id="portal-class" placeholder="9A" style="width:55px">
+  <button class="portal-confirm-btn" onclick="confirmIdentity()">Confirm</button>
+  <span class="portal-id-status" id="portal-id-status">Enter your name then click Confirm</span>
+</div>
+<div class="portal-toast" id="portal-toast"></div>
+
+
+<nav class="nav">
+  <div class="nav-brand">
+    <span class="bcc-pill">BCC</span>
+    <div>
+      <div class="nav-title">Powerful Persuasion -- Week 9</div>
+      <div class="nav-sub">Year 9 English | Unit 2 | Term 2</div>
+    </div>
+  </div>
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="goLesson(1)">Lesson 1</button>
+    <button class="tab-btn" onclick="goLesson(2)">Lesson 2</button>
+    <button class="tab-btn" onclick="goLesson(3)">Lesson 3</button>
+  </div>
+</nav>
+
+<div class="prog-bar">
+  <span class="prog-label">Your progress</span>
+  <div class="prog-track"><div class="prog-fill" id="pf"></div></div>
+  <span class="prog-pct" id="pp">0%</span>
+</div>
+
+<div class="hero">
+  <div class="hero-tag">Unit 2 | Week 9 | Post-Assessment Extension</div>
+  <h1>Persuasion in the <em>Real World</em></h1>
+  <p class="hero-sub">Your speech is done. Now see where those skills actually live -- in the campaigns, speeches and advocacy that have changed the world.</p>
+  <div class="hero-pills">
+    <div class="hero-pill active" onclick="goLesson(1)">Lesson 1 | Real World Campaigns</div>
+    <div class="hero-pill" onclick="goLesson(2)">Lesson 2 | Great Speeches</div>
+    <div class="hero-pill" onclick="goLesson(3)">Lesson 3 | First Nations Voices</div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- LESSON 1 -->
+<div id="l1" class="lesson active">
+  <div class="lesson-hd l1-hd">
+    <div class="lesson-num">Lesson 1 | 70 min</div>
+    <h2>Change-Makers: Real World Persuasion</h2>
+    <p>The same techniques you used in your speech are used by the world's most effective advocates. Today you'll see how.</p>
+    <div class="badge-row"><span class="badge">AC9E9LY03</span><span class="badge">70 minutes</span><span class="badge">Examine | Evaluate | Discuss</span></div>
+  </div>
+
+  <div class="intentions int-teal">
+    <h3>By the end of this lesson you can...</h3>
+    <div class="check-item">Identify how a real-world campaign uses language, visuals and structure to persuade</div>
+    <div class="check-item">Evaluate the effectiveness of two different advocacy approaches</div>
+    <div class="check-item">Connect the techniques you studied to their use in professional advocacy</div>
+    <div class="check-item">Explain what a campaign would need to change to reach a different audience</div>
+  </div>
+
+  <div class="checklist">
+    <h4>Lesson 1 checklist</h4>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Participate in the opening discussion -- connect your techniques to real campaigns</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Complete the guided campaign analysis (whole class)</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Choose and analyse a second campaign independently</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Contribute to the ethics of persuasion discussion</div></div>
+  </div>
+
+  <!-- Campaign analysis framework -->
+  <div class="phase ph-teal open">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">CA</span>
+      <div class="phase-meta"><span class="phase-tag">Framework</span><span class="phase-title">Campaign Analysis Framework -- Use This for Both Campaigns</span></div>
+      <span class="phase-time">Reference</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <table class="framework-table">
+        <tr><th>Question</th><th>What to look for</th></tr>
+        <tr><td><strong>AUDIENCE</strong></td><td>Who is this campaign trying to reach? How does the language signal that?</td></tr>
+        <tr><td><strong>CONTENTION</strong></td><td>What is the campaign asking you to DO or BELIEVE?</td></tr>
+        <tr><td><strong>TECHNIQUES</strong></td><td>Ethos, pathos, logos, emotive language, statistics, social proof, visual rhetoric, urgency -- which are present?</td></tr>
+        <tr><td><strong>EFFECTIVENESS</strong></td><td>Does this actually work? Why or why not? What evidence tells you?</td></tr>
+        <tr><td><strong>REACH</strong></td><td>Would this work for a different audience? What would need to change?</td></tr>
+      </table>
+      <div class="quiz" style="margin-top:14px">
+        <h4>Quick check</h4>
+        <p class="quiz-q">You used ethos, pathos and logos in your speech. Where would you be MOST likely to find all three in a real-world advocacy campaign?</p>
+        <div class="quiz-opts" id="q1">
+          <button class="opt" onclick="answer('q1',this,false,'Good thinking -- government websites do use these, but they are most concentrated in targeted donation or action campaigns where every word is designed to convert.')">A government information website.</button>
+          <button class="opt" onclick="answer('q1',this,true,'Exactly. A charity campaign needs to establish credibility (ethos), move you emotionally (pathos) and give you rational reasons to act (logos) -- all in a very short space. Every word is deliberate.')">A charity campaign asking for a donation or action.</button>
+          <button class="opt" onclick="answer('q1',this,false,'News articles report; they are usually not trying to persuade you to act. Some opinion pieces do use these techniques, but campaigns are more concentrated.')">A news article reporting on a social issue.</button>
+        </div>
+        <div class="quiz-fb" id="q1-fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Campaign analysis inputs -->
+  <div class="phase ph-green">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">A1</span>
+      <div class="phase-meta"><span class="phase-tag">Independent analysis | 28-51 min</span><span class="phase-title">Your Campaign Analysis</span></div>
+      <span class="phase-time">23 min</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px">Choose a campaign and work through the framework. Record your analysis below.</p>
+      <div class="ta-block"><label>Campaign name and source</label><textarea placeholder="e.g. UN Sustainable Development Goals -- globalgoals.org" data-field-id="w9_l1_f1" data-label="e.g. UN Sustainable Development Goals -- globalgoals.org"></textarea></div>
+      <div class="ta-block"><label>Audience -- who is it reaching and how do you know?</label><textarea placeholder="The audience is... I know because the language..." data-field-id="w9_l1_f2" data-label="The audience is... I know because the language..."></textarea></div>
+      <div class="ta-block"><label>Contention -- what does it ask you to do or believe?</label><textarea placeholder="This campaign is asking the audience to..." data-field-id="w9_l1_f3" data-label="This campaign is asking the audience to..."></textarea></div>
+      <div class="ta-block"><label>Techniques -- name at least 3 with evidence</label><textarea placeholder="1. Emotive language: 'devastating' and 'urgent' create... 2. Statistics: ... 3. Call to action: ..." data-field-id="w9_l1_f4" data-label="1. Emotive language: 'devastating' and 'urgent' create... 2."></textarea></div>
+      <div class="ta-block"><label>Effectiveness -- does it work? Give evidence for your judgement</label><textarea placeholder="This campaign is/is not effective because..." data-field-id="w9_l1_f5" data-label="This campaign is/is not effective because..."></textarea></div>
+      <div class="ta-block"><label>Reach -- what would need to change for a different audience?</label><textarea placeholder="To reach [different audience], the campaign would need to change..." data-field-id="w9_l1_f6" data-label="To reach [different audience], the campaign would need to ch"></textarea></div>
+    </div>
+  </div>
+
+  <!-- Ethics discussion -->
+  <div class="phase ph-exit">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">ET</span>
+      <div class="phase-meta"><span class="phase-tag">Discussion | 61-70 min</span><span class="phase-title">The Ethics of Persuasion</span></div>
+      <span class="phase-time">10 min</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <div class="exit-box">
+        <h4>Respond to the discussion prompt before the class discussion begins:</h4>
+        <p style="font-size:13px;font-weight:600;color:#004D40;margin-bottom:8px">All of these campaigns are trying to change what you think or do. Is that manipulation -- or is it advocacy? Where is the line?</p>
+        <textarea placeholder="I think the difference between manipulation and advocacy is..." data-field-id="w9_l1_f7" data-label="I think the difference between manipulation and advocacy is."></textarea>
+        <p style="font-size:13px;font-weight:600;color:#004D40;margin-bottom:8px">Did you face any ethical choices when preparing your speech? How did you resolve them?</p>
+        <textarea placeholder="In my speech, I had to decide..." data-field-id="w9_l1_f8" data-label="In my speech, I had to decide..."></textarea>
+      </div>
+      <div class="callout callout-faith"><strong>Isaiah 1:17</strong>Many of the world's most powerful advocacy campaigns have emerged from faith communities who felt called to speak on behalf of those without a voice. Today's lesson asks: whose voice do you want to amplify?</div>
+    </div>
+  </div>
+
+  <button class="portal-submit-btn" id="submit-btn-l1" onclick="submitLesson(1)">Submit Lesson 1 to Teacher</button>
+  <div class="lesson-nav">
+    <span></span>
+    <button class="nav-next" onclick="goLesson(2)">Lesson 2 -- Great Speeches --&gt;</button>
+  </div>
+</div>
+
+<!-- LESSON 2 -->
+<div id="l2" class="lesson">
+  <div class="lesson-hd l2-hd">
+    <div class="lesson-num">Lesson 2 | 70 min</div>
+    <h2>Great Speeches in History</h2>
+    <p>Not just listening -- analysing. What makes a speech last 60 years while most are forgotten in a week?</p>
+    <div class="badge-row"><span class="badge">AC9E9LE04</span><span class="badge">70 minutes</span><span class="badge">Evaluate | Analyse | Aesthetic Choices</span></div>
+  </div>
+
+  <div class="intentions int-green">
+    <h3>By the end of this lesson you can...</h3>
+    <div class="check-item">Evaluate the rhetorical and aesthetic effectiveness of a significant historical speech</div>
+    <div class="check-item">Identify how historical/social context shapes language and impact</div>
+    <div class="check-item">Explain how specific stylistic decisions contribute to a speech's lasting influence</div>
+    <div class="check-item">Connect the speaker's techniques to techniques you used in your own speech</div>
+  </div>
+
+  <div class="checklist">
+    <h4>Lesson 2 checklist</h4>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Participate in the opening discussion -- what makes a speech last?</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Annotate the transcript during the close reading</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Complete the aesthetic analysis -- "Why THIS word?"</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Complete the exit reflection connecting back to your own speech</div></div>
+  </div>
+
+  <!-- Speech selector -->
+  <div class="phase ph-green open">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">SP</span>
+      <div class="phase-meta"><span class="phase-tag">Speeches for study | Reference</span><span class="phase-title">Five Speeches to Know</span></div>
+      <span class="phase-time">Reference</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px">Your teacher will select one for close reading. You choose one for independent analysis. Tap to mark your selection.</p>
+      <div class="speech-grid">
+        <div class="speech-card" onclick="selSpeech(this)"><h5>Martin Luther King Jr (1963)</h5><p>"I Have a Dream" -- Washington D.C. Tricolon, anaphora, biblical allusion, extended metaphor.</p></div>
+        <div class="speech-card" onclick="selSpeech(this)"><h5>Malala Yousafzai (2013)</h5><p>United Nations Youth Assembly. Personal testimony, global audience, lived ethos, call to action.</p></div>
+        <div class="speech-card" onclick="selSpeech(this)"><h5>Greta Thunberg (2018)</h5><p>COP24 Climate Conference. Stark simplicity, direct accusation, emotional authenticity, statistics.</p></div>
+        <div class="speech-card" onclick="selSpeech(this)"><h5>Paul Keating (1992)</h5><p>Redfern Speech. Historical injustice, governmental ethos, inclusive language. Key Australian context.</p></div>
+        <div class="speech-card" onclick="selSpeech(this)"><h5>Stan Grant (2016)</h5><p>Sydney Opera House -- The Australian Dream. Identity, historical narrative, emotional restraint, structural sophistication.</p></div>
+      </div>
+      <div class="quiz" style="margin-top:14px">
+        <h4>The aesthetic dimension</h4>
+        <p class="quiz-q">AC9E9LE04 asks you to evaluate "aesthetic choices." What does "aesthetic" mean in the context of a speech?</p>
+        <div class="quiz-opts" id="q2">
+          <button class="opt" onclick="answer('q2',this,false,'That is style in a general sense. Aesthetic goes further -- it is about how the language sounds, feels and creates beauty or power beyond its literal meaning.')">The way the speaker dresses and presents themselves.</button>
+          <button class="opt" onclick="answer('q2',this,true,'Exactly. Aesthetic choices are about how language sounds, feels and carries emotional resonance beyond its surface meaning -- rhythm, imagery, repetition, the choice of one word over a synonym. It is the difference between effective and beautiful.')">How the language is crafted for sound, rhythm, imagery and emotional resonance -- not just meaning.</button>
+          <button class="opt" onclick="answer('q2',this,false,'That is structure -- important, but separate. Aesthetic choices are at the word and sentence level: why THIS word and not a synonym? Why THIS rhythm and not a different sentence length?')">Whether the speech has a clear introduction, body and conclusion.</button>
+        </div>
+        <div class="quiz-fb" id="q2-fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aesthetic analysis -->
+  <div class="phase ph-teal">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">AE</span>
+      <div class="phase-meta"><span class="phase-tag">Aesthetic analysis | 38-50 min</span><span class="phase-title">The "Why This Word?" Question</span></div>
+      <span class="phase-time">12 min</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px">Copy a short passage (2-4 sentences) from the speech that you think is the <em>aesthetic peak</em> -- the most deliberately crafted moment:</p>
+      <div class="ta-block"><label>The passage (copy it here)</label><textarea placeholder="Copy 2-4 sentences from the speech that you consider the most carefully crafted..." data-field-id="w9_l2_f9" data-label="Copy 2-4 sentences from the speech that you consider the mos"></textarea></div>
+      <div class="ta-block"><label>Choose ONE word or phrase. Why THIS word and not a different one?</label><textarea placeholder="The word/phrase ___ works because... A different word would have... The choice carries..." data-field-id="w9_l2_f10" data-label="The word/phrase ___ works because... A different word would "></textarea></div>
+      <div class="ta-block"><label>Which moment in this speech is the most deliberately crafted? Why?</label><textarea placeholder="The most deliberately crafted moment is... because the speaker chose to..." data-field-id="w9_l2_f11" data-label="The most deliberately crafted moment is... because the speak"></textarea></div>
+    </div>
+  </div>
+
+  <!-- Exit reflection -->
+  <div class="phase ph-exit">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">rf</span>
+      <div class="phase-meta"><span class="phase-tag">Exit reflection | 65-70 min</span><span class="phase-title">Connection to Your Own Speech</span></div>
+      <span class="phase-time">5 min</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <div class="exit-box">
+        <h4>Before you leave:</h4>
+        <p style="font-size:13px;font-weight:600;color:#004D40;margin-bottom:8px">Name one technique you saw in today's speech that you also used in your own speech. How did YOU use it?</p>
+        <textarea placeholder="I also used [technique] in my speech when..." data-field-id="w9_l2_f12" data-label="I also used [technique] in my speech when..."></textarea>
+        <p style="font-size:13px;font-weight:600;color:#004D40;margin-bottom:8px">Name one technique you wish you had used. How would it have improved your speech?</p>
+        <textarea placeholder="I wish I had used [technique] because..." data-field-id="w9_l2_f13" data-label="I wish I had used [technique] because..."></textarea>
+      </div>
+      <div class="callout callout-faith"><strong>Proverbs 31:8-9</strong>Many of history's most effective advocates were moved to speak by something larger than self-interest. The speakers you studied today were students once too. The difference is they kept using their voice. That is what you are learning to do.</div>
+    </div>
+  </div>
+
+  <button class="portal-submit-btn" id="submit-btn-l2" onclick="submitLesson(2)">Submit Lesson 2 to Teacher</button>
+  <div class="lesson-nav">
+    <button class="nav-prev" onclick="goLesson(1)">&lt;-- Lesson 1</button>
+    <button class="nav-next" onclick="goLesson(3)">Lesson 3 -- First Nations Voices --&gt;</button>
+  </div>
+</div>
+
+<!-- LESSON 3 -->
+<div id="l3" class="lesson">
+  <div class="lesson-hd l3-hd">
+    <div class="lesson-num">Lesson 3 | 70 min</div>
+    <h2>First Nations Voices: Advocacy and Language</h2>
+    <p>One of Australia's most powerful advocacy traditions -- examined with respect, curiosity, and the full analytical toolkit you have built this term.</p>
+    <div class="badge-row"><span class="badge">AC9E9LE01</span><span class="badge">70 minutes</span><span class="badge">Examine | Analyse | Context</span></div>
+  </div>
+
+  <div class="intentions int-navy">
+    <h3>By the end of this lesson you can...</h3>
+    <div class="check-item">Identify specific language choices and explain their persuasive function</div>
+    <div class="check-item">Analyse how historical and social context shapes language and impact</div>
+    <div class="check-item">Explain how lived experience and cultural authority function as ethos</div>
+    <div class="check-item">Respond thoughtfully and with cultural awareness to First Nations advocacy texts</div>
+  </div>
+
+  <div class="checklist">
+    <h4>Lesson 3 checklist</h4>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Engage with the context-building section before reading</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Annotate the advocacy text during close reading</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Complete the language analysis questions</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Complete the Unit Reflection -- the final task of this unit</div></div>
+  </div>
+
+  <!-- Key concepts -->
+  <div class="phase ph-navy open">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">KC</span>
+      <div class="phase-meta"><span class="phase-tag">Key concepts | Reference</span><span class="phase-title">Understanding the Rhetorical Situation</span></div>
+      <span class="phase-time">Reference</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px">Before analysing any advocacy text, you need to understand the rhetorical situation -- who is speaking, to whom, and in what context. These concepts help you read First Nations advocacy texts with understanding:</p>
+      <table class="framework-table">
+        <tr><th>Concept</th><th>What it means in this context</th></tr>
+        <tr><td><strong>Ethos of lived experience</strong></td><td>Authority drawn from personal and community experience -- not credentials or titles. Often the most powerful form of ethos.</td></tr>
+        <tr><td><strong>Positioning the audience</strong></td><td>Many First Nations advocacy texts position the non-Indigenous Australian reader as both complicit in injustice AND capable of choosing differently. Watch for how this dual positioning works.</td></tr>
+        <tr><td><strong>Historical context as argument</strong></td><td>References to the Stolen Generation, land rights, the 1967 Referendum and the Apology are not just background -- they ARE the argument. You need the context to read the text.</td></tr>
+        <tr><td><strong>Cultural language choices</strong></td><td>Terms like Country, Community, Elders and mob carry meaning beyond their surface definitions. They signal cultural authority and frame the argument for a specific audience.</td></tr>
+      </table>
+      <div class="callout callout-info"><strong>AIATSIS</strong>The Australian Institute of Aboriginal and Torres Strait Islander Studies (aiatsis.gov.au) is the primary resource for contextual information about First Nations culture, history and advocacy. Your teacher may direct you there for additional resources.</div>
+    </div>
+  </div>
+
+  <!-- Language analysis -->
+  <div class="phase ph-teal">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">LA</span>
+      <div class="phase-meta"><span class="phase-tag">Language analysis | 12-52 min</span><span class="phase-title">Close Reading and Analysis</span></div>
+      <span class="phase-time">40 min</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px">Use these questions as you annotate the text your teacher has selected.</p>
+      <div class="ta-block"><label>Who is speaking? To whom? In what context?</label><textarea placeholder="The speaker is... addressing... in the context of..." data-field-id="w9_l3_f14" data-label="The speaker is... addressing... in the context of..."></textarea></div>
+      <div class="ta-block"><label>What is the contention? Is it stated directly or implied?</label><textarea placeholder="The contention is... It is [explicit/implied] because..." data-field-id="w9_l3_f15" data-label="The contention is... It is [explicit/implied] because..."></textarea></div>
+      <div class="ta-block"><label>What is the most powerful moment in this text? Why?</label><textarea placeholder="The most powerful moment is... because the language..." data-field-id="w9_l3_f16" data-label="The most powerful moment is... because the language..."></textarea></div>
+      <div class="ta-block"><label>How does the speaker's lived experience function as ethos? Give specific evidence:</label><textarea placeholder="The speaker's identity as... gives them authority because... We see this in the line..." data-field-id="w9_l3_f17" data-label="The speaker's identity as... gives them authority because..."></textarea></div>
+      <div class="ta-block"><label>Choose 2 words or phrases with cultural significance. What does each one carry beyond its literal meaning?</label><textarea placeholder="Word 1: '___' carries... because... Word 2: '___' signals..." data-field-id="w9_l3_f18" data-label="Word 1: '___' carries... because... Word 2: '___' signals..."></textarea></div>
+      <div class="ta-block"><label>What does this text ask the audience to DO or to BELIEVE? How does it position the non-Indigenous Australian reader?</label><textarea placeholder="This text asks the audience to... It positions the reader as..." data-field-id="w9_l3_f19" data-label="This text asks the audience to... It positions the reader as"></textarea></div>
+    </div>
+  </div>
+
+  <!-- Unit reflection -->
+  <div class="phase ph-exit">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">UR</span>
+      <div class="phase-meta"><span class="phase-tag">Unit reflection | 52-70 min</span><span class="phase-title">Unit Reflection -- The Final Task of This Unit</span></div>
+      <span class="phase-time">18 min</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:14px;font-style:italic;color:#004D40">You have spent nine weeks studying persuasion. This is your chance to consolidate what you have learned.</p>
+      <div class="exit-box">
+        <h4>Final reflection -- take your time with these:</h4>
+        <p style="font-size:13px;font-weight:600;color:#004D40;margin-bottom:8px">1. What is the most important thing you now understand about how language positions an audience?</p>
+        <textarea placeholder="The most important thing I now understand is..." data-field-id="w9_l3_f20" data-label="The most important thing I now understand is..."></textarea>
+        <p style="font-size:13px;font-weight:600;color:#004D40;margin-bottom:8px">2. Whose advocacy has been the most effective you have encountered this term -- in class, in this extension week, or in your own life? Why?</p>
+        <textarea placeholder="The most effective advocacy I encountered was..." data-field-id="w9_l3_f21" data-label="The most effective advocacy I encountered was..."></textarea>
+        <p style="font-size:13px;font-weight:600;color:#004D40;margin-bottom:8px">3. What issue would YOU advocate for -- and what form would your advocacy take?</p>
+        <textarea placeholder="I would advocate for... My advocacy would take the form of... because..." data-field-id="w9_l3_f22" data-label="I would advocate for... My advocacy would take the form of.."></textarea>
+      </div>
+      <div style="background:#e0f2f1;border-radius:8px;padding:16px 18px;margin-top:14px;text-align:center">
+        <p style="font-family:Georgia,serif;font-size:16px;color:#004D40;font-weight:600;margin-bottom:6px">You have spent nine weeks learning to use language with precision, purpose and skill.</p>
+        <p style="font-size:13px;color:#00695C">That is not a small thing. That is exactly the kind of learning that lasts.</p>
+      </div>
+      <div class="callout callout-faith" style="margin-top:12px"><strong>Micah 6:8</strong>"To act justly and to love mercy and to walk humbly." The advocacy of First Nations Australians is a call for justice. This lesson asks: what does that call ask of you as a communicator, a citizen, and a person of faith?</div>
+    </div>
+  </div>
+
+  <button class="portal-submit-btn" id="submit-btn-l3" onclick="submitLesson(3)">Submit Lesson 3 to Teacher</button>
+  <div class="lesson-nav">
+    <button class="nav-prev" onclick="goLesson(2)">&lt;-- Lesson 2</button>
+    <div class="complete-badge">Unit 2 Complete!</div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <strong>Bundaberg Christian College</strong> | Year 9 English | Unit 2: Powerful Persuasion | Term 2, Week 9<br>
+  <span style="font-size:10px;font-style:italic;">"All the treasures of wisdom and knowledge" -- Colossians 2:3</span>
+</div>
+
+</div>
+
+<script>
+var answered={};
+function goLesson(n){
+  document.querySelectorAll('.lesson').forEach(function(el){el.classList.remove('active');});
+  document.getElementById('l'+n).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(function(btn,i){btn.classList.toggle('active',i+1===n);});
+  document.querySelectorAll('.hero-pill').forEach(function(p,i){p.classList.toggle('active',i+1===n);});
+  window.scrollTo({top:0,behavior:'smooth'});
+  updateProgress();
+}
+function togglePhase(hd){hd.closest('.phase').classList.toggle('open');}
+function tick(row){row.classList.toggle('done');updateProgress();}
+function updateProgress(){
+  var total=document.querySelectorAll('.ck-row').length;
+  var done=document.querySelectorAll('.ck-row.done').length;
+  var pct=total>0?Math.round(done/total*100):0;
+  document.getElementById('pf').style.width=pct+'%';
+  document.getElementById('pp').textContent=pct+'%';
+}
+function answer(qid,btn,correct,msg){
+  if(answered[qid])return;
+  answered[qid]=true;
+  var container=document.getElementById(qid);
+  var fb=document.getElementById(qid+'-fb');
+  container.querySelectorAll('.opt').forEach(function(b){b.disabled=true;b.style.opacity='0.55';});
+  btn.style.opacity='1';
+  if(correct){btn.classList.add('correct');fb.textContent='Correct! '+msg;fb.className='quiz-fb show ok';}
+  else{
+    btn.classList.add('wrong');
+    container.querySelectorAll('.opt').forEach(function(b){if(b.getAttribute('onclick')&&b.getAttribute('onclick').indexOf(',true,')>-1){b.classList.add('correct');b.style.opacity='1';}});
+    fb.textContent=msg;fb.className='quiz-fb show bad';
+  }
+}
+function selSpeech(card){card.classList.toggle('sel');}
+document.querySelectorAll('.lesson').forEach(function(l){var fp=l.querySelector('.phase');if(fp)fp.classList.add('open');});
+updateProgress();
+
+
+var PORTAL_URL = 'https://script.google.com/macros/s/AKfycby7k1gZT0JXh3WQrhjNHCHf1Qm5d9UDJbHqhc0FMazhDAust5K9dIjb1X-8Tv3mbhQ-/exec';
+var PORTAL_WEEK = '9';
+function getIdentity(){return{name:(document.getElementById('portal-name')||{value:''}).value.trim(),cls:(document.getElementById('portal-class')||{value:''}).value.trim()};}
+function confirmIdentity(){var id=getIdentity();var bar=document.getElementById('portal-id-bar');var status=document.getElementById('portal-id-status');if(!id.name){bar.style.borderBottomColor='#ef4444';bar.style.animation='shake 0.3s';setTimeout(function(){bar.style.animation='';},300);return false;}bar.style.borderBottomColor='#22c55e';status.textContent='Saved as: '+id.name+' ('+(id.cls||'no class')+')';status.style.background='#22c55e';try{sessionStorage.setItem('portal_name',id.name);sessionStorage.setItem('portal_class',id.cls);}catch(e){}return true;}
+function restoreIdentity(){try{var n=sessionStorage.getItem('portal_name');var c=sessionStorage.getItem('portal_class');if(n){var ni=document.getElementById('portal-name');var ci=document.getElementById('portal-class');if(ni)ni.value=n;if(ci)ci.value=c||'';confirmIdentity();}}catch(e){}}
+function submitLesson(lessonNum){var id=getIdentity();if(!id.name){var bar=document.getElementById('portal-id-bar');bar.style.borderBottomColor='#ef4444';bar.scrollIntoView({behavior:'smooth',block:'start'});bar.style.animation='shake 0.3s';setTimeout(function(){bar.style.animation='';},300);showToast('Please enter your name and click Confirm first.','err');return;}var lessonEl=document.getElementById('l'+lessonNum);if(!lessonEl){showToast('Lesson not found.','err');return;}var tagged=lessonEl.querySelectorAll('textarea[data-field-id]');var collected=[];tagged.forEach(function(ta){var val=ta.value.trim();var label=ta.getAttribute('data-label')||ta.getAttribute('data-field-id');collected.push(label+': '+(val||'(blank)'));try{sessionStorage.setItem('field_'+ta.getAttribute('data-field-id'),val);}catch(e){} });if(collected.length===0){showToast('No response fields found in this lesson.','err');return;}var fields=collected.join(' || ');var btn=document.getElementById('submit-btn-l'+lessonNum);if(btn){btn.disabled=true;btn.textContent='Submitting...';}var params=['studentName='+encodeURIComponent(id.name),'className='+encodeURIComponent(id.cls),'week='+encodeURIComponent(PORTAL_WEEK),'lesson='+encodeURIComponent(lessonNum),'fields='+encodeURIComponent(fields)].join('&');var img=new Image();img.onload=img.onerror=function(){showToast('Lesson '+lessonNum+' submitted! Your teacher can now see your responses.','ok');if(btn){btn.textContent='Submitted';btn.style.background='#22c55e';}};img.src=PORTAL_URL+'?'+params;}
+function showToast(msg,type){var t=document.getElementById('portal-toast');if(!t)return;t.textContent=msg;t.className='portal-toast show '+type;clearTimeout(t._timer);t._timer=setTimeout(function(){t.className='portal-toast';},4000);}
+document.addEventListener('DOMContentLoaded',function(){restoreIdentity();});
+
+</script>
+</body>
+</html>
