@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Powerful Persuasion — Week 4 | Year 9 English | BCC</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;font-size:15px;line-height:1.65;background:#f4f7f4;color:#1a1025}
+.shell{max-width:860px;margin:0 auto;padding:0 0 60px}
+
+.nav{background:#1B4332;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.bcc-pill{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:5px;padding:2px 9px;font-size:11px;font-weight:700;letter-spacing:.1em;color:#fff}
+.nav-title{font-family:Georgia,serif;font-size:15px;font-weight:700;color:#fff}
+.nav-sub{font-size:11px;color:rgba(255,255,255,.6)}
+.nav-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab-btn{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);border-radius:6px;padding:6px 14px;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s}
+.tab-btn.active{background:#fff;color:#1B4332;font-weight:700;border-color:#fff}
+.tab-btn:hover:not(.active){background:rgba(255,255,255,.2);color:#fff}
+
+.prog-bar{background:#e8f0e9;padding:9px 22px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(27,67,50,.08)}
+.prog-label{font-size:11px;font-weight:700;color:#1B4332;white-space:nowrap}
+.prog-track{flex:1;height:6px;background:rgba(27,67,50,.12);border-radius:100px;overflow:hidden}
+.prog-fill{height:100%;width:0%;background:linear-gradient(90deg,#3730A3,#1B4332);border-radius:100px;transition:width .4s ease}
+.prog-pct{font-size:11px;font-weight:700;color:#1B4332;min-width:30px;text-align:right}
+
+.hero{background:linear-gradient(135deg,#1B4332,#2d6a4f 50%,#3730A3);color:#fff;padding:46px 22px 54px;text-align:center}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:4px 16px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-family:Georgia,serif;font-size:clamp(26px,5vw,44px);font-weight:900;line-height:1.05;margin-bottom:10px;color:#fff}
+.hero h1 em{color:#a3e4bc;font-style:italic}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.82);max-width:480px;margin:0 auto 22px}
+.hero-pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.hero-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8);border-radius:100px;padding:7px 16px;font-size:12px;cursor:pointer;transition:all .2s}
+.hero-pill:hover,.hero-pill.active{background:rgba(255,255,255,.22);color:#fff}
+
+.content{padding:26px 18px 0}
+.lesson{display:none}
+.lesson.active{display:block;animation:fadein .25s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.lesson-hd{border-radius:10px;padding:20px 24px;margin-bottom:20px;color:#fff}
+.lesson-hd h2{font-family:Georgia,serif;font-size:21px;font-weight:700;margin:6px 0;color:#fff}
+.lesson-hd p{font-size:13px;color:rgba(255,255,255,.85);margin-bottom:12px}
+.l1-hd{background:linear-gradient(135deg,#1B4332,#2d6a4f)}
+.l2-hd{background:linear-gradient(135deg,#1e1b6b,#3730A3)}
+.l3-hd{background:linear-gradient(135deg,#4A235A,#5B2C8D)}
+.lesson-num{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);border-radius:5px;display:inline-block;padding:2px 9px;margin-bottom:8px}
+.badge-row{display:flex;flex-wrap:wrap;gap:6px}
+.badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:2px 10px;font-size:10px;color:#fff}
+
+.intentions{border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px}
+.int-forest{background:#d8f3dc;border-left:4px solid #1B4332}
+.int-forest h3{color:#1B4332}
+.int-indigo{background:#e0e7ff;border-left:4px solid #3730A3}
+.int-indigo h3{color:#3730A3}
+.int-purple{background:#ede7f6;border-left:4px solid #5B2C8D}
+.int-purple h3{color:#5B2C8D}
+.intentions h3{font-family:Georgia,serif;font-size:13px;margin-bottom:8px}
+.check-item{font-size:13px;padding:3px 0 3px 18px;position:relative}
+.check-item::before{content:"✓";position:absolute;left:0;color:#00796B;font-weight:700}
+
+.checklist{background:#fff;border:1px solid rgba(27,67,50,.12);border-radius:8px;padding:14px 18px;margin-bottom:18px}
+.checklist h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#1B4332;margin-bottom:10px}
+.ck-row{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;-webkit-user-select:none;user-select:none}
+.ck-row:last-child{border-bottom:none}
+.ck-box{width:20px;height:20px;min-width:20px;border:2px solid rgba(27,67,50,.3);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:12px;color:transparent;transition:all .15s;margin-top:1px;flex-shrink:0}
+.ck-row.done .ck-box{background:#1B4332;border-color:#1B4332;color:#fff}
+.ck-row.done .ck-text{text-decoration:line-through;opacity:.45}
+.ck-text{font-size:13px}
+
+.phase{border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,.08);margin-bottom:10px}
+.phase-hd{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;-webkit-user-select:none;user-select:none;transition:filter .1s}
+.phase-hd:hover{filter:brightness(1.06)}
+.phase-icon{font-size:16px;flex-shrink:0}
+.phase-meta{flex:1}
+.phase-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75;display:block;margin-bottom:1px}
+.phase-title{font-family:Georgia,serif;font-size:14px;font-weight:600}
+.phase-time{font-size:10px;font-weight:600;background:rgba(255,255,255,.2);border-radius:100px;padding:2px 9px;color:rgba(255,255,255,.85);flex-shrink:0}
+.chevron{font-size:11px;opacity:.75;transition:transform .25s;flex-shrink:0}
+.phase.open .chevron{transform:rotate(180deg)}
+.phase-body{display:none;background:#fff;border-top:1px solid rgba(0,0,0,.06);padding:16px 18px}
+.phase.open .phase-body{display:block}
+.ph-hook .phase-hd{background:linear-gradient(135deg,#c55a00,#e07000);color:#fff}
+.ph-teach .phase-hd{background:linear-gradient(135deg,#1B4332,#2d6a4f);color:#fff}
+.ph-teach-ind .phase-hd{background:linear-gradient(135deg,#1e1b6b,#3730A3);color:#fff}
+.ph-teach-pur .phase-hd{background:linear-gradient(135deg,#4A235A,#5B2C8D);color:#fff}
+.ph-guided .phase-hd{background:linear-gradient(135deg,#1b5e20,#00796B);color:#fff}
+.ph-indep .phase-hd{background:linear-gradient(135deg,#00796B,#0097a7);color:#fff}
+.ph-exit .phase-hd{background:linear-gradient(135deg,#1B4332,#3730A3);color:#fff}
+
+.callout{border-radius:0 6px 6px 0;padding:10px 14px;margin:10px 0;font-size:12px;line-height:1.6}
+.callout strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+.callout-faith{background:#d8f3dc;border-left:3px solid #1B4332}
+.callout-faith strong{color:#1B4332}
+.callout-ext{background:#e8f5e9;border-left:3px solid #2E7D32}
+.callout-ext strong{color:#2E7D32}
+.callout-supp{background:#fff3e0;border-left:3px solid #c55a00}
+.callout-supp strong{color:#c55a00}
+.callout-key{background:#e0e7ff;border-left:3px solid #3730A3;border-radius:0 6px 6px 0;padding:12px 16px;margin:10px 0;font-size:13px;line-height:1.7}
+.callout-key strong{display:block;font-size:11px;font-weight:700;color:#3730A3;margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em}
+
+.vtable{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0 14px}
+.vtable th{background:#1B4332;color:#fff;padding:7px 10px;text-align:left;font-weight:600}
+.vtable td{padding:7px 10px;border-bottom:1px solid #eee;vertical-align:top}
+.vtable tr:nth-child(even) td{background:#d8f3dc}
+.vtable .term{font-weight:700;color:#1B4332}
+.vtable-ind th{background:#3730A3}
+.vtable-ind tr:nth-child(even) td{background:#e0e7ff}
+.vtable-pur th{background:#5B2C8D}
+.vtable-pur tr:nth-child(even) td{background:#ede7f6}
+
+.speech-block{border-radius:8px;padding:14px 18px;font-family:Georgia,serif;font-size:13px;line-height:1.9;margin:10px 0}
+.speech-a{background:#d8f3dc;border:1px solid rgba(27,67,50,.2)}
+.speech-b{background:#e0e7ff;border:1px solid rgba(55,48,163,.2)}
+.speech-c{background:#e8f5e9;border:1px solid rgba(46,125,50,.2)}
+.speech-d{background:#ede7f6;border:1px solid rgba(91,44,141,.2)}
+.speech-label{font-style:normal;font-family:Arial,sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid rgba(0,0,0,.1)}
+.speech-a .speech-label{color:#1B4332}
+.speech-b .speech-label{color:#3730A3}
+.speech-c .speech-label{color:#2E7D32}
+.speech-d .speech-label{color:#5B2C8D}
+
+/* Compare table */
+.compare-table{width:100%;border-collapse:collapse;font-size:12px;margin:12px 0}
+.compare-table th{background:#1B4332;color:#fff;padding:8px 10px;text-align:left;font-weight:600}
+.compare-table td{padding:8px 10px;border-bottom:1px solid #eee;vertical-align:top}
+.compare-table tr:nth-child(even) td{background:#d8f3dc}
+.compare-table input[type=text]{width:100%;border:1px solid rgba(27,67,50,.2);border-radius:4px;padding:5px 7px;font-family:Arial,sans-serif;font-size:12px}
+.compare-table input:focus{outline:none;border-color:#1B4332}
+
+/* Metalanguage bank */
+.meta-bank{background:#d8f3dc;border-radius:8px;padding:14px 18px;margin:12px 0}
+.meta-bank h4{font-size:12px;font-weight:700;color:#1B4332;margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
+.meta-row{margin-bottom:6px;font-size:13px}
+.meta-label{font-weight:700;color:#1B4332;display:inline-block;min-width:120px}
+
+/* Broken paragraphs */
+.broken-card{background:#fff;border:1px solid rgba(55,48,163,.15);border-radius:8px;padding:14px 18px;margin-bottom:14px}
+.broken-label{font-size:11px;font-weight:700;color:#3730A3;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:8px}
+.broken-text{font-family:Georgia,serif;font-size:13px;font-style:italic;line-height:1.8;background:#e0e7ff;border-radius:6px;padding:12px 14px;margin-bottom:10px;color:#1a1025}
+.diagnosis-row{display:flex;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.diagnosis-btn{background:#e0e7ff;border:2px solid rgba(55,48,163,.2);border-radius:6px;padding:7px 12px;font-size:12px;cursor:pointer;font-family:Arial,sans-serif;transition:all .15s;font-weight:500}
+.diagnosis-btn:hover{border-color:#3730A3;background:#c7d2fe}
+.diagnosis-btn.selected{background:#3730A3;color:#fff;border-color:#3730A3}
+.diag-fb{display:none;margin-top:8px;padding:9px 13px;border-radius:6px;font-size:12px;line-height:1.6}
+.diag-fb.show{display:block}
+.diag-fb.ok{background:#e8f5e9;color:#1b5e20}
+.diag-fb.hint{background:#fff3e0;color:#c55a00}
+
+/* PEEL builder */
+.peel-builder{background:#e0e7ff;border-radius:10px;padding:16px 18px;margin:12px 0}
+.peel-builder h4{font-size:13px;font-weight:700;color:#3730A3;margin-bottom:12px}
+.peel-row{margin-bottom:10px}
+.peel-row label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:4px}
+.peel-p label{color:#1B4332}
+.peel-e1 label{color:#2d6a4f}
+.peel-e2 label,.peel-exp label{color:#3730A3}
+.peel-l label{color:#5B2C8D}
+.peel-row textarea{width:100%;background:#fff;border:1px solid rgba(55,48,163,.2);border-radius:6px;padding:8px;font-family:Arial,sans-serif;font-size:12px;resize:vertical;min-height:42px}
+.peel-score-row{display:flex;align-items:center;gap:10px;margin-top:12px}
+.check-peel-btn{background:#3730A3;color:#fff;border:none;border-radius:7px;padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:Arial,sans-serif}
+.check-peel-btn:hover{background:#4f46e5}
+.peel-result{font-size:13px;padding:8px 12px;border-radius:6px;display:none}
+.peel-result.show{display:block}
+.peel-result.ok{background:#e8f5e9;color:#1b5e20}
+.peel-result.warn{background:#fff3e0;color:#c55a00}
+
+/* Nominalisation transformer */
+.transform-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+@media(max-width:520px){.transform-grid{grid-template-columns:1fr}}
+.transform-card{background:#ede7f6;border-radius:8px;padding:12px 14px}
+.transform-card h4{font-size:12px;font-weight:700;color:#5B2C8D;margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
+.transform-card .original{font-size:13px;font-style:italic;color:#333;margin-bottom:8px;padding:6px 10px;background:#fff;border-radius:5px}
+.transform-card input{width:100%;border:1px solid rgba(91,44,141,.2);border-radius:5px;padding:6px 8px;font-family:Arial,sans-serif;font-size:12px;margin-bottom:6px}
+.transform-card input:focus{outline:none;border-color:#5B2C8D}
+.transform-check{background:#5B2C8D;color:#fff;border:none;border-radius:5px;padding:5px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:Arial,sans-serif}
+.transform-fb{font-size:11px;margin-top:5px;padding:5px 8px;border-radius:4px;display:none}
+.transform-fb.show{display:block}
+.transform-fb.ok{background:#e8f5e9;color:#1b5e20}
+.transform-fb.hint{background:#fff3e0;color:#c55a00}
+
+/* Cohesive sorter */
+.cohesive-pool{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;min-height:40px;border:2px dashed rgba(91,44,141,.2);border-radius:8px;padding:10px}
+.cohesive-pool.active{border-color:#5B2C8D;background:#f7f5fb}
+.cohesive-word{background:#ede7f6;border:2px solid rgba(91,44,141,.2);border-radius:6px;padding:6px 12px;font-size:13px;cursor:grab;font-family:Arial,sans-serif;transition:all .15s;-webkit-user-select:none;user-select:none}
+.cohesive-word:hover{border-color:#5B2C8D;background:#d1c4e9}
+.cohesive-word.used{opacity:.4;cursor:not-allowed}
+.cloze-blanks{font-family:Georgia,serif;font-size:14px;line-height:2.2;background:#f3f4f6;border-radius:8px;padding:14px 18px;margin:10px 0}
+.cloze-blank{display:inline-block;border-bottom:2px solid #5B2C8D;min-width:100px;margin:0 4px;text-align:center;font-size:13px;color:#5B2C8D;font-weight:700;cursor:pointer;position:relative;vertical-align:bottom}
+.cloze-blank.filled{border-color:#1B4332;color:#1B4332}
+.cloze-blank.wrong-fill{border-color:#b5294e;color:#b5294e}
+.cloze-check-btn{background:#5B2C8D;color:#fff;border:none;border-radius:7px;padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:Arial,sans-serif;margin-top:10px}
+.cloze-result{display:none;margin-top:8px;padding:9px 13px;border-radius:6px;font-size:12px}
+.cloze-result.show{display:block}
+.cloze-result.ok{background:#e8f5e9;color:#1b5e20}
+.cloze-result.partial{background:#fff3e0;color:#c55a00}
+
+/* Quiz */
+.quiz{background:#f7f5fb;border:1px solid #ede7f6;border-radius:8px;padding:14px 18px;margin:12px 0}
+.quiz h4{font-size:13px;font-weight:700;color:#1B4332;margin-bottom:8px}
+.quiz-q{font-size:13px;margin-bottom:10px}
+.quiz-opts{display:flex;flex-direction:column;gap:6px}
+.opt{background:#fff;border:2px solid rgba(27,67,50,.15);border-radius:7px;padding:9px 12px;font-size:12px;text-align:left;cursor:pointer;transition:all .15s;font-family:Arial,sans-serif;width:100%}
+.opt:hover{border-color:#1B4332}
+.opt.correct{background:#e8f5e9;border-color:#00796B;color:#1b5e20;font-weight:700}
+.opt.wrong{background:#fce4ec;border-color:#b5294e;color:#880e4f}
+.opt:disabled{cursor:default}
+.quiz-fb{display:none;margin-top:8px;padding:8px 12px;border-radius:6px;font-size:12px}
+.quiz-fb.show{display:block}
+.quiz-fb.ok{background:#e8f5e9;color:#1b5e20}
+.quiz-fb.bad{background:#fce4ec;color:#880e4f}
+
+.exit-box{background:#d8f3dc;border-radius:8px;padding:14px 18px}
+.exit-box h4{font-family:Georgia,serif;font-size:13px;color:#1B4332;margin-bottom:10px}
+.eq{font-size:13px;font-weight:600;margin:0 0 4px}
+.exit-box textarea{width:100%;background:#fff;border:1px solid rgba(27,67,50,.2);border-radius:6px;padding:8px;font-family:Arial,sans-serif;font-size:12px;resize:vertical;min-height:44px;margin-bottom:10px}
+
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:10px 0}
+.res-card{background:#fff;border:1px solid rgba(27,67,50,.15);border-radius:7px;padding:11px 13px;display:block;text-decoration:none;color:inherit;transition:all .15s}
+.res-card:hover{border-color:#1B4332;transform:translateY(-1px)}
+.res-type{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#00796B;display:block;margin-bottom:3px}
+.res-name{font-size:13px;font-weight:600;display:block;margin-bottom:2px;color:#1a1025}
+.res-desc{font-size:11px;color:#555;display:block}
+
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:20px;border-top:1px solid rgba(27,67,50,.1)}
+.nav-prev{background:#fff;color:#1B4332;border:2px solid #1B4332;border-radius:8px;padding:10px 18px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s}
+.nav-prev:hover{background:#d8f3dc}
+.nav-next{background:#1B4332;color:#fff;border:none;border-radius:8px;padding:10px 18px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s}
+.nav-next:hover{background:#2d6a4f}
+.complete-badge{background:#3730A3;color:#fff;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:700}
+.footer{background:#1B4332;color:rgba(255,255,255,.6);text-align:center;padding:16px 20px;font-size:11px}
+.footer strong{color:rgba(255,255,255,.9)}
+
+/* ── Portal collector styles ── */
+@keyframes shake {
+  0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-6px)} 40%,80%{transform:translateX(6px)}
+}
+.portal-id-bar{background:#1a1025;padding:10px 22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-bottom:3px solid #5B2C8D;position:sticky;top:0;z-index:100}
+.portal-id-bar label{font-size:12px;color:rgba(255,255,255,.7);font-weight:600;white-space:nowrap}
+.portal-id-bar input{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:5px;color:#fff;padding:5px 10px;font-size:13px;font-family:Arial,sans-serif;width:155px}
+.portal-id-bar input::placeholder{color:rgba(255,255,255,.35)}
+.portal-id-bar input:focus{outline:none;border-color:#22c55e}
+.portal-confirm-btn{background:#5B2C8D;color:#fff;border:none;border-radius:6px;padding:6px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;white-space:nowrap}
+.portal-confirm-btn:hover{background:#7b3fba}
+.portal-id-status{font-size:11px;padding:3px 10px;border-radius:100px;font-weight:600;background:rgba(255,255,255,.15);color:rgba(255,255,255,.8)}
+.portal-submit-btn{display:block;width:100%;background:#1565c0;color:#fff;border:none;border-radius:8px;padding:12px 20px;font-size:14px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;margin:16px 0 8px;text-align:center;transition:background .15s}
+.portal-submit-btn:hover{background:#1976d2}
+.portal-submit-btn:disabled{background:#888;cursor:not-allowed}
+.portal-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#1a1025;color:#fff;padding:12px 24px;border-radius:8px;font-size:13px;font-weight:600;font-family:Arial,sans-serif;z-index:9999;transition:transform .3s ease;max-width:420px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.4);pointer-events:none}
+.portal-toast.show{transform:translateX(-50%) translateY(0)}
+.portal-toast.ok{background:#1b5e20}
+.portal-toast.err{background:#b71c1c}
+
+</style>
+</head>
+<body>
+<div class="shell">
+<div class="portal-id-bar" id="portal-id-bar">
+  <label>Your name:</label>
+  <input type="text" id="portal-name" placeholder="First Last">
+  <label>Class:</label>
+  <input type="text" id="portal-class" placeholder="9A" style="width:55px">
+  <button class="portal-confirm-btn" onclick="confirmIdentity()">Confirm</button>
+  <span class="portal-id-status" id="portal-id-status">Enter your name then click Confirm</span>
+</div>
+<div class="portal-toast" id="portal-toast"></div>
+
+
+<nav class="nav">
+  <div class="nav-brand">
+    <span class="bcc-pill">BCC</span>
+    <div>
+      <div class="nav-title">Powerful Persuasion — Week 4</div>
+      <div class="nav-sub">Year 9 English · Unit 2 · Term 2</div>
+    </div>
+  </div>
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="goLesson(1)">Lesson 1</button>
+    <button class="tab-btn" onclick="goLesson(2)">Lesson 2</button>
+    <button class="tab-btn" onclick="goLesson(3)">Lesson 3</button>
+  </div>
+</nav>
+
+<div class="prog-bar">
+  <span class="prog-label">Your progress</span>
+  <div class="prog-track"><div class="prog-fill" id="pf"></div></div>
+  <span class="prog-pct" id="pp">0%</span>
+</div>
+
+<div class="hero">
+  <div class="hero-tag">Unit 2 · Week 4 · 3 Lessons</div>
+  <h1>The <em>Craft</em> of Persuasion</h1>
+  <p class="hero-sub">Compare speeches like an analyst, build arguments like a barrister, and stitch your speech together with the glue that makes great writing flow.</p>
+  <div class="hero-pills">
+    <div class="hero-pill active" onclick="goLesson(1)">Lesson 1 · Comparing Speeches</div>
+    <div class="hero-pill" onclick="goLesson(2)">Lesson 2 · Constructing Arguments</div>
+    <div class="hero-pill" onclick="goLesson(3)">Lesson 3 · Cohesive Devices</div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ══════════ LESSON 1 ══════════ -->
+<div id="l1" class="lesson active">
+
+  <div class="lesson-hd l1-hd">
+    <div class="lesson-num">Lesson 1 · 70 min</div>
+    <h2>Side by Side: Comparing Persuasive Speeches</h2>
+    <p>Bring all your analytical tools together to compare two speeches — and decide which is more effective, and why.</p>
+    <div class="badge-row">
+      <span class="badge">AC9E9LY05</span>
+      <span class="badge">70 minutes</span>
+      <span class="badge">Compare · Evaluate</span>
+    </div>
+  </div>
+
+  <div class="intentions int-forest">
+    <h3>By the end of this lesson you can…</h3>
+    <div class="check-item">Identify similarities and differences in how two speeches construct their arguments</div>
+    <div class="check-item">Evaluate which choices are more effective for a specific audience</div>
+    <div class="check-item">Use comparative metalanguage: "While… however…", "In contrast…", "Both speeches… yet…"</div>
+    <div class="check-item">Apply all analytical tools from Weeks 1–3 in an integrated comparison</div>
+  </div>
+
+  <div class="checklist">
+    <h4>Lesson 1 checklist</h4>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Vote on which speech you find more persuasive — and explain why</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Copy the Four-Lens Framework and Metalanguage Bank into your notes</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Complete the Four-Lens comparison table with your partner</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Complete Worksheet 4A — including the independent speech comparison</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Submit your comparative paragraph for peer feedback</div></div>
+  </div>
+
+  <!-- Hook -->
+  <div class="phase ph-hook open">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🗳️</span>
+      <div class="phase-meta"><span class="phase-tag">Hook · 0–8 min</span><span class="phase-title">Which Speech Would YOU Find More Persuasive?</span></div>
+      <span class="phase-time">0–8 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Read both speeches. <strong>Before any discussion</strong> — vote on which one you find more persuasive, and record why.</p>
+      <div class="speech-block speech-a">
+        <span class="speech-label">Speech A — Formal address (school principal to parent body)</span>
+        "The data is unambiguous. Research conducted across twelve OECD nations demonstrates that when young people participate in community decision-making processes, outcomes improve by measurable margins across health, education, and civic indicators. Yet in Australia, the median age of local councillors remains 52. This is not a coincidence — it is a structural failure. I call on every organisation in this room to establish a formal youth advisory mechanism within the next twelve months."
+      </div>
+      <div class="speech-block speech-b">
+        <span class="speech-label">Speech B — Student speaker at a youth summit</span>
+        "Every single day, decisions get made about our schools, our streets, our future — and we are not in the room. We are told to wait. To be patient. To trust that the adults have it covered. But we have watched our planet warm, our housing become unaffordable, and our mental health services underfunded — while the decision-makers wait for us to grow up. We are not waiting anymore. We are here. And we are not going away."
+      </div>
+      <div class="quiz">
+        <h4>Your initial reaction</h4>
+        <p class="quiz-q">Which speech would be more persuasive to you personally — and why?</p>
+        <div class="quiz-opts" id="q1">
+          <button class="opt" onclick="answer('q1',this,true,'Good choice -- Speech A uses logos (OECD data, specific statistics) and ethos (measured, authoritative tone). It works well for an audience of parents who expect evidence and professional credibility.')">Speech A — I find the data and formal tone more convincing</button>
+          <button class="opt" onclick="answer('q1',this,true,'Valid choice -- Speech B uses pathos, tricolon, and anaphora ("We are not waiting… We are here… We are not going away"). Its emotional urgency works powerfully for a youth audience.')">Speech B — I connect more with the emotional and direct approach</button>
+        </div>
+        <div class="quiz-fb" id="q1-fb"></div>
+      </div>
+      <p style="font-size:12px;color:#555;margin-top:10px;font-style:italic;">Neither is objectively "better" — the answer depends entirely on the audience. That's today's core insight.</p>
+    </div>
+  </div>
+
+  <!-- Four-Lens Framework -->
+  <div class="phase ph-teach">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🔭</span>
+      <div class="phase-meta"><span class="phase-tag">Key concepts · 8–23 min</span><span class="phase-title">The Four-Lens Framework</span></div>
+      <span class="phase-time">8–23 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;"><strong>Copy both tables into your notes.</strong> These are your tools for any comparative analysis task.</p>
+      <table class="vtable">
+        <tr><th>Lens</th><th>What to look at</th></tr>
+        <tr><td class="term">Structure</td><td>How is the argument organised? Hook, contention, arguments, rebuttal, conclusion. Is any section missing or extended?</td></tr>
+        <tr><td class="term">Language</td><td>Which devices — ethos, pathos, logos, tricolon, rhetorical questions, emotive language, allusion, metaphor?</td></tr>
+        <tr><td class="term">Audience Positioning</td><td>How does the speaker try to make the audience feel? What emotional response are they seeking? What action?</td></tr>
+        <tr><td class="term">Effectiveness</td><td>Which speech is more effective — for what audience, in what context, and why?</td></tr>
+      </table>
+      <div class="meta-bank">
+        <h4>Metalanguage Bank — use these phrases in your comparative sentences</h4>
+        <div class="meta-row"><span class="meta-label">Show similarity:</span>"Both speeches… / Similarly… / Like Speech A, Speech B also… / Each speaker…"</div>
+        <div class="meta-row"><span class="meta-label">Show difference:</span>"While Speech A… Speech B… / In contrast… / Unlike A, B chooses… / Whereas A uses…"</div>
+        <div class="meta-row"><span class="meta-label">Evaluate:</span>"Speech A is more effective for… because… / The stronger choice is… as it… / For a [specific audience], B outperforms A because…"</div>
+      </div>
+      <div class="quiz">
+        <h4>Practise the metalanguage</h4>
+        <p class="quiz-q">Which sentence BEST uses comparative metalanguage to evaluate the two speeches?</p>
+        <div class="quiz-opts" id="q1b">
+          <button class="opt" onclick="answer('q1b',this,false,'This describes both speeches separately but doesn\'t actually compare them -- it never draws a contrast or evaluation between the two.')">Speech A uses logos. Speech B uses pathos.</button>
+          <button class="opt" onclick="answer('q1b',this,true,'Correct! This uses "whereas" to draw a direct contrast, names specific devices, explains the audience effect, and evaluates effectiveness for a specific context.')">Whereas Speech A relies on logos and authoritative data to persuade a parent audience, Speech B deploys pathos and tricolon to galvanise a youth crowd — making B more effective for a summit context where emotional energy drives action.</button>
+          <button class="opt" onclick="answer('q1b',this,false,'This is a personal reaction, not a comparative evaluation. It doesn\'t name any techniques or specify which audience makes B more effective.')">I think Speech B is better because it is more emotional and I found it more relatable.</button>
+        </div>
+        <div class="quiz-fb" id="q1b-fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Guided -->
+  <div class="phase ph-guided">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🔬</span>
+      <div class="phase-meta"><span class="phase-tag">Guided practice · 23–45 min</span><span class="phase-title">Four-Lens Analysis — Speeches A &amp; B</span></div>
+      <span class="phase-time">23–45 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">With your partner, complete the Four-Lens table for Speeches A and B. Then write one comparative sentence for each lens. Record your full analysis in <strong>Worksheet 4A</strong>.</p>
+      <table class="compare-table">
+        <tr><th style="width:30%">Lens</th><th>Speech A</th><th>Speech B</th></tr>
+        <tr><td style="font-weight:700;">Structure</td><td><input type="text" placeholder="How is the argument organised?"></td><td><input type="text" placeholder="How is the argument organised?"></td></tr>
+        <tr><td style="font-weight:700;">Language devices</td><td><input type="text" placeholder="e.g. logos, ethos..."></td><td><input type="text" placeholder="e.g. pathos, tricolon..."></td></tr>
+        <tr><td style="font-weight:700;">Audience positioning</td><td><input type="text" placeholder="How does it try to make the audience feel?"></td><td><input type="text" placeholder="How does it try to make the audience feel?"></td></tr>
+        <tr><td style="font-weight:700;">Effectiveness</td><td colspan="2"><input type="text" style="width:100%" placeholder="Which is more effective, for which audience, and why?"></td></tr>
+      </table>
+      <div class="callout callout-ext"><strong>Extension (GATEWAY)</strong>Write a third speech excerpt on the same topic that deliberately combines the BEST elements of A and B. Justify your choices: why did you select those specific structural and language features?</div>
+      <div class="callout callout-supp"><strong>Support</strong>The Worksheet 4A table is pre-filled with key features of each speech. Write only the comparative sentence for each lens, using the metalanguage bank.</div>
+    </div>
+  </div>
+
+  <!-- Independent -->
+  <div class="phase ph-indep">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">✍️</span>
+      <div class="phase-meta"><span class="phase-tag">Independent practice · 45–60 min</span><span class="phase-title">Worksheet 4A — New Speeches to Compare</span></div>
+      <span class="phase-time">45–60 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Now apply your comparison skills independently to a new pair of speeches on a different topic. Read both in Worksheet 4A, then write a 4–6 sentence evaluative paragraph using comparative metalanguage.</p>
+      <div class="res-grid">
+        <a class="res-card" href="https://www.americanrhetoric.com/top100speechesall.html" target="_blank"><span class="res-type">Speeches</span><span class="res-name">American Rhetoric — Top 100 Speeches</span><span class="res-desc">Explore a wide range of real speeches for further comparison practice.</span></a>
+        <a class="res-card" href="https://www.literacyideas.com/argument-writing" target="_blank"><span class="res-type">Guide</span><span class="res-name">Literacy Ideas — Argument Writing</span><span class="res-desc">Detailed guidance on argument construction and analysis.</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exit -->
+  <div class="phase ph-exit">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🎟️</span>
+      <div class="phase-meta"><span class="phase-tag">Exit ticket · 60–70 min</span><span class="phase-title">Before you leave</span></div>
+      <span class="phase-time">60–70 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="exit-box">
+        <h4>Three questions</h4>
+        <p class="eq">1. Write ONE comparative sentence about Speeches A and B using "While… however…":</p>
+        <textarea placeholder="While Speech A... however Speech B..." data-field-id="w4_l1_f1" data-label="While Speech A... however Speech B..."></textarea>
+        <p class="eq">2. Which speech would be more effective at a school assembly? Which at a local government council meeting? Explain in 2 sentences:</p>
+        <textarea placeholder="At a school assembly... because... / At a council meeting... because..." data-field-id="w4_l1_f2" data-label="At a school assembly... because... / At a council meeting..."></textarea>
+        <p class="eq">3. What is ONE technique from either speech you want to use in your own assessment speech — and why?</p>
+        <textarea placeholder="I want to use [technique] because..." data-field-id="w4_l1_f3" data-label="I want to use [technique] because..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <button class="portal-submit-btn" id="submit-btn-l1" onclick="submitLesson(1)">Submit Lesson 1 to Teacher</button>
+  <div class="lesson-nav">
+    <span></span>
+    <button class="nav-next" onclick="goLesson(2)">Lesson 2 — Constructing Arguments →</button>
+  </div>
+</div>
+
+<!-- ══════════ LESSON 2 ══════════ -->
+<div id="l2" class="lesson">
+
+  <div class="lesson-hd l2-hd">
+    <div class="lesson-num">Lesson 2 · 70 min</div>
+    <h2>Building the Case: Constructing Airtight Arguments</h2>
+    <p>A great speech is built one argument at a time. Today you learn to write PEEL paragraphs that can withstand scrutiny — and begin your own.</p>
+    <div class="badge-row">
+      <span class="badge">AC9E9LY04</span>
+      <span class="badge">70 minutes</span>
+      <span class="badge">Examine · Analyse · Evaluate</span>
+    </div>
+  </div>
+
+  <div class="intentions int-indigo">
+    <h3>By the end of this lesson you can…</h3>
+    <div class="check-item">Identify each component of the PEEL structure and explain its function</div>
+    <div class="check-item">Diagnose weaknesses in a PEEL paragraph and suggest improvements</div>
+    <div class="check-item">Write a complete, well-evidenced PEEL paragraph for your speech topic</div>
+    <div class="check-item">Adapt PEEL language for spoken delivery rather than written prose</div>
+  </div>
+
+  <div class="checklist">
+    <h4>Lesson 2 checklist</h4>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Diagnose Broken Paragraph 4 in the hook activity</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Copy the PEEL Reference table into your notes</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Complete the Argument Clinic — diagnose and fix the broken paragraphs</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Write your own PEEL paragraph (Worksheet 4B Part C)</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Swap and stress test with a partner</div></div>
+  </div>
+
+  <!-- Hook -->
+  <div class="phase ph-hook open">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🏥</span>
+      <div class="phase-meta"><span class="phase-tag">Hook · 0–8 min</span><span class="phase-title">The Argument Doctor</span></div>
+      <span class="phase-time">0–8 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Read this argument paragraph. <strong>What's wrong with it?</strong> Be as specific as possible.</p>
+      <div style="background:#fce4ec;border-radius:8px;padding:14px 16px;font-family:Georgia,serif;font-size:13px;font-style:italic;line-height:1.8;margin-bottom:14px;color:#1a1025;">"Plastic bags are pretty bad for the environment actually. Animals eat them and die. So plastic bags should be banned."</div>
+      <div class="quiz">
+        <h4>Diagnose the problem</h4>
+        <p class="quiz-q">What are the TWO biggest problems with this argument?</p>
+        <div class="quiz-opts" id="q2">
+          <button class="opt" onclick="answer('q2',this,false,'The evidence is there ("animals eat them and die") — it\'s just very vague. The bigger problems are informal language and no explanation.')">It has no evidence — nothing is quoted.</button>
+          <button class="opt" onclick="answer('q2',this,true,'Correct! "Pretty bad" and "actually" are informal. There is also no EXPLANATION — the paragraph jumps straight from vague evidence to the conclusion without explaining the logical connection.')">It uses informal language AND there is no explanation connecting the evidence to the argument.</button>
+          <button class="opt" onclick="answer('q2',this,false,'The contention is clear enough -- plastic bags should be banned. The problem is how the argument is built, not what it is arguing.')">The contention is unclear — we don\'t know what the speaker is arguing.</button>
+        </div>
+        <div class="quiz-fb" id="q2-fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PEEL -->
+  <div class="phase ph-teach-ind">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🧱</span>
+      <div class="phase-meta"><span class="phase-tag">Key concepts · 8–23 min</span><span class="phase-title">PEEL — In Depth</span></div>
+      <span class="phase-time">8–23 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;"><strong>Copy this table into your notes.</strong> The Explanation step is where most students are weakest — and where marks are won or lost.</p>
+      <table class="vtable vtable-ind">
+        <tr><th>Letter</th><th>Stands for</th><th>What it does</th><th>Spoken signal language</th></tr>
+        <tr><td class="term">P</td><td>Point</td><td>States the argument in one clear sentence. Always begins with a signpost word.</td><td>"First… / Furthermore… / Finally…"</td></tr>
+        <tr><td class="term">E</td><td>Evidence</td><td>Supports the point with data, examples, expert opinion, or case study.</td><td>"Research shows… / For example… / According to…"</td></tr>
+        <tr><td class="term">E</td><td>Explanation</td><td>Explains HOW and WHY the evidence supports the point. This is the hardest — and most important — step.</td><td>"This demonstrates… / This matters because… / What this means is…"</td></tr>
+        <tr><td class="term">L</td><td>Link</td><td>Returns to the contention. Reinforces why this argument matters to the whole speech.</td><td>"This is why I contend… / Ultimately… / For this reason…"</td></tr>
+      </table>
+      <div class="callout-key"><strong>The Explanation Step — why it matters</strong>Think of it this way: the Evidence is a witness at a trial. The Explanation is the barrister asking: "So what does this mean? Why does this prove our case?" Without that step, the jury has to work it out themselves — and they might not reach your conclusion. The explanation is where YOUR argument lives.</div>
+      <div class="quiz">
+        <h4>Identify the missing PEEL element</h4>
+        <p class="quiz-q">"Furthermore, young people clearly have valuable ideas to contribute to politics. Their perspective is unique and often overlooked. For this reason, the voting age should be lowered to 16." — What is missing?</p>
+        <div class="quiz-opts" id="q2b">
+          <button class="opt" onclick="answer('q2b',this,false,'The Link is there: "For this reason, the voting age should be lowered to 16." That\'s a return to contention.')">The Link — it doesn\'t return to the contention.</button>
+          <button class="opt" onclick="answer('q2b',this,true,'Correct! "Their perspective is unique and often overlooked" is an assertion, not evidence. No data, example, or expert opinion is provided. The word "clearly" is a red flag — it substitutes confidence for proof.')">The Evidence — "clearly" and "unique" are assertions, not evidence. No data or example is given.</button>
+          <button class="opt" onclick="answer('q2b',this,false,'The Point is clear: young people should contribute to politics. The problem is further down the paragraph.')">The Point — the argument isn\'t stated clearly enough.</button>
+        </div>
+        <div class="quiz-fb" id="q2b-fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Argument Clinic -->
+  <div class="phase ph-guided">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🔧</span>
+      <div class="phase-meta"><span class="phase-tag">Guided practice · 23–43 min</span><span class="phase-title">The Argument Clinic</span></div>
+      <span class="phase-time">23–43 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:14px;">Three broken PEEL paragraphs. For each: diagnose what's missing, then fix it. Select the correct diagnosis — then rewrite the missing element in Worksheet 4B.</p>
+
+      <div class="broken-card">
+        <span class="broken-label">Broken Paragraph 1</span>
+        <div class="broken-text">"First, social media has caused significant harm to teenagers. A 2022 study from the Australian Institute found that 67% of teenagers reported increased anxiety after social media use. Therefore, social media age restrictions are necessary."</div>
+        <p style="font-size:12px;font-weight:600;margin-bottom:6px;">What's missing or weak?</p>
+        <div class="diagnosis-row" id="diag1">
+          <button class="diagnosis-btn" onclick="diagnose('diag1',this,'exp','Correct! The paragraph jumps directly from evidence to conclusion with no EXPLANATION. Why does this statistic prove the point? What does a 67% anxiety rate actually mean for the policy argument?')">Missing Point</button>
+          <button class="diagnosis-btn" onclick="diagnose('diag1',this,'wrong','Not quite -- the evidence is there: the 2022 study with a specific statistic.')">Missing Evidence</button>
+          <button class="diagnosis-btn" onclick="diagnose('diag1',this,'exp','Correct! There is no EXPLANATION of what the statistic means or why it proves the point. "Therefore" is doing too much heavy lifting.')">Missing Explanation</button>
+          <button class="diagnosis-btn" onclick="diagnose('diag1',this,'wrong','The link is there -- "Therefore, social media age restrictions are necessary." The problem is earlier in the paragraph.')">Missing Link</button>
+        </div>
+        <div class="diag-fb" id="diag1-fb"></div>
+      </div>
+
+      <div class="broken-card">
+        <span class="broken-label">Broken Paragraph 2</span>
+        <div class="broken-text">"Finally, research from the University of Melbourne found that schools with later start times reported a 23% improvement in student attendance. Sleep deprivation in teenagers is a well-documented public health issue, and changing start times would directly address it."</div>
+        <p style="font-size:12px;font-weight:600;margin-bottom:6px;">What's missing or weak?</p>
+        <div class="diagnosis-row" id="diag2">
+          <button class="diagnosis-btn" onclick="diagnose('diag2',this,'wrong','The point is implied -- later school start times improve outcomes. But it needs a clearer signpost sentence.')">Missing Point (signpost)</button>
+          <button class="diagnosis-btn" onclick="diagnose('diag2',this,'wrong','Good evidence is there: 23% improvement from University of Melbourne research.')">Missing Evidence</button>
+          <button class="diagnosis-btn" onclick="diagnose('diag2',this,'wrong','There IS some explanation -- "sleep deprivation is a well-documented issue" explains the mechanism.')">Missing Explanation</button>
+          <button class="diagnosis-btn" onclick="diagnose('diag2',this,'link','Correct! The paragraph has good evidence and explanation but never returns to the overall contention. A link sentence connecting this back to the main argument is missing.')">Missing Link</button>
+        </div>
+        <div class="diag-fb" id="diag2-fb"></div>
+      </div>
+
+      <div class="broken-card">
+        <span class="broken-label">Broken Paragraph 3</span>
+        <div class="broken-text">"Furthermore, young people clearly have valuable ideas to contribute to politics. Their perspective is unique and often overlooked. For this reason, the voting age should be lowered to 16."</div>
+        <p style="font-size:12px;font-weight:600;margin-bottom:6px;">What's missing or weak?</p>
+        <div class="diagnosis-row" id="diag3">
+          <button class="diagnosis-btn" onclick="diagnose('diag3',this,'wrong','The Point is clear: young people should contribute to politics. The problem is further down.')">Missing Point</button>
+          <button class="diagnosis-btn" onclick="diagnose('diag3',this,'evid','Correct! "Clearly" and "unique and often overlooked" are assertions, not evidence. The word "clearly" is a red flag — it substitutes confidence for proof. No data, example, or expert opinion is provided.')">Missing Evidence (assertion ≠ evidence)</button>
+          <button class="diagnosis-btn" onclick="diagnose('diag3',this,'wrong','Without evidence, you can\'t explain it either -- but the primary problem is the lack of any actual evidence before the explanation step.')">Missing Explanation</button>
+          <button class="diagnosis-btn" onclick="diagnose('diag3',this,'wrong','The link is there: "the voting age should be lowered to 16." That\'s a return to contention.')">Missing Link</button>
+        </div>
+        <div class="diag-fb" id="diag3-fb"></div>
+      </div>
+      <div class="callout callout-ext"><strong>Extension (GATEWAY)</strong>After fixing a paragraph, write a "stress test" — find the single strongest counter-argument to your PEEL paragraph. Then add a mini-rebuttal sentence that acknowledges and dismisses it.</div>
+      <div class="callout callout-supp"><strong>Support</strong>Use the PEEL template on Worksheet 4B Part B — sentence starters are provided for each element. Focus on Paragraphs 1 and 2 only.</div>
+    </div>
+  </div>
+
+  <!-- Write your own -->
+  <div class="phase ph-indep">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🖊️</span>
+      <div class="phase-meta"><span class="phase-tag">Independent practice · 43–58 min</span><span class="phase-title">Write Your Own PEEL Paragraph</span></div>
+      <span class="phase-time">43–58 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Write ONE complete PEEL paragraph for <strong>your own speech topic</strong>. This is the first real content for your assessment speech. Draft it here, then transfer to Worksheet 4B.</p>
+      <div class="peel-builder">
+        <h4>PEEL paragraph builder</h4>
+        <div class="peel-row peel-p"><label>[P] Point — signpost word + clear argument in one sentence:</label><textarea id="peel-p" placeholder="Furthermore / First / Finally, ... demonstrates that..." data-field-id="w4_l2_f4" data-label="Furthermore / First / Finally, ... demonstrates that..."></textarea></div>
+        <div class="peel-row peel-e1"><label>[E] Evidence — data, example, expert opinion, or case study:</label><textarea id="peel-e" placeholder="Research shows... / A 2024 study found... / For example..." data-field-id="w4_l2_f5" data-label="Research shows... / A 2024 study found... / For example..."></textarea></div>
+        <div class="peel-row peel-exp"><label>[Exp] Explanation — HOW and WHY does this evidence prove your point?</label><textarea id="peel-exp" placeholder="This demonstrates... / This matters because... / What this means is..." data-field-id="w4_l2_f6" data-label="This demonstrates... / This matters because... / What this m"></textarea></div>
+        <div class="peel-row peel-l"><label>[L] Link — return to your contention:</label><textarea id="peel-l" placeholder="This is why I contend... / Ultimately... / For these reasons..." data-field-id="w4_l2_f7" data-label="This is why I contend... / Ultimately... / For these reasons"></textarea></div>
+        <div class="peel-score-row">
+          <button class="check-peel-btn" onclick="checkPeel()">Check My PEEL ↗</button>
+          <div class="peel-result" id="peel-result"></div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:#555;margin-top:8px;font-style:italic;">Remember: this is for a SPEECH, not an essay. Read it aloud after writing — if you stumble, simplify the sentence.</p>
+    </div>
+  </div>
+
+  <!-- Exit -->
+  <div class="phase ph-exit">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🎟️</span>
+      <div class="phase-meta"><span class="phase-tag">Exit ticket · 58–70 min</span><span class="phase-title">Before you leave</span></div>
+      <span class="phase-time">58–70 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="exit-box">
+        <h4>Exit ticket</h4>
+        <p class="eq">1. Which PEEL element do you find hardest to write — and why?</p>
+        <textarea placeholder="I find [element] hardest because..." data-field-id="w4_l2_f8" data-label="I find [element] hardest because..."></textarea>
+        <p class="eq">2. What is the difference between EVIDENCE and EXPLANATION? Why does the explanation matter most?</p>
+        <textarea placeholder="Evidence is... Explanation is... The explanation matters most because..." data-field-id="w4_l2_f9" data-label="Evidence is... Explanation is... The explanation matters mos"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <button class="portal-submit-btn" id="submit-btn-l2" onclick="submitLesson(2)">Submit Lesson 2 to Teacher</button>
+  <div class="lesson-nav">
+    <button class="nav-prev" onclick="goLesson(1)">← Lesson 1</button>
+    <button class="nav-next" onclick="goLesson(3)">Lesson 3 — Cohesive Devices →</button>
+  </div>
+</div>
+
+<!-- ══════════ LESSON 3 ══════════ -->
+<div id="l3" class="lesson">
+
+  <div class="lesson-hd l3-hd">
+    <div class="lesson-num">Lesson 3 · 70 min</div>
+    <h2>The Glue of a Great Speech: Cohesive Devices</h2>
+    <p>Great arguments need to be connected. Today you learn the language that holds a speech together — and lifts its register.</p>
+    <div class="badge-row">
+      <span class="badge">AC9E9LA04</span>
+      <span class="badge">70 minutes</span>
+      <span class="badge">Identify · Apply · Investigate</span>
+    </div>
+  </div>
+
+  <div class="intentions int-purple">
+    <h3>By the end of this lesson you can…</h3>
+    <div class="check-item">Define and identify conjunctions, text connectives, and nominalisations</div>
+    <div class="check-item">Explain the function of each cohesive device and when to use it</div>
+    <div class="check-item">Apply a range of cohesive devices to improve a disconnected paragraph</div>
+    <div class="check-item">Transform simple phrases into nominalisations to elevate register</div>
+  </div>
+
+  <div class="checklist">
+    <h4>Lesson 3 checklist</h4>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Identify what's wrong with the "Disconnected Speech" hook</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Complete the Cohesive Devices Reference Card (Worksheet 4C Part A)</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Complete the Nominalisation Transformer activity</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Complete the Cloze Exercise with connectives</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Improve your PEEL paragraph from Lesson 2 using cohesive devices</div></div>
+  </div>
+
+  <!-- Hook -->
+  <div class="phase ph-hook open">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🤖</span>
+      <div class="phase-meta"><span class="phase-tag">Hook · 0–8 min</span><span class="phase-title">The Disconnected Speech</span></div>
+      <span class="phase-time">0–8 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Your teacher will read this paragraph <strong>robotically</strong> — full stop, pause, next sentence. No flow. Listen to how it sounds.</p>
+      <div style="background:#fce4ec;border-radius:8px;padding:14px 16px;font-family:Georgia,serif;font-size:14px;line-height:2.2;margin-bottom:14px;color:#1a1025;">"Young people should vote. The voting age is 18. Young people pay tax at 15. Young people can drive at 17. Young people join the military at 17. The voting age should change. It is unfair."</div>
+      <div class="quiz">
+        <h4>What's wrong with this paragraph?</h4>
+        <p class="quiz-q">The content (facts, contention) is actually fine. What's missing?</p>
+        <div class="quiz-opts" id="q3">
+          <button class="opt" onclick="answer('q3',this,false,'The evidence is present -- tax at 15, driving and military at 17. The problem is how the ideas are connected, not whether they\'re there.')">There is no evidence — no facts or data are provided.</button>
+          <button class="opt" onclick="answer('q3',this,true,'Correct! Every idea sits alone. There are no conjunctions, no connectives, and no flow between sentences. The content is fine -- the glue is missing. That\'s what cohesive devices do.')">The sentences are disconnected — there are no conjunctions or connectives linking the ideas.</button>
+          <button class="opt" onclick="answer('q3',this,false,'The contention is clear: the voting age should change. The problem is how it\'s presented, not what it\'s arguing.')">There is no contention — we don\'t know what the speaker is arguing.</button>
+        </div>
+        <div class="quiz-fb" id="q3-fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Device Types -->
+  <div class="phase ph-teach-pur">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🧲</span>
+      <div class="phase-meta"><span class="phase-tag">Key concepts · 8–26 min</span><span class="phase-title">Cohesive Devices — Three Types</span></div>
+      <span class="phase-time">8–26 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;"><strong>Copy the Reference Card (Worksheet 4C Part A) as your teacher explains each type.</strong></p>
+      <table class="vtable vtable-pur">
+        <tr><th>Type</th><th>Function</th><th>Examples</th></tr>
+        <tr><td class="term">Coordinating conjunctions</td><td>Join clauses of equal weight (within a sentence)</td><td>for, and, nor, but, or, yet, so — <em>FANBOYS</em></td></tr>
+        <tr><td class="term">Subordinating conjunctions</td><td>Join a main clause to a dependent clause</td><td>although, because, since, while, unless, whereas, if, until</td></tr>
+        <tr><td class="term">Additive connectives</td><td>Add information or a further point</td><td>furthermore, moreover, in addition, also, additionally</td></tr>
+        <tr><td class="term">Adversative connectives</td><td>Show contrast or concession</td><td>however, nevertheless, on the other hand, despite this, yet</td></tr>
+        <tr><td class="term">Causal connectives</td><td>Show cause and effect</td><td>therefore, consequently, as a result, for this reason, thus</td></tr>
+        <tr><td class="term">Temporal connectives</td><td>Show time sequence</td><td>first, subsequently, finally, meanwhile, previously, since then</td></tr>
+        <tr><td class="term">Nominalisation</td><td>Turns verb/adjective into a noun — condenses and elevates register</td><td>decide → decision | fail → failure | significant → significance | develop → development</td></tr>
+      </table>
+      <div class="callout-key"><strong>Why nominalisation matters</strong>"We failed to protect the environment. This was significant." → "Our failure to protect the environment had significant consequences." The nominalised version is tighter, more authoritative, and flows better in a speech. It also lets you refer back to a previous idea in a condensed form — which is exactly what high-quality academic prose does.</div>
+    </div>
+  </div>
+
+  <!-- Nominalisation Transformer -->
+  <div class="phase ph-guided">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">⚗️</span>
+      <div class="phase-meta"><span class="phase-tag">Activity · 26–41 min</span><span class="phase-title">The Nominalisation Transformer</span></div>
+      <span class="phase-time">26–41 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Transform each phrase into its nominalised form, then type it in the box. Click "Check" for a hint.</p>
+      <div class="transform-grid">
+        <div class="transform-card">
+          <h4>Transform 1</h4>
+          <div class="original">"We decided to act on climate change."</div>
+          <p style="font-size:11px;color:#555;margin-bottom:5px;">Nominalise the verb "decided":</p>
+          <input type="text" id="t1" placeholder="The [noun] to act on climate change...">
+          <button class="transform-check" onclick="checkTransform('t1',['decision','our decision'],'Try: "The decision to act on climate change..." — "decided" becomes "decision"')">Check</button>
+          <div class="transform-fb" id="t1-fb"></div>
+        </div>
+        <div class="transform-card">
+          <h4>Transform 2</h4>
+          <div class="original">"Young people are excluded from these decisions."</div>
+          <p style="font-size:11px;color:#555;margin-bottom:5px;">Nominalise "excluded":</p>
+          <input type="text" id="t2" placeholder="The [noun] of young people...">
+          <button class="transform-check" onclick="checkTransform('t2',['exclusion','the exclusion'],'Try: "The exclusion of young people from these decisions..." — "excluded" becomes "exclusion"')">Check</button>
+          <div class="transform-fb" id="t2-fb"></div>
+        </div>
+        <div class="transform-card">
+          <h4>Transform 3</h4>
+          <div class="original">"It is significant that mental health rates have risen."</div>
+          <p style="font-size:11px;color:#555;margin-bottom:5px;">Nominalise "significant":</p>
+          <input type="text" id="t3" placeholder="The [noun] of rising mental health rates...">
+          <button class="transform-check" onclick="checkTransform('t3',['significance','the significance'],'Try: "The significance of rising mental health rates..." — "significant" becomes "significance"')">Check</button>
+          <div class="transform-fb" id="t3-fb"></div>
+        </div>
+        <div class="transform-card">
+          <h4>Transform 4</h4>
+          <div class="original">"We urgently need to change the system."</div>
+          <p style="font-size:11px;color:#555;margin-bottom:5px;">Nominalise "need" or "change":</p>
+          <input type="text" id="t4" placeholder="The urgent [noun] for change...">
+          <button class="transform-check" onclick="checkTransform('t4',['need','necessity','requirement','urgent need'],'Try: "The urgent need for change..." or "The necessity of changing the system..." — you can nominalise either verb here.')">Check</button>
+          <div class="transform-fb" id="t4-fb"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cloze -->
+  <div class="phase ph-indep">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🧩</span>
+      <div class="phase-meta"><span class="phase-tag">Cloze exercise · 41–50 min</span><span class="phase-title">Fill the Gaps — Choose Your Connective</span></div>
+      <span class="phase-time">41–50 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:10px;">Click a blank to select it (it will highlight), then click a word from the bank below to place it. Each word can only be used once.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+        <span style="font-size:12px;font-weight:700;color:#5B2C8D;align-self:center;">Word bank:</span>
+        <span class="cohesive-word" id="w-furthermore" onclick="selectWord('furthermore')">furthermore</span>
+        <span class="cohesive-word" id="w-however" onclick="selectWord('however')">however</span>
+        <span class="cohesive-word" id="w-because" onclick="selectWord('because')">because</span>
+        <span class="cohesive-word" id="w-consequently" onclick="selectWord('consequently')">consequently</span>
+        <span class="cohesive-word" id="w-although" onclick="selectWord('although')">although</span>
+        <span class="cohesive-word" id="w-for-this-reason" onclick="selectWord('for this reason')">for this reason</span>
+      </div>
+      <div class="cloze-blanks">
+        Young people are passionate about the environment.
+        <span class="cloze-blank" id="b1" onclick="placeWord('b1','furthermore','additive -- you\'re adding another point about young people')" data-answer="furthermore">____</span>,
+        research shows that 78% of Australians aged 15-24 consider climate change their top concern.
+        <span class="cloze-blank" id="b2" onclick="placeWord('b2','however','adversative -- you\'re about to introduce a contrasting fact')" data-answer="however">____</span>,
+        only 3% of federal politicians are under 35.
+        <span class="cloze-blank" id="b3" onclick="placeWord('b3','although','subordinating -- you\'re connecting a concession to the main point')" data-answer="although">____</span>
+        young people may be the most affected generation, they have the least representation.
+        <span class="cloze-blank" id="b4" onclick="placeWord('b4','consequently','causal -- the previous facts LEAD TO this outcome')" data-answer="consequently">____</span>,
+        the decisions made today will shape the world they inherit.
+        <span class="cloze-blank" id="b5" onclick="placeWord('b5','for this reason','causal -- wrapping up the argument with a reason-based link')" data-answer="for this reason">____</span>,
+        meaningful youth participation in government is not just desirable — it is essential.
+      </div>
+      <button class="cloze-check-btn" onclick="checkCloze()">Check My Answers</button>
+      <div class="cloze-result" id="cloze-result"></div>
+    </div>
+  </div>
+
+  <!-- Exit -->
+  <div class="phase ph-exit">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🎟️</span>
+      <div class="phase-meta"><span class="phase-tag">Exit ticket · 60–70 min</span><span class="phase-title">Before you leave</span></div>
+      <span class="phase-time">60–70 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="exit-box">
+        <h4>Three questions</h4>
+        <p class="eq">1. Define nominalisation in your own words and give ONE original example you created today:</p>
+        <textarea placeholder="Nominalisation is... / My example: [verb/adjective] → [noun]..." data-field-id="w4_l3_f10" data-label="Nominalisation is... / My example: [verb/adjective] → [noun]"></textarea>
+        <p class="eq">2. What is the difference between an ADDITIVE connective and a CAUSAL connective? Give an example of each:</p>
+        <textarea placeholder="Additive: [example] / Causal: [example] / The difference is..." data-field-id="w4_l3_f11" data-label="Additive: [example] / Causal: [example] / The difference is."></textarea>
+        <p class="eq">3. Read your improved PEEL paragraph from Lesson 2 aloud. Write ONE sentence that still sounds too written — then rewrite it to be more spoken:</p>
+        <textarea placeholder="Original sentence: ... / Rewritten for speech: ..." data-field-id="w4_l3_f12" data-label="Original sentence: ... / Rewritten for speech: ..."></textarea>
+      </div>
+      <div class="callout callout-faith"><strong>Week 4 faith reflection</strong>Ecclesiastes 12:10-11 — "The Teacher searched to find just the right words, and what he wrote was upright and true. The words of the wise are like goads, their collected sayings like firmly embedded nails." Language that is crafted — chosen for precision and connection — carries more weight than language that is improvised. This week is about the craft of persuasion. Next week, you begin your own.</div>
+    </div>
+  </div>
+
+  <button class="portal-submit-btn" id="submit-btn-l3" onclick="submitLesson(3)">Submit Lesson 3 to Teacher</button>
+  <div class="lesson-nav">
+    <button class="nav-prev" onclick="goLesson(2)">← Lesson 2</button>
+    <div class="complete-badge">Week 4 Complete!</div>
+  </div>
+</div>
+
+</div><!-- end content -->
+
+<div class="footer">
+  <strong>Bundaberg Christian College</strong> · Year 9 English · Unit 2: Powerful Persuasion · Term 2, Week 4<br>
+  <span style="font-size:10px;font-style:italic;">"All the treasures of wisdom and knowledge" — Colossians 2:3</span>
+</div>
+
+</div><!-- end shell -->
+
+<script>
+var answered = {};
+var selectedWord = null;
+var filledBlanks = {};
+
+function goLesson(n) {
+  document.querySelectorAll('.lesson').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById('l' + n).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(function(btn, i) { btn.classList.toggle('active', i + 1 === n); });
+  document.querySelectorAll('.hero-pill').forEach(function(pill, i) { pill.classList.toggle('active', i + 1 === n); });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  updateProgress();
+}
+
+function togglePhase(hd) { hd.closest('.phase').classList.toggle('open'); }
+
+function tick(row) { row.classList.toggle('done'); updateProgress(); }
+
+function updateProgress() {
+  var total = document.querySelectorAll('.ck-row').length;
+  var done = document.querySelectorAll('.ck-row.done').length;
+  var pct = total > 0 ? Math.round(done / total * 100) : 0;
+  document.getElementById('pf').style.width = pct + '%';
+  document.getElementById('pp').textContent = pct + '%';
+}
+
+function answer(qid, btn, correct, msg) {
+  if (answered[qid]) return;
+  answered[qid] = true;
+  var container = document.getElementById(qid);
+  var fb = document.getElementById(qid + '-fb');
+  container.querySelectorAll('.opt').forEach(function(b) { b.disabled = true; b.style.opacity = '0.55'; });
+  btn.style.opacity = '1';
+  if (correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✓ ' + msg;
+    fb.className = 'quiz-fb show ok';
+  } else {
+    btn.classList.add('wrong');
+    container.querySelectorAll('.opt').forEach(function(b) {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').indexOf(',true,') > -1) { b.classList.add('correct'); b.style.opacity = '1'; }
+    });
+    fb.textContent = msg;
+    fb.className = 'quiz-fb show bad';
+  }
+}
+
+function diagnose(containerId, btn, type, msg) {
+  var container = document.getElementById(containerId);
+  var fb = document.getElementById(containerId + '-fb');
+  container.querySelectorAll('.diagnosis-btn').forEach(function(b) { b.classList.remove('selected'); });
+  btn.classList.add('selected');
+  var isCorrect = (type === 'exp' && containerId === 'diag1') || (type === 'link' && containerId === 'diag2') || (type === 'evid' && containerId === 'diag3');
+  if (isCorrect) {
+    fb.textContent = '✓ ' + msg;
+    fb.className = 'diag-fb show ok';
+  } else {
+    fb.textContent = msg;
+    fb.className = 'diag-fb show hint';
+  }
+}
+
+function checkPeel() {
+  var p = document.getElementById('peel-p').value.trim();
+  var e = document.getElementById('peel-e').value.trim();
+  var exp = document.getElementById('peel-exp').value.trim();
+  var l = document.getElementById('peel-l').value.trim();
+  var result = document.getElementById('peel-result');
+  var missing = [];
+  if (!p) missing.push('Point');
+  if (!e) missing.push('Evidence');
+  if (!exp) missing.push('Explanation');
+  if (!l) missing.push('Link');
+  if (missing.length === 0) {
+    var hasSignpost = /^(first|furthermore|finally|in addition|moreover|additionally)/i.test(p);
+    var hasExpWord = /demonstrates|matters because|what this means|this shows|significant because/i.test(exp);
+    var feedback = '✓ All four elements present! ';
+    if (!hasSignpost) feedback += 'Tip: start your Point with a signpost word (First / Furthermore / Finally). ';
+    if (!hasExpWord) feedback += 'Tip: your Explanation could use stronger connective language (This demonstrates... / This matters because...).';
+    result.textContent = feedback;
+    result.className = 'peel-result show ok';
+  } else {
+    result.textContent = 'Missing elements: ' + missing.join(', ') + '. Complete all four sections before checking.';
+    result.className = 'peel-result show warn';
+  }
+}
+
+function checkTransform(id, answers, hint) {
+  var val = document.getElementById(id).value.trim().toLowerCase();
+  var fb = document.getElementById(id + '-fb');
+  var found = answers.some(function(a) { return val.indexOf(a.toLowerCase()) > -1; });
+  if (found) {
+    fb.textContent = '✓ Correct nominalisation!';
+    fb.className = 'transform-fb show ok';
+  } else {
+    fb.textContent = hint;
+    fb.className = 'transform-fb show hint';
+  }
+}
+
+function selectWord(word) {
+  selectedWord = word;
+  document.querySelectorAll('.cohesive-word').forEach(function(w) { w.style.outline = 'none'; });
+  var el = document.getElementById('w-' + word.replace(/ /g, '-'));
+  if (el) el.style.outline = '3px solid #5B2C8D';
+}
+
+function placeWord(blankId, correctWord, hint) {
+  if (!selectedWord) {
+    alert('First click a word from the word bank, then click a blank to place it.');
+    return;
+  }
+  var blank = document.getElementById(blankId);
+  var wordEl = document.getElementById('w-' + selectedWord.replace(/ /g, '-'));
+  if (filledBlanks[blankId]) {
+    var oldWord = filledBlanks[blankId];
+    var oldEl = document.getElementById('w-' + oldWord.replace(/ /g, '-'));
+    if (oldEl) { oldEl.classList.remove('used'); oldEl.style.opacity = '1'; }
+  }
+  filledBlanks[blankId] = selectedWord;
+  blank.textContent = selectedWord;
+  blank.classList.remove('wrong-fill');
+  blank.classList.add('filled');
+  if (wordEl) { wordEl.classList.add('used'); wordEl.style.opacity = '0.4'; }
+  selectedWord = null;
+  document.querySelectorAll('.cohesive-word').forEach(function(w) { w.style.outline = 'none'; });
+}
+
+function checkCloze() {
+  var answers = { b1: 'furthermore', b2: 'however', b3: 'although', b4: 'consequently', b5: 'for this reason' };
+  var correct = 0;
+  var total = Object.keys(answers).length;
+  for (var id in answers) {
+    var blank = document.getElementById(id);
+    if (filledBlanks[id] && filledBlanks[id].toLowerCase() === answers[id].toLowerCase()) {
+      correct++;
+      blank.style.color = '#1B4332';
+      blank.style.borderColor = '#1B4332';
+    } else {
+      blank.classList.add('wrong-fill');
+      blank.style.color = '#b5294e';
+      blank.style.borderColor = '#b5294e';
+    }
+  }
+  var result = document.getElementById('cloze-result');
+  if (correct === total) {
+    result.textContent = '✓ Perfect! ' + correct + '/' + total + ' — all connectives correctly placed. You identified the right type (additive, adversative, causal, subordinating) for each context.';
+    result.className = 'cloze-result show ok';
+  } else {
+    result.textContent = correct + '/' + total + ' correct. The wrong blanks are highlighted in red. Think about the relationship between the ideas: are you adding, contrasting, or showing cause and effect?';
+    result.className = 'cloze-result show partial';
+  }
+}
+
+document.querySelectorAll('.lesson').forEach(function(lesson) {
+  var firstPhase = lesson.querySelector('.phase');
+  if (firstPhase) firstPhase.classList.add('open');
+});
+
+updateProgress();
+
+
+// ── COLLECTOR MODULE ─────────────────────────────────────────
+// Injected into every week portal. One find-and-replace to activate.
+// https://script.google.com/macros/s/AKfycby7k1gZT0JXh3WQrhjNHCHf1Qm5d9UDJbHqhc0FMazhDAust5K9dIjb1X-8Tv3mbhQ-/exec → your deployed Apps Script URL
+// ─────────────────────────────────────────────────────────────
+var PORTAL_URL = 'https://script.google.com/macros/s/AKfycby7k1gZT0JXh3WQrhjNHCHf1Qm5d9UDJbHqhc0FMazhDAust5K9dIjb1X-8Tv3mbhQ-/exec';
+var PORTAL_WEEK = '4';
+
+// Identity helpers
+function getIdentity() {
+  return {
+    name: (document.getElementById('portal-name')||{value:''}).value.trim(),
+    cls:  (document.getElementById('portal-class')||{value:''}).value.trim()
+  };
+}
+
+function confirmIdentity() {
+  var id = getIdentity();
+  var bar = document.getElementById('portal-id-bar');
+  var status = document.getElementById('portal-id-status');
+  if (!id.name) {
+    bar.style.borderBottomColor = '#ef4444';
+    bar.style.animation = 'shake 0.3s';
+    setTimeout(function(){ bar.style.animation=''; }, 300);
+    return false;
+  }
+  bar.style.borderBottomColor = '#22c55e';
+  status.textContent = 'Saved as: ' + id.name + ' (' + (id.cls||'no class') + ')';
+  status.style.background = '#22c55e';
+  // Persist in session storage
+  try {
+    sessionStorage.setItem('portal_name', id.name);
+    sessionStorage.setItem('portal_class', id.cls);
+  } catch(e){}
+  return true;
+}
+
+// Restore identity from session storage on load
+function restoreIdentity() {
+  try {
+    var n = sessionStorage.getItem('portal_name');
+    var c = sessionStorage.getItem('portal_class');
+    if (n) {
+      var ni = document.getElementById('portal-name');
+      var ci = document.getElementById('portal-class');
+      if (ni) ni.value = n;
+      if (ci) ci.value = c || '';
+      confirmIdentity();
+    }
+  } catch(e){}
+}
+
+// Collect all tagged textareas in a lesson and submit
+function submitLesson(lessonNum) {
+  var id = getIdentity();
+  if (!id.name) {
+    var bar = document.getElementById('portal-id-bar');
+    bar.style.borderBottomColor = '#ef4444';
+    bar.scrollIntoView({behavior:'smooth', block:'start'});
+    bar.style.animation = 'shake 0.3s';
+    setTimeout(function(){ bar.style.animation=''; }, 300);
+    showToast('Please enter your name and click Confirm first.', 'err');
+    return;
+  }
+
+  // Find the lesson container
+  var lessonEl = document.getElementById('l' + lessonNum);
+  if (!lessonEl) { showToast('Lesson not found.', 'err'); return; }
+
+  // Collect all tagged textareas in this lesson
+  var tagged = lessonEl.querySelectorAll('textarea[data-field-id]');
+  var collected = [];
+  tagged.forEach(function(ta) {
+    var val = ta.value.trim();
+    var label = ta.getAttribute('data-label') || ta.getAttribute('data-field-id');
+    collected.push(label + ': ' + (val || '(blank)'));
+    // Save to session storage as backup
+    try { sessionStorage.setItem('field_' + ta.getAttribute('data-field-id'), val); } catch(e){}
+  });
+
+  if (collected.length === 0) {
+    showToast('No response fields found in this lesson.', 'err');
+    return;
+  }
+
+  var fields = collected.join(' || ');
+  var btn = document.getElementById('submit-btn-l' + lessonNum);
+  var origText = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }
+
+  // Build URL and fire via image trick (bypasses CORS completely)
+  var params = [
+    'studentName=' + encodeURIComponent(id.name),
+    'className='   + encodeURIComponent(id.cls),
+    'week='        + encodeURIComponent(PORTAL_WEEK),
+    'lesson='      + encodeURIComponent(lessonNum),
+    'fields='      + encodeURIComponent(fields)
+  ].join('&');
+
+  var img = new Image();
+  img.onload = img.onerror = function() {
+    showToast('Lesson ' + lessonNum + ' submitted! Your teacher can now see your responses.', 'ok');
+    if (btn) { btn.textContent = 'Submitted'; btn.style.background = '#22c55e'; }
+  };
+  img.src = PORTAL_URL + '?' + params;
+}
+
+// Toast notification
+function showToast(msg, type) {
+  var t = document.getElementById('portal-toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.className = 'portal-toast show ' + type;
+  clearTimeout(t._timer);
+  t._timer = setTimeout(function(){ t.className = 'portal-toast'; }, 4000);
+}
+
+// Run on load
+document.addEventListener('DOMContentLoaded', function() {
+  restoreIdentity();
+});
+
+</script>
+</body>
+</html>
