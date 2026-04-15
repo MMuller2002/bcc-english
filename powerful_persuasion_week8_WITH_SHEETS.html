@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Powerful Persuasion -- Week 8 | Year 9 English | BCC</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;font-size:15px;line-height:1.65;background:#f9f1f1;color:#1a1025}
+.shell{max-width:860px;margin:0 auto;padding:0 0 60px}
+.nav{background:#6b0000;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.bcc-pill{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:5px;padding:2px 9px;font-size:11px;font-weight:700;letter-spacing:.1em;color:#fff}
+.nav-title{font-family:Georgia,serif;font-size:15px;font-weight:700;color:#fff}
+.nav-sub{font-size:11px;color:rgba(255,255,255,.6)}
+.nav-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab-btn{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);border-radius:6px;padding:6px 14px;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s}
+.tab-btn.active{background:#fff;color:#6b0000;font-weight:700;border-color:#fff}
+.tab-btn:hover:not(.active){background:rgba(255,255,255,.2)}
+.prog-bar{background:#f5e6e6;padding:9px 22px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(107,0,0,.08)}
+.prog-label{font-size:11px;font-weight:700;color:#6b0000;white-space:nowrap}
+.prog-track{flex:1;height:6px;background:rgba(107,0,0,.12);border-radius:100px;overflow:hidden}
+.prog-fill{height:100%;width:0%;background:linear-gradient(90deg,#8B0000,#7C5C1A);border-radius:100px;transition:width .4s ease}
+.prog-pct{font-size:11px;font-weight:700;color:#6b0000;min-width:30px;text-align:right}
+.hero{background:linear-gradient(135deg,#4a0000,#8B0000 50%,#7C5C1A);color:#fff;padding:46px 22px 54px;text-align:center}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:4px 16px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-family:Georgia,serif;font-size:clamp(26px,5vw,44px);font-weight:900;line-height:1.05;margin-bottom:10px;color:#fff}
+.hero h1 em{color:#fcd34d;font-style:italic}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.82);max-width:490px;margin:0 auto 22px}
+.hero-pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.hero-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8);border-radius:100px;padding:7px 16px;font-size:12px;cursor:pointer;transition:all .2s}
+.hero-pill.active,.hero-pill:hover{background:rgba(255,255,255,.22);color:#fff}
+.content{padding:26px 18px 0}
+.lesson{display:none}
+.lesson.active{display:block;animation:fadein .25s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.lesson-hd{border-radius:10px;padding:20px 24px;margin-bottom:20px;color:#fff}
+.lesson-hd h2{font-family:Georgia,serif;font-size:21px;font-weight:700;margin:6px 0;color:#fff}
+.lesson-hd p{font-size:13px;color:rgba(255,255,255,.85);margin-bottom:12px}
+.l1-hd{background:linear-gradient(135deg,#6b0000,#8B0000)}
+.l2-hd{background:linear-gradient(135deg,#1A2E4A,#2E5077)}
+.l3-hd{background:linear-gradient(135deg,#5C3D0A,#7C5C1A)}
+.lesson-num{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);border-radius:5px;display:inline-block;padding:2px 9px;margin-bottom:8px}
+.badge-row{display:flex;flex-wrap:wrap;gap:6px}
+.badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:2px 10px;font-size:10px;color:#fff}
+.intentions{border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px}
+.int-crim{background:#fdecea;border-left:4px solid #8B0000}
+.int-crim h3{color:#8B0000}
+.int-navy{background:#e4eaf2;border-left:4px solid #1A2E4A}
+.int-navy h3{color:#1A2E4A}
+.int-gold{background:#fdf3d8;border-left:4px solid #7C5C1A}
+.int-gold h3{color:#5C3D0A}
+.intentions h3{font-family:Georgia,serif;font-size:13px;margin-bottom:8px}
+.check-item{font-size:13px;padding:3px 0 3px 18px;position:relative}
+.check-item::before{content:"ok";position:absolute;left:0;color:#00796B;font-weight:700;font-size:11px}
+.checklist{background:#fff;border:1px solid rgba(107,0,0,.12);border-radius:8px;padding:14px 18px;margin-bottom:18px}
+.checklist h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6b0000;margin-bottom:10px}
+.ck-row{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;-webkit-user-select:none;user-select:none}
+.ck-row:last-child{border-bottom:none}
+.ck-box{width:20px;height:20px;min-width:20px;border:2px solid rgba(107,0,0,.3);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;color:transparent;transition:all .15s;margin-top:1px;flex-shrink:0}
+.ck-row.done .ck-box{background:#8B0000;border-color:#8B0000;color:#fff}
+.ck-row.done .ck-text{text-decoration:line-through;opacity:.45}
+.ck-text{font-size:13px}
+.phase{border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,.08);margin-bottom:10px}
+.phase-hd{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;-webkit-user-select:none;user-select:none;transition:filter .1s}
+.phase-hd:hover{filter:brightness(1.06)}
+.phase-icon{font-size:16px;flex-shrink:0}
+.phase-meta{flex:1}
+.phase-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75;display:block;margin-bottom:1px}
+.phase-title{font-family:Georgia,serif;font-size:14px;font-weight:600}
+.phase-time{font-size:10px;font-weight:600;background:rgba(255,255,255,.2);border-radius:100px;padding:2px 9px;color:rgba(255,255,255,.85);flex-shrink:0}
+.chevron{font-size:11px;opacity:.75;transition:transform .25s;flex-shrink:0}
+.phase.open .chevron{transform:rotate(180deg)}
+.phase-body{display:none;background:#fff;border-top:1px solid rgba(0,0,0,.06);padding:16px 18px}
+.phase.open .phase-body{display:block}
+.ph-open .phase-hd{background:linear-gradient(135deg,#c55a00,#e07000);color:#fff}
+.ph-crim .phase-hd{background:linear-gradient(135deg,#6b0000,#8B0000);color:#fff}
+.ph-navy .phase-hd{background:linear-gradient(135deg,#1A2E4A,#2E5077);color:#fff}
+.ph-gold .phase-hd{background:linear-gradient(135deg,#5C3D0A,#7C5C1A);color:#fff}
+.ph-green .phase-hd{background:linear-gradient(135deg,#1b5e20,#00796B);color:#fff}
+.ph-exit .phase-hd{background:linear-gradient(135deg,#6b0000,#7C5C1A);color:#fff}
+.callout{border-radius:0 6px 6px 0;padding:10px 14px;margin:10px 0;font-size:12px;line-height:1.6}
+.callout strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+.callout-faith{background:#f5e6e6;border-left:3px solid #6b0000}
+.callout-faith strong{color:#6b0000}
+.callout-ext{background:#e8f5e9;border-left:3px solid #2E7D32}
+.callout-ext strong{color:#2E7D32}
+.callout-supp{background:#fff3e0;border-left:3px solid #c55a00}
+.callout-supp strong{color:#c55a00}
+/* Nervousness slider */
+.nerves-zone{background:#fdecea;border-radius:10px;padding:16px 18px;margin:12px 0}
+.nerves-zone h4{font-family:Georgia,serif;font-size:14px;color:#6b0000;margin-bottom:12px}
+.nerves-scale{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.nerves-btn{width:38px;height:38px;border-radius:50%;border:2px solid rgba(107,0,0,.2);background:#fff;cursor:pointer;font-size:14px;font-weight:700;font-family:Arial,sans-serif;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.nerves-btn:hover{border-color:#8B0000;background:#fdecea}
+.nerves-btn.picked{background:#8B0000;border-color:#8B0000;color:#fff}
+.nerves-label{font-size:12px;color:#555;font-style:italic;margin-top:6px}
+/* Run timers */
+.run-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(107,0,0,.08);flex-wrap:wrap}
+.run-row:last-child{border-bottom:none}
+.run-label{font-size:13px;font-weight:600;color:#6b0000;min-width:55px}
+.run-info{font-size:12px;color:#555;flex:1;min-width:120px}
+.run-time{font-size:16px;font-weight:700;color:#6b0000;min-width:50px;font-family:Georgia,serif}
+.run-btn{background:#8B0000;color:#fff;border:none;border-radius:6px;padding:7px 14px;font-size:12px;font-weight:600;cursor:pointer;font-family:Arial,sans-serif}
+.run-btn:hover{background:#6b0000}
+.run-btn.done-btn{background:#2E7D32}
+/* Speech eval */
+.eval-zone{background:#e4eaf2;border-radius:10px;padding:16px 18px;margin:12px 0}
+.eval-zone h4{font-family:Georgia,serif;font-size:14px;color:#1A2E4A;margin-bottom:14px}
+.eval-row{margin-bottom:10px}
+.eval-row label{font-size:11px;font-weight:700;color:#1A2E4A;display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em}
+.eval-row textarea{width:100%;background:#fff;border:1px solid rgba(26,46,74,.2);border-radius:6px;padding:8px;font-family:Arial,sans-serif;font-size:13px;resize:vertical;min-height:44px}
+/* Quiz */
+.quiz{background:#f7f5fb;border:1px solid #ede7f6;border-radius:8px;padding:14px 18px;margin:12px 0}
+.quiz h4{font-size:13px;font-weight:700;color:#6b0000;margin-bottom:8px}
+.quiz-q{font-size:13px;margin-bottom:10px}
+.quiz-opts{display:flex;flex-direction:column;gap:6px}
+.opt{background:#fff;border:2px solid rgba(107,0,0,.15);border-radius:7px;padding:9px 12px;font-size:12px;text-align:left;cursor:pointer;transition:all .15s;font-family:Arial,sans-serif;width:100%}
+.opt:hover{border-color:#8B0000}
+.opt.correct{background:#e8f5e9;border-color:#00796B;color:#1b5e20;font-weight:700}
+.opt.wrong{background:#fce4ec;border-color:#b5294e;color:#880e4f}
+.opt:disabled{cursor:default}
+.quiz-fb{display:none;margin-top:8px;padding:8px 12px;border-radius:6px;font-size:12px}
+.quiz-fb.show{display:block}
+.quiz-fb.ok{background:#e8f5e9;color:#1b5e20}
+.quiz-fb.bad{background:#fce4ec;color:#880e4f}
+/* Final checklist */
+.final-check{background:#fdf3d8;border-radius:8px;padding:14px 18px}
+.final-check h4{font-family:Georgia,serif;font-size:13px;color:#5C3D0A;margin-bottom:10px}
+/* General timer */
+.timer-strip{background:#6b0000;border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:14px;margin:12px 0;color:#fff;flex-wrap:wrap}
+.timer-display{font-size:28px;font-weight:900;font-family:Georgia,serif;min-width:60px}
+.timer-label{font-size:12px;color:rgba(255,255,255,.7);flex:1}
+.timer-target{font-size:12px;color:rgba(255,255,255,.6)}
+.timer-btns{display:flex;gap:6px}
+.timer-btn{border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;border-radius:6px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:Arial,sans-serif}
+.timer-btn:hover{background:rgba(255,255,255,.2)}
+.exit-box{background:#f5e6e6;border-radius:8px;padding:14px 18px}
+.exit-box h4{font-family:Georgia,serif;font-size:13px;color:#6b0000;margin-bottom:10px}
+.eq{font-size:13px;font-weight:600;margin:0 0 4px}
+.exit-box textarea{width:100%;background:#fff;border:1px solid rgba(107,0,0,.2);border-radius:6px;padding:8px;font-family:Arial,sans-serif;font-size:12px;resize:vertical;min-height:44px;margin-bottom:10px}
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:20px;border-top:1px solid rgba(107,0,0,.1)}
+.nav-prev{background:#fff;color:#6b0000;border:2px solid #6b0000;border-radius:8px;padding:10px 18px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer}
+.nav-prev:hover{background:#fdecea}
+.nav-next{background:#6b0000;color:#fff;border:none;border-radius:8px;padding:10px 18px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer}
+.nav-next:hover{background:#8B0000}
+.complete-badge{background:#7C5C1A;color:#fff;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:700}
+.footer{background:#6b0000;color:rgba(255,255,255,.6);text-align:center;padding:16px 20px;font-size:11px}
+.footer strong{color:rgba(255,255,255,.9)}
+
+@keyframes shake {
+  0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-6px)} 40%,80%{transform:translateX(6px)}
+}
+.portal-id-bar{background:#1a1025;padding:10px 22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-bottom:3px solid #8B0000;position:sticky;top:0;z-index:100}
+.portal-id-bar label{font-size:12px;color:rgba(255,255,255,.7);font-weight:600;white-space:nowrap}
+.portal-id-bar input{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:5px;color:#fff;padding:5px 10px;font-size:13px;font-family:Arial,sans-serif;width:155px}
+.portal-id-bar input::placeholder{color:rgba(255,255,255,.35)}
+.portal-id-bar input:focus{outline:none;border-color:#22c55e}
+.portal-confirm-btn{background:#8B0000;color:#fff;border:none;border-radius:6px;padding:6px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif}
+.portal-confirm-btn:hover{background:#6b0000}
+.portal-id-status{font-size:11px;padding:3px 10px;border-radius:100px;font-weight:600;background:rgba(255,255,255,.15);color:rgba(255,255,255,.8)}
+.portal-submit-btn{display:block;width:100%;background:#1565c0;color:#fff;border:none;border-radius:8px;padding:12px 20px;font-size:14px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;margin:16px 0 8px;text-align:center;transition:background .15s}
+.portal-submit-btn:hover{background:#1976d2}
+.portal-submit-btn:disabled{background:#888;cursor:not-allowed}
+.portal-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#1a1025;color:#fff;padding:12px 24px;border-radius:8px;font-size:13px;font-weight:600;font-family:Arial,sans-serif;z-index:9999;transition:transform .3s ease;max-width:420px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.4);pointer-events:none}
+.portal-toast.show{transform:translateX(-50%) translateY(0)}
+.portal-toast.ok{background:#1b5e20}
+.portal-toast.err{background:#b71c1c}
+
+</style>
+</head>
+<body>
+<div class="shell">
+<div class="portal-id-bar" id="portal-id-bar">
+  <label>Your name:</label>
+  <input type="text" id="portal-name" placeholder="First Last">
+  <label>Class:</label>
+  <input type="text" id="portal-class" placeholder="9A" style="width:55px">
+  <button class="portal-confirm-btn" onclick="confirmIdentity()">Confirm</button>
+  <span class="portal-id-status" id="portal-id-status">Enter your name then click Confirm</span>
+</div>
+<div class="portal-toast" id="portal-toast"></div>
+
+
+<nav class="nav">
+  <div class="nav-brand">
+    <span class="bcc-pill">BCC</span>
+    <div>
+      <div class="nav-title">Powerful Persuasion -- Week 8</div>
+      <div class="nav-sub">Year 9 English | Unit 2 | Term 2</div>
+    </div>
+  </div>
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="goLesson(1)">Lesson 1</button>
+    <button class="tab-btn" onclick="goLesson(2)">Lesson 2</button>
+    <button class="tab-btn" onclick="goLesson(3)">Lesson 3</button>
+  </div>
+</nav>
+
+<div class="prog-bar">
+  <span class="prog-label">Your progress</span>
+  <div class="prog-track"><div class="prog-fill" id="pf"></div></div>
+  <span class="prog-pct" id="pp">0%</span>
+</div>
+
+<div class="hero">
+  <div class="hero-tag">Unit 2 | Week 8 | Final Preparation</div>
+  <h1>One Week <em>Until</em> Assessment</h1>
+  <p class="hero-sub">Timed rehearsal. Peer evaluation. Final editing and submission. Everything you need to walk into Week 9 knowing your speech is ready.</p>
+  <div class="hero-pills">
+    <div class="hero-pill active" onclick="goLesson(1)">Lesson 1 | Timed Rehearsal</div>
+    <div class="hero-pill" onclick="goLesson(2)">Lesson 2 | Peer Evaluation</div>
+    <div class="hero-pill" onclick="goLesson(3)">Lesson 3 | Final Edit and Submit</div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- LESSON 1 -->
+<div id="l1" class="lesson active">
+  <div class="lesson-hd l1-hd">
+    <div class="lesson-num">Lesson 1 | 70 min</div>
+    <h2>Timed Rehearsal: Full Run-Through</h2>
+    <p>Three run-throughs. Each one banks more preparation and reduces the 'unknown' that nerves feed on.</p>
+    <div class="badge-row"><span class="badge">AC9E9LY07</span><span class="badge">70 minutes</span><span class="badge">Rehearse | Apply | Refine</span></div>
+  </div>
+
+  <div class="intentions int-crim">
+    <h3>By the end of this lesson you can...</h3>
+    <div class="check-item">Deliver your complete speech within the 3-5 minute target with minimal stumbling</div>
+    <div class="check-item">Apply delivery notation consistently throughout your speech</div>
+    <div class="check-item">Receive and give specific, actionable feedback from peer observers</div>
+    <div class="check-item">Identify the single highest-impact change you can make before assessment</div>
+  </div>
+
+  <div class="checklist">
+    <h4>Lesson 1 checklist</h4>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Complete the pre-rehearsal check-in below</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Complete Run 1 -- timed individual delivery</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Complete Run 2 -- small group with peer feedback</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Give delivery feedback to both group members</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Complete the post-rehearsal check-in</div></div>
+  </div>
+
+  <!-- Pre check-in -->
+  <div class="phase ph-open open">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">pre</span>
+      <div class="phase-meta"><span class="phase-tag">Before you begin | 0-5 min</span><span class="phase-title">Pre-Rehearsal Check-In</span></div>
+      <span class="phase-time">0-5 min</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:14px;">Answer these three questions honestly. You will revisit them at the end of the lesson.</p>
+      <div style="background:#fdecea;border-radius:8px;padding:14px 16px;margin-bottom:12px">
+        <p style="font-size:13px;font-weight:600;color:#6b0000;margin-bottom:8px;">The one thing I most want to improve before assessment:</p>
+        <textarea id="improve-before" style="width:100%;background:#fff;border:1px solid rgba(107,0,0,.2);border-radius:6px;padding:8px;font-family:Arial,sans-serif;font-size:13px;resize:vertical;min-height:36px" placeholder="e.g. My conclusion feels weak / I stumble on the third argument..." data-field-id="w8_l1_f1" data-label="e.g. My conclusion feels weak / I stumble on the third argum"></textarea>
+      </div>
+      <div style="background:#fdecea;border-radius:8px;padding:14px 16px;margin-bottom:12px">
+        <p style="font-size:13px;font-weight:600;color:#6b0000;margin-bottom:8px;">My best line in the speech:</p>
+        <textarea id="best-line" style="width:100%;background:#fff;border:1px solid rgba(107,0,0,.2);border-radius:6px;padding:8px;font-family:Arial,sans-serif;font-size:13px;resize:vertical;min-height:36px" placeholder="Copy your strongest sentence here..." data-field-id="w8_l1_f2" data-label="Copy your strongest sentence here..."></textarea>
+      </div>
+      <div class="nerves-zone">
+        <h4>My nervousness level right now (tap a number):</h4>
+        <div class="nerves-scale" id="nerves-pre">
+          <div class="nerves-btn" onclick="pickNerves('nerves-pre',1,this)">1</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-pre',2,this)">2</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-pre',3,this)">3</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-pre',4,this)">4</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-pre',5,this)">5</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-pre',6,this)">6</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-pre',7,this)">7</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-pre',8,this)">8</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-pre',9,this)">9</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-pre',10,this)">10</div>
+        </div>
+        <p class="nerves-label" id="nerves-pre-label">Nerves at 7-8 are optimal. Too low = not engaged. Too high = panic. Preparation is the antidote.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Run-throughs -->
+  <div class="phase ph-crim">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">run</span>
+      <div class="phase-meta"><span class="phase-tag">Three run-throughs | 5-55 min</span><span class="phase-title">Rehearsal Log -- Track Every Run</span></div>
+      <span class="phase-time">5-55 min</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:14px;">Complete all three run-throughs. Start each timer when you begin, stop it when you finish.</p>
+      <div style="background:#fdecea;border-radius:10px;padding:14px 18px;margin-bottom:14px">
+        <div class="run-row">
+          <div class="run-label">Run 1</div>
+          <div class="run-info"><strong>Solo, timed, to yourself.</strong> Keep going even if you stumble -- skip ahead if you need to.</div>
+          <div class="run-time" id="rt1">0:00</div>
+          <button class="run-btn" id="rb1" onclick="toggleRun(1)">Start</button>
+        </div>
+        <div class="run-row">
+          <div class="run-label">Run 2</div>
+          <div class="run-info"><strong>Group of 3.</strong> Full speech each. Audience gives DELIVERY FEEDBACK FRAME after each speech.</div>
+          <div class="run-time" id="rt2">0:00</div>
+          <button class="run-btn" id="rb2" onclick="toggleRun(2)">Start</button>
+        </div>
+        <div class="run-row">
+          <div class="run-label">Run 3</div>
+          <div class="run-info"><strong>Volunteer to the full class</strong> (optional but highly recommended -- the closest experience to assessment day).</div>
+          <div class="run-time" id="rt3">0:00</div>
+          <button class="run-btn" id="rb3" onclick="toggleRun(3)">Start</button>
+        </div>
+      </div>
+      <div class="timer-strip">
+        <div class="timer-display" id="t1">0:00</div>
+        <div class="timer-label">General timer (use for any run)</div>
+        <span class="timer-target">Target: 3:00 -- 5:00</span>
+        <div class="timer-btns">
+          <button class="timer-btn" onclick="startTimer('t1')">Start</button>
+          <button class="timer-btn" onclick="stopTimer('t1')">Stop</button>
+          <button class="timer-btn" onclick="resetTimer('t1')">Reset</button>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(107,0,0,.12);border-radius:8px;padding:12px 14px;margin-top:14px">
+        <p style="font-size:12px;font-weight:700;color:#6b0000;margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em">Delivery Feedback Frame (Run 2 -- use for each group member)</p>
+        <p style="font-size:12px;color:#333;line-height:1.8">"The most persuasive moment was [describe] because [effect on you as audience]."<br>"One delivery technique you used well was [name it] in [location]."<br>"The moment where I lost focus as a listener was [location] -- I suggest [specific change]."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post check-in -->
+  <div class="phase ph-exit">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">post</span>
+      <div class="phase-meta"><span class="phase-tag">After rehearsal | 60-70 min</span><span class="phase-title">Post-Rehearsal Check-In</span></div>
+      <span class="phase-time">60-70 min</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Revisit your opening answers. What has changed?</p>
+      <div style="background:#fdecea;border-radius:8px;padding:14px 16px;margin-bottom:12px">
+        <p style="font-size:13px;font-weight:600;color:#6b0000;margin-bottom:8px;">Has your 'one thing to improve' changed? What is it now?</p>
+        <textarea style="width:100%;background:#fff;border:1px solid rgba(107,0,0,.2);border-radius:6px;padding:8px;font-family:Arial,sans-serif;font-size:13px;resize:vertical;min-height:36px" placeholder="After rehearsing, the thing I most want to improve is..." data-field-id="w8_l1_f3" data-label="After rehearsing, the thing I most want to improve is..."></textarea>
+      </div>
+      <div class="nerves-zone">
+        <h4>My nervousness level NOW (after rehearsal):</h4>
+        <div class="nerves-scale" id="nerves-post">
+          <div class="nerves-btn" onclick="pickNerves('nerves-post',1,this)">1</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-post',2,this)">2</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-post',3,this)">3</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-post',4,this)">4</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-post',5,this)">5</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-post',6,this)">6</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-post',7,this)">7</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-post',8,this)">8</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-post',9,this)">9</div>
+          <div class="nerves-btn" onclick="pickNerves('nerves-post',10,this)">10</div>
+        </div>
+        <p class="nerves-label" id="nerves-post-label">Every run-through shifts the balance. The speech becomes something you know how to do -- not something you are trying to survive.</p>
+      </div>
+      <div class="callout callout-faith"><strong>2 Timothy 1:7</strong>"For God has not given us a spirit of fear, but of power, love, and self-discipline." Preparation is an act of self-discipline. The courage to stand and speak is an act of trust. You have done both this week.</div>
+    </div>
+  </div>
+
+  <button class="portal-submit-btn" id="submit-btn-l1" onclick="submitLesson(1)">Submit Lesson 1 to Teacher</button>
+  <div class="lesson-nav">
+    <span></span>
+    <button class="nav-next" onclick="goLesson(2)">Lesson 2 -- Peer Evaluation --&gt;</button>
+  </div>
+</div>
+
+<!-- LESSON 2 -->
+<div id="l2" class="lesson">
+  <div class="lesson-hd l2-hd">
+    <div class="lesson-num">Lesson 2 | 70 min</div>
+    <h2>Peer Evaluation of Speeches</h2>
+    <p>The better you can identify technique in others, the better you can use it yourself.</p>
+    <div class="badge-row"><span class="badge">AC9E9LY02</span><span class="badge">70 minutes</span><span class="badge">Listen | Evaluate | Identify</span></div>
+  </div>
+
+  <div class="intentions int-navy">
+    <h3>By the end of this lesson you can...</h3>
+    <div class="check-item">Identify and name at least three specific techniques in a peer's speech</div>
+    <div class="check-item">Evaluate the effectiveness of those techniques against the criteria</div>
+    <div class="check-item">Provide written, evidence-based feedback using the evaluation framework</div>
+    <div class="check-item">Articulate what you will apply from this experience to your own speech</div>
+  </div>
+
+  <div class="checklist">
+    <h4>Lesson 2 checklist</h4>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Copy the Peer Evaluation Framework into Worksheet 8B</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Evaluate Speech 1 using the framework</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Evaluate Speech 2 using the framework</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Complete the self-evaluation section</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Write the one change you will make to your speech based on today</div></div>
+  </div>
+
+  <!-- Framework -->
+  <div class="phase ph-navy open">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">EV</span>
+      <div class="phase-meta"><span class="phase-tag">Framework | 0-8 min</span><span class="phase-title">Peer Evaluation Framework -- Copy This</span></div>
+      <span class="phase-time">0-8 min</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Copy this framework into Worksheet 8B. Use it for every speech you evaluate today.</p>
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <tr><th style="background:#1A2E4A;color:#fff;padding:7px 10px;text-align:left">Criterion</th><th style="background:#1A2E4A;color:#fff;padding:7px 10px;text-align:left">What to listen for</th><th style="background:#1A2E4A;color:#fff;padding:7px 10px;text-align:left">Evidence</th></tr>
+        <tr><td style="padding:7px 10px;border-bottom:1px solid #eee;font-weight:700;color:#1A2E4A">Structure</td><td style="padding:7px 10px;border-bottom:1px solid #eee">Hook, contention, 3 arguments, rebuttal, conclusion. All present? Clearly signposted?</td><td style="padding:7px 10px;border-bottom:1px solid #eee;color:#777;font-style:italic">write here in your worksheet</td></tr>
+        <tr style="background:#e4eaf2"><td style="padding:7px 10px;border-bottom:1px solid #eee;font-weight:700;color:#1A2E4A">Language Devices</td><td style="padding:7px 10px;border-bottom:1px solid #eee">Ethos, pathos, logos, tricolon, rhetorical question, emotive language, allusion, metaphor.</td><td style="padding:7px 10px;border-bottom:1px solid #eee;color:#777;font-style:italic">write here</td></tr>
+        <tr><td style="padding:7px 10px;border-bottom:1px solid #eee;font-weight:700;color:#1A2E4A">Vocabulary</td><td style="padding:7px 10px;border-bottom:1px solid #eee">Precise, purposeful, appropriate register. No weasel words.</td><td style="padding:7px 10px;border-bottom:1px solid #eee;color:#777;font-style:italic">write here</td></tr>
+        <tr style="background:#e4eaf2"><td style="padding:7px 10px;border-bottom:1px solid #eee;font-weight:700;color:#1A2E4A">Delivery</td><td style="padding:7px 10px;border-bottom:1px solid #eee">Volume, pace, pause, emphasis, eye contact. Intentional moments?</td><td style="padding:7px 10px;border-bottom:1px solid #eee;color:#777;font-style:italic">write here</td></tr>
+        <tr><td style="padding:7px 10px;font-weight:700;color:#1A2E4A">Overall</td><td style="padding:7px 10px">Were you persuaded? Strongest moment? Why?</td><td style="padding:7px 10px;color:#777;font-style:italic">write here</td></tr>
+      </table>
+      <div class="quiz" style="margin-top:14px">
+        <h4>Quick check -- what is this lesson FOR?</h4>
+        <p class="quiz-q">Why are you evaluating peer speeches the week before your own assessment?</p>
+        <div class="quiz-opts" id="q1">
+          <button class="opt" onclick="answer('q1',this,false,'That is a side benefit -- but the primary purpose is analytical. Identifying technique in others sharpens your ability to use and evaluate it in your own speech.')">To give your classmates a mark before the teacher does.</button>
+          <button class="opt" onclick="answer('q1',this,true,'Exactly. Analysing technique in others sharpens your ability to recognise and use it deliberately in your own speech. It also develops the evaluative skills the assessment criteria requires.')">To practise identifying technique analytically -- the same skill used to evaluate YOUR speech next week.</button>
+          <button class="opt" onclick="answer('q1',this,false,'Feedback to the speaker is a by-product -- the primary learning is your own development as a critical listener and analyst.')">To be kind and supportive to speakers before assessment.</button>
+        </div>
+        <div class="quiz-fb" id="q1-fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Self-eval -->
+  <div class="phase ph-green">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">SE</span>
+      <div class="phase-meta"><span class="phase-tag">Self-evaluation | 53-65 min</span><span class="phase-title">What Did You Learn?</span></div>
+      <span class="phase-time">53-65 min</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <div class="eval-zone">
+        <h4>Self-evaluation -- apply today's observations to your own speech</h4>
+        <div class="eval-row">
+          <label>Which technique did you observe today that you most want to strengthen in your own speech?</label>
+          <textarea placeholder="I want to strengthen [technique] because I saw how effectively [speaker] used it when..." data-field-id="w8_l2_f4" data-label="I want to strengthen [technique] because I saw how effective"></textarea>
+        </div>
+        <div class="eval-row">
+          <label>What was the most genuinely persuasive moment you heard today -- and why did it work?</label>
+          <textarea placeholder="The most persuasive moment was when [speaker] [describe moment] because..." data-field-id="w8_l2_f5" data-label="The most persuasive moment was when [speaker] [describe mome"></textarea>
+        </div>
+        <div class="eval-row">
+          <label>Write the ONE change you will make to your speech based on what you heard today:</label>
+          <textarea placeholder="I am going to [specific action] in [specific section] because..." data-field-id="w8_l2_f6" data-label="I am going to [specific action] in [specific section] becaus"></textarea>
+        </div>
+      </div>
+      <div class="callout callout-faith"><strong>Proverbs 15:22</strong>"Plans fail for lack of counsel, but with many advisers they succeed." The feedback you receive today is a gift. Students who receive it well and act on it arrive at assessment with a sharper speech than those who don't.</div>
+    </div>
+  </div>
+
+  <button class="portal-submit-btn" id="submit-btn-l2" onclick="submitLesson(2)">Submit Lesson 2 to Teacher</button>
+  <div class="lesson-nav">
+    <button class="nav-prev" onclick="goLesson(1)">&lt;-- Lesson 1</button>
+    <button class="nav-next" onclick="goLesson(3)">Lesson 3 -- Final Edit --&gt;</button>
+  </div>
+</div>
+
+<!-- LESSON 3 -->
+<div id="l3" class="lesson">
+  <div class="lesson-hd l3-hd">
+    <div class="lesson-num">Lesson 3 | 70 min</div>
+    <h2>Final Editing and Script Submission</h2>
+    <p>One targeted improvement. One final read-aloud. Submit. You are ready.</p>
+    <div class="badge-row"><span class="badge">AC9E9LY06</span><span class="badge">70 minutes</span><span class="badge">Finalise | Incorporate | Submit</span></div>
+  </div>
+
+  <div class="intentions int-gold">
+    <h3>By the end of this lesson you can...</h3>
+    <div class="check-item">Make targeted, evidence-based edits using feedback received</div>
+    <div class="check-item">Check your script against the Final Script Checklist</div>
+    <div class="check-item">Deliver a final timed read-aloud of your complete script</div>
+    <div class="check-item">Submit a formatted, annotated script ready for assessment</div>
+  </div>
+
+  <div class="checklist">
+    <h4>Lesson 3 checklist</h4>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Make targeted final edits (highest-value improvement first)</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Complete the Final Script Checklist -- every box ticked before submitting</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Deliver your final read-aloud and time it</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Submit your finalised script to your teacher</div></div>
+  </div>
+
+  <!-- Editing focus -->
+  <div class="phase ph-gold open">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">ed</span>
+      <div class="phase-meta"><span class="phase-tag">Editing session | 0-35 min</span><span class="phase-title">One Targeted Improvement</span></div>
+      <span class="phase-time">0-35 min</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">This is not the time for major structural changes. Identify your highest-value improvement and do that one thing well.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+        <div style="background:#fdf3d8;border-radius:7px;padding:10px 12px;font-size:12px"><strong style="display:block;color:#5C3D0A;margin-bottom:4px">If your speech is working:</strong>Don't rewrite it. Mark it up for delivery instead. Add notation marks to every key moment.</div>
+        <div style="background:#fdecea;border-radius:7px;padding:10px 12px;font-size:12px"><strong style="display:block;color:#6b0000;margin-bottom:4px">If your conclusion is weak:</strong>That is the highest-value edit. Rewrite your call to action first. Everything else can wait.</div>
+        <div style="background:#fdf3d8;border-radius:7px;padding:10px 12px;font-size:12px"><strong style="display:block;color:#5C3D0A;margin-bottom:4px">If you are under 3 minutes:</strong>Add content to your thinnest argument. One more piece of evidence and one more explanation sentence.</div>
+        <div style="background:#fdecea;border-radius:7px;padding:10px 12px;font-size:12px"><strong style="display:block;color:#6b0000;margin-bottom:4px">If you are over 5:30:</strong>Identify the most repetitive section. Cut the weakest example, not your strongest argument.</div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(92,61,10,.15);border-radius:8px;padding:12px 14px">
+        <p style="font-size:13px;font-weight:600;color:#5C3D0A;margin-bottom:8px;">Record your final edits:</p>
+        <textarea style="width:100%;background:#fff;border:1px solid rgba(92,61,10,.2);border-radius:6px;padding:8px;font-family:Arial,sans-serif;font-size:12px;resize:vertical;min-height:60px" placeholder="Section I edited: ... / What I changed: ... / Why: ..." data-field-id="w8_l3_f7" data-label="Section I edited: ... / What I changed: ... / Why: ..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final checklist -->
+  <div class="phase ph-gold">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">CL</span>
+      <div class="phase-meta"><span class="phase-tag">Script check | 35-45 min</span><span class="phase-title">Final Script Checklist -- All Six Must Be Ticked</span></div>
+      <span class="phase-time">35-45 min</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;font-weight:600">Do not submit until every box is ticked. Fix anything unticked first.</p>
+      <div class="final-check">
+        <h4>Final Script Requirements</h4>
+        <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">My name, date, topic, and contention appear at the top of the script</div></div>
+        <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">The full speech is written in continuous prose (not bullet points or notes)</div></div>
+        <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Delivery notation marks visible throughout -- // pause | SLOW | LOUD | [look up] | STRESS</div></div>
+        <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Total word count and estimated delivery time written at the bottom</div></div>
+        <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Worksheet 7C self-assessment is completed and attached</div></div>
+        <div class="ck-row" onclick="tick(this)"><div class="ck-box">ok</div><div class="ck-text">Script submitted via Canvas or in hard copy as directed</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final read-aloud -->
+  <div class="phase ph-exit">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">fin</span>
+      <div class="phase-meta"><span class="phase-tag">Final read-aloud + submit | 45-70 min</span><span class="phase-title">One Last Time -- Then Submit</span></div>
+      <span class="phase-time">45-70 min</span><span class="chevron">v</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Stand up. Deliver your complete speech aloud one final time. Time it below.</p>
+      <div class="timer-strip">
+        <div class="timer-display" id="t2">0:00</div>
+        <div class="timer-label">Final speech delivery time</div>
+        <span class="timer-target">Target: 3:00 -- 5:00</span>
+        <div class="timer-btns">
+          <button class="timer-btn" onclick="startTimer('t2')">Start</button>
+          <button class="timer-btn" onclick="stopTimer('t2')">Stop</button>
+          <button class="timer-btn" onclick="resetTimer('t2')">Reset</button>
+        </div>
+      </div>
+      <div class="exit-box" style="margin-top:14px">
+        <h4>Before you submit -- final reflection</h4>
+        <p class="eq">What is the single strongest moment in your speech? Copy it here:</p>
+        <textarea placeholder="My strongest moment is..." data-field-id="w8_l3_f8" data-label="My strongest moment is..."></textarea>
+        <p class="eq">What will you practise tonight before assessment?</p>
+        <textarea placeholder="Tonight I will practise..." style="min-height:36px" data-field-id="w8_l3_f9" data-label="Tonight I will practise..."></textarea>
+        <p class="eq">What is the most valuable thing you have learned in this unit -- about persuasion, language, or yourself as a communicator?</p>
+        <textarea placeholder="The most valuable thing I have learned is..." style="min-height:70px" data-field-id="w8_l3_f10" data-label="The most valuable thing I have learned is..."></textarea>
+      </div>
+      <div style="background:#fdf3d8;border-radius:8px;padding:16px 18px;margin-top:14px;text-align:center">
+        <p style="font-family:Georgia,serif;font-size:16px;color:#5C3D0A;font-weight:600;margin-bottom:6px">You have done the work.</p>
+        <p style="font-size:13px;color:#3d2800">Your argument is researched. Your script is written. Your delivery is practised. Next week, all you have to do is trust it.</p>
+      </div>
+      <div class="callout callout-faith" style="margin-top:12px"><strong>Colossians 3:23</strong>"Whatever you do, work at it with all your heart, as working for the Lord, not for human masters." The preparation you have done across eight weeks is the work. Assessment is the occasion to show it. The integrity of your effort is already its own reward.</div>
+    </div>
+  </div>
+
+  <button class="portal-submit-btn" id="submit-btn-l3" onclick="submitLesson(3)">Submit Lesson 3 to Teacher</button>
+  <div class="lesson-nav">
+    <button class="nav-prev" onclick="goLesson(2)">&lt;-- Lesson 2</button>
+    <div class="complete-badge">Week 8 Complete -- Assessment Ready!</div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <strong>Bundaberg Christian College</strong> | Year 9 English | Unit 2: Powerful Persuasion | Term 2, Week 8<br>
+  <span style="font-size:10px;font-style:italic;">"All the treasures of wisdom and knowledge" -- Colossians 2:3</span>
+</div>
+
+</div>
+
+<script>
+var answered = {}, timers = {}, timerIntervals = {}, runTimers = {}, runIntervals = {}, runStates = {};
+
+function goLesson(n) {
+  document.querySelectorAll('.lesson').forEach(function(el){el.classList.remove('active');});
+  document.getElementById('l'+n).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(function(btn,i){btn.classList.toggle('active',i+1===n);});
+  document.querySelectorAll('.hero-pill').forEach(function(p,i){p.classList.toggle('active',i+1===n);});
+  window.scrollTo({top:0,behavior:'smooth'});
+  updateProgress();
+}
+function togglePhase(hd){hd.closest('.phase').classList.toggle('open');}
+function tick(row){row.classList.toggle('done');updateProgress();}
+function updateProgress(){
+  var total=document.querySelectorAll('.ck-row').length;
+  var done=document.querySelectorAll('.ck-row.done').length;
+  var pct=total>0?Math.round(done/total*100):0;
+  document.getElementById('pf').style.width=pct+'%';
+  document.getElementById('pp').textContent=pct+'%';
+}
+function answer(qid,btn,correct,msg){
+  if(answered[qid])return;
+  answered[qid]=true;
+  var container=document.getElementById(qid);
+  var fb=document.getElementById(qid+'-fb');
+  container.querySelectorAll('.opt').forEach(function(b){b.disabled=true;b.style.opacity='0.55';});
+  btn.style.opacity='1';
+  if(correct){btn.classList.add('correct');fb.textContent='Correct! '+msg;fb.className='quiz-fb show ok';}
+  else{
+    btn.classList.add('wrong');
+    container.querySelectorAll('.opt').forEach(function(b){if(b.getAttribute('onclick')&&b.getAttribute('onclick').indexOf(',true,')>-1){b.classList.add('correct');b.style.opacity='1';}});
+    fb.textContent=msg;fb.className='quiz-fb show bad';
+  }
+}
+function pickNerves(groupId,n,btn){
+  document.getElementById(groupId).querySelectorAll('.nerves-btn').forEach(function(b){b.classList.remove('picked');});
+  btn.classList.add('picked');
+  var label=document.getElementById(groupId+'-label');
+  if(!label)return;
+  if(n<=3)label.textContent='Low nerves -- good. Channel this into focus.';
+  else if(n<=5)label.textContent='Comfortable range. You are prepared and ready.';
+  else if(n<=7)label.textContent='Healthy nerves -- this is optimal performance range.';
+  else if(n<=8)label.textContent='High but manageable. Keep rehearsing -- preparation is the antidote.';
+  else label.textContent='Very high. Tell your teacher. More rehearsal time will help more than anything else.';
+}
+function startTimer(id){
+  if(timerIntervals[id])return;
+  if(!timers[id])timers[id]=0;
+  timerIntervals[id]=setInterval(function(){
+    timers[id]++;
+    var m=Math.floor(timers[id]/60),s=timers[id]%60;
+    var el=document.getElementById(id);
+    if(el)el.textContent=m+':'+(s<10?'0':'')+s;
+  },1000);
+}
+function stopTimer(id){clearInterval(timerIntervals[id]);timerIntervals[id]=null;}
+function resetTimer(id){stopTimer(id);timers[id]=0;var el=document.getElementById(id);if(el)el.textContent='0:00';}
+function toggleRun(n){
+  var id='rt'+n,btnId='rb'+n;
+  var btn=document.getElementById(btnId);
+  var display=document.getElementById(id);
+  if(!runTimers[n])runTimers[n]=0;
+  if(runIntervals[n]){
+    clearInterval(runIntervals[n]);runIntervals[n]=null;
+    btn.textContent='Resume';
+    btn.style.background='#7C5C1A';
+  } else {
+    runIntervals[n]=setInterval(function(){
+      runTimers[n]++;
+      var m=Math.floor(runTimers[n]/60),s=runTimers[n]%60;
+      if(display)display.textContent=m+':'+(s<10?'0':'')+s;
+    },1000);
+    btn.textContent='Pause';
+  }
+}
+document.querySelectorAll('.lesson').forEach(function(l){var fp=l.querySelector('.phase');if(fp)fp.classList.add('open');});
+updateProgress();
+
+
+// ── COLLECTOR MODULE ─────────────────────────────────────────
+var PORTAL_URL = 'https://script.google.com/macros/s/AKfycby7k1gZT0JXh3WQrhjNHCHf1Qm5d9UDJbHqhc0FMazhDAust5K9dIjb1X-8Tv3mbhQ-/exec';
+var PORTAL_WEEK = '8';
+
+function getIdentity() {
+  return {
+    name: (document.getElementById('portal-name')||{value:''}).value.trim(),
+    cls:  (document.getElementById('portal-class')||{value:''}).value.trim()
+  };
+}
+
+function confirmIdentity() {
+  var id = getIdentity();
+  var bar = document.getElementById('portal-id-bar');
+  var status = document.getElementById('portal-id-status');
+  if (!id.name) {
+    bar.style.borderBottomColor = '#ef4444';
+    bar.style.animation = 'shake 0.3s';
+    setTimeout(function(){ bar.style.animation=''; }, 300);
+    return false;
+  }
+  bar.style.borderBottomColor = '#22c55e';
+  status.textContent = 'Saved as: ' + id.name + ' (' + (id.cls||'no class') + ')';
+  status.style.background = '#22c55e';
+  try {
+    sessionStorage.setItem('portal_name', id.name);
+    sessionStorage.setItem('portal_class', id.cls);
+  } catch(e){}
+  return true;
+}
+
+function restoreIdentity() {
+  try {
+    var n = sessionStorage.getItem('portal_name');
+    var c = sessionStorage.getItem('portal_class');
+    if (n) {
+      var ni = document.getElementById('portal-name');
+      var ci = document.getElementById('portal-class');
+      if (ni) ni.value = n;
+      if (ci) ci.value = c || '';
+      confirmIdentity();
+    }
+  } catch(e){}
+}
+
+function submitLesson(lessonNum) {
+  var id = getIdentity();
+  if (!id.name) {
+    var bar = document.getElementById('portal-id-bar');
+    bar.style.borderBottomColor = '#ef4444';
+    bar.scrollIntoView({behavior:'smooth', block:'start'});
+    bar.style.animation = 'shake 0.3s';
+    setTimeout(function(){ bar.style.animation=''; }, 300);
+    showToast('Please enter your name and click Confirm first.', 'err');
+    return;
+  }
+
+  var lessonEl = document.getElementById('l' + lessonNum);
+  if (!lessonEl) { showToast('Lesson not found.', 'err'); return; }
+
+  var tagged = lessonEl.querySelectorAll('textarea[data-field-id]');
+  var collected = [];
+  tagged.forEach(function(ta) {
+    var val = ta.value.trim();
+    var label = ta.getAttribute('data-label') || ta.getAttribute('data-field-id');
+    collected.push(label + ': ' + (val || '(blank)'));
+    try { sessionStorage.setItem('field_' + ta.getAttribute('data-field-id'), val); } catch(e){}
+  });
+
+  if (collected.length === 0) {
+    showToast('No response fields found in this lesson.', 'err');
+    return;
+  }
+
+  var fields = collected.join(' || ');
+  var btn = document.getElementById('submit-btn-l' + lessonNum);
+  if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }
+
+  var params = [
+    'studentName=' + encodeURIComponent(id.name),
+    'className='   + encodeURIComponent(id.cls),
+    'week='        + encodeURIComponent(PORTAL_WEEK),
+    'lesson='      + encodeURIComponent(lessonNum),
+    'fields='      + encodeURIComponent(fields)
+  ].join('&');
+
+  var img = new Image();
+  img.onload = img.onerror = function() {
+    showToast('Lesson ' + lessonNum + ' submitted! Your teacher can now see your responses.', 'ok');
+    if (btn) { btn.textContent = 'Submitted'; btn.style.background = '#22c55e'; }
+  };
+  img.src = PORTAL_URL + '?' + params;
+}
+
+function showToast(msg, type) {
+  var t = document.getElementById('portal-toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.className = 'portal-toast show ' + type;
+  clearTimeout(t._timer);
+  t._timer = setTimeout(function(){ t.className = 'portal-toast'; }, 4000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  restoreIdentity();
+});
+
+</script>
+</body>
+</html>
