@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Powerful Persuasion — Week 2 | Year 9 English | BCC</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;font-size:15px;line-height:1.65;background:#f8f6f2;color:#1a1025}
+
+.shell{max-width:860px;margin:0 auto;padding:0 0 60px}
+
+/* nav */
+.nav{background:#1A3A5C;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.28)}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.bcc-pill{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:5px;padding:2px 9px;font-size:11px;font-weight:700;letter-spacing:.1em;color:#fff}
+.nav-title{font-family:Georgia,serif;font-size:15px;font-weight:700;color:#fff}
+.nav-sub{font-size:11px;color:rgba(255,255,255,.6)}
+.nav-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab-btn{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);border-radius:6px;padding:6px 14px;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s}
+.tab-btn.active{background:#fff;color:#1A3A5C;font-weight:700;border-color:#fff}
+.tab-btn:hover:not(.active){background:rgba(255,255,255,.2);color:#fff}
+
+/* progress */
+.prog-bar{background:#eae8e2;padding:9px 22px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(26,58,92,.08)}
+.prog-label{font-size:11px;font-weight:700;color:#1A3A5C;white-space:nowrap}
+.prog-track{flex:1;height:6px;background:rgba(26,58,92,.12);border-radius:100px;overflow:hidden}
+.prog-fill{height:100%;width:0%;background:linear-gradient(90deg,#00796B,#1A3A5C);border-radius:100px;transition:width .4s ease}
+.prog-pct{font-size:11px;font-weight:700;color:#1A3A5C;min-width:30px;text-align:right}
+
+/* hero */
+.hero{background:linear-gradient(135deg,#1A3A5C,#2d6a9f 55%,#0f4d6b);color:#fff;padding:46px 22px 54px;text-align:center}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:4px 16px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-family:Georgia,serif;font-size:clamp(26px,5vw,44px);font-weight:900;line-height:1.05;margin-bottom:10px;color:#fff}
+.hero h1 em{color:#7fd4c1;font-style:italic}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.8);max-width:460px;margin:0 auto 22px}
+.hero-pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.hero-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8);border-radius:100px;padding:7px 16px;font-size:12px;cursor:pointer;transition:all .2s}
+.hero-pill:hover,.hero-pill.active{background:rgba(255,255,255,.22);color:#fff}
+
+.content{padding:26px 18px 0}
+
+/* lesson panels */
+.lesson{display:none}
+.lesson.active{display:block;animation:fadein .25s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* lesson header */
+.lesson-hd{border-radius:10px;padding:20px 24px;margin-bottom:20px;color:#fff}
+.lesson-hd h2{font-family:Georgia,serif;font-size:21px;font-weight:700;margin:6px 0;color:#fff}
+.lesson-hd p{font-size:13px;color:rgba(255,255,255,.85);margin-bottom:12px}
+.l1-hd{background:linear-gradient(135deg,#1A3A5C,#2d6a9f)}
+.l2-hd{background:linear-gradient(135deg,#00574b,#00a896)}
+.l3-hd{background:linear-gradient(135deg,#6d2a00,#c55a00)}
+.lesson-num{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);border-radius:5px;display:inline-block;padding:2px 9px;margin-bottom:8px}
+.badge-row{display:flex;flex-wrap:wrap;gap:6px}
+.badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:2px 10px;font-size:10px;color:#fff}
+
+/* intentions */
+.intentions{background:#e8f0f8;border-left:4px solid #1A3A5C;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:18px}
+.intentions h3{font-family:Georgia,serif;font-size:13px;color:#1A3A5C;margin-bottom:8px}
+.check-item{font-size:13px;padding:3px 0 3px 18px;position:relative}
+.check-item::before{content:"✓";position:absolute;left:0;color:#00796B;font-weight:700}
+
+/* checklist */
+.checklist{background:#fff;border:1px solid rgba(26,58,92,.12);border-radius:8px;padding:14px 18px;margin-bottom:18px}
+.checklist h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#1A3A5C;margin-bottom:10px}
+.ck-row{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;-webkit-user-select:none;user-select:none}
+.ck-row:last-child{border-bottom:none}
+.ck-box{width:20px;height:20px;min-width:20px;border:2px solid rgba(26,58,92,.3);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:12px;color:transparent;transition:all .15s;margin-top:1px;flex-shrink:0}
+.ck-row.done .ck-box{background:#1A3A5C;border-color:#1A3A5C;color:#fff}
+.ck-row.done .ck-text{text-decoration:line-through;opacity:.45}
+.ck-text{font-size:13px}
+
+/* phases */
+.phase{border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,.08);margin-bottom:10px}
+.phase-hd{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;-webkit-user-select:none;user-select:none;transition:filter .1s}
+.phase-hd:hover{filter:brightness(1.06)}
+.phase-icon{font-size:16px;flex-shrink:0}
+.phase-meta{flex:1}
+.phase-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75;display:block;margin-bottom:1px}
+.phase-title{font-family:Georgia,serif;font-size:14px;font-weight:600}
+.phase-time{font-size:10px;font-weight:600;background:rgba(255,255,255,.2);border-radius:100px;padding:2px 9px;color:rgba(255,255,255,.85);flex-shrink:0}
+.chevron{font-size:11px;opacity:.75;transition:transform .25s;flex-shrink:0}
+.phase.open .chevron{transform:rotate(180deg)}
+.phase-body{display:none;background:#fff;border-top:1px solid rgba(0,0,0,.06);padding:16px 18px}
+.phase.open .phase-body{display:block}
+
+.ph-hook .phase-hd{background:linear-gradient(135deg,#c55a00,#e07000);color:#fff}
+.ph-teach .phase-hd{background:linear-gradient(135deg,#1A3A5C,#2d6a9f);color:#fff}
+.ph-guided .phase-hd{background:linear-gradient(135deg,#1b5e20,#00796B);color:#fff}
+.ph-indep .phase-hd{background:linear-gradient(135deg,#00796B,#0097a7);color:#fff}
+.ph-exit .phase-hd{background:linear-gradient(135deg,#6d2a00,#b5294e);color:#fff}
+.ph-game .phase-hd{background:linear-gradient(135deg,#4A235A,#7b3fba);color:#fff}
+
+/* callouts */
+.callout{border-radius:0 6px 6px 0;padding:10px 14px;margin:10px 0;font-size:12px;line-height:1.6}
+.callout strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+.callout-faith{background:#e8f0f8;border-left:3px solid #1A3A5C}
+.callout-faith strong{color:#1A3A5C}
+.callout-ext{background:#e8f5e9;border-left:3px solid #2E7D32}
+.callout-ext strong{color:#2E7D32}
+.callout-supp{background:#fff3e0;border-left:3px solid #c55a00}
+.callout-supp strong{color:#c55a00}
+.callout-stem{background:#e8f0f8;border-left:3px solid #1A3A5C;border-radius:0 6px 6px 0;padding:12px 16px;margin:10px 0;font-size:13px;line-height:1.7}
+.callout-stem strong{display:block;font-size:11px;font-weight:700;color:#1A3A5C;margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em}
+
+/* tables */
+.vtable{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0 14px}
+.vtable th{background:#1A3A5C;color:#fff;padding:7px 10px;text-align:left;font-weight:600}
+.vtable td{padding:7px 10px;border-bottom:1px solid #eee;vertical-align:top}
+.vtable tr:nth-child(even) td{background:#e8f0f8}
+.vtable .term{font-weight:700;color:#1A3A5C}
+.vtable-navy th{background:#1A3A5C}
+.vtable-amber th{background:#c55a00}
+.vtable-teal th{background:#00796B}
+
+/* quote */
+.quote-block{background:#f3efe8;border-radius:8px;padding:12px 16px;font-family:Georgia,serif;font-size:13px;font-style:italic;line-height:1.8;color:#2a1a3e;margin:10px 0}
+.quote-src{font-style:normal;font-family:Arial,sans-serif;font-size:10px;font-weight:700;color:#1A3A5C;display:block;margin-top:6px;text-transform:uppercase;letter-spacing:.06em}
+.speech-block{background:#e8f0f8;border:1px solid rgba(26,58,92,.2);border-radius:8px;padding:14px 18px;font-family:Georgia,serif;font-size:13px;line-height:1.9;color:#1a1025;margin:10px 0}
+.speech-label{font-style:normal;font-family:Arial,sans-serif;font-size:10px;font-weight:700;color:#1A3A5C;display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+
+/* device cards */
+.device-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:12px 0}
+.device-card{border-radius:8px;padding:14px 16px}
+.device-card .dnum{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;display:block}
+.device-card h4{font-family:Georgia,serif;font-size:15px;margin:0 0 6px}
+.device-card p{font-size:12px;margin-bottom:4px}
+.device-card .ex{font-size:11px;color:#333;margin-top:5px;font-style:italic}
+.dc-navy{background:#e8f0f8;border-left:4px solid #1A3A5C}
+.dc-navy .dnum{color:#1A3A5C}
+.dc-teal{background:#e0f2f1;border-left:4px solid #00796B}
+.dc-teal .dnum{color:#00796B}
+.dc-green{background:#e8f5e9;border-left:4px solid #2E7D32}
+.dc-green .dnum{color:#2E7D32}
+.dc-purple{background:#ede7f6;border-left:4px solid #5B2C8D}
+.dc-purple .dnum{color:#5B2C8D}
+.dc-amber{background:#fff3e0;border-left:4px solid #c55a00}
+.dc-amber .dnum{color:#c55a00}
+
+/* speech transcript */
+.transcript{background:#f0f4fa;border:1px solid rgba(26,58,92,.18);border-radius:10px;padding:16px 20px;margin:12px 0;font-family:Georgia,serif;font-size:13px;line-height:2;color:#1a1025}
+.transcript-label{font-style:normal;font-family:Arial,sans-serif;font-size:10px;font-weight:700;color:#1A3A5C;display:block;margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid rgba(26,58,92,.15);padding-bottom:6px}
+.transcript p{margin-bottom:10px;font-style:italic}
+.hl-guide{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.hl-item{border-radius:4px;padding:4px 10px;font-size:11px;font-weight:600}
+.hl-1{background:#fce4ec;color:#880e4f}
+.hl-2{background:#e8f5e9;color:#1b5e20}
+.hl-3{background:#fff3e0;color:#c55a00}
+.hl-4{background:#e8f0f8;color:#1A3A5C}
+
+/* game */
+.game-card{background:#f7f5fb;border:1px solid #ede7f6;border-radius:8px;padding:14px 18px;margin-bottom:10px}
+.game-card .quote{font-family:Georgia,serif;font-size:14px;font-style:italic;line-height:1.8;margin-bottom:10px;color:#2a1a3e}
+.game-opts{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.game-btn{background:#fff;border:2px solid rgba(90,44,141,.15);border-radius:6px;padding:7px 12px;font-size:12px;cursor:pointer;font-family:Arial,sans-serif;transition:all .15s}
+.game-btn:hover{border-color:#5B2C8D}
+.game-btn.correct{background:#e8f5e9;border-color:#00796B;color:#1b5e20;font-weight:700}
+.game-btn.wrong{background:#fce4ec;border-color:#b5294e;color:#880e4f}
+.game-btn:disabled{cursor:default}
+.game-fb{display:none;font-size:12px;padding:8px 12px;border-radius:6px;margin-top:4px}
+.game-fb.show{display:block}
+.game-fb.ok{background:#e8f5e9;color:#1b5e20}
+.game-fb.bad{background:#fce4ec;color:#880e4f}
+.score-bar{background:#e8f0f8;border-radius:8px;padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;font-size:13px}
+.score-num{font-size:22px;font-weight:700;color:#1A3A5C;min-width:32px}
+
+/* quiz */
+.quiz{background:#f7f5fb;border:1px solid #ede7f6;border-radius:8px;padding:14px 18px;margin:12px 0}
+.quiz h4{font-size:13px;font-weight:700;color:#1A3A5C;margin-bottom:8px}
+.quiz-q{font-size:13px;margin-bottom:10px}
+.quiz-opts{display:flex;flex-direction:column;gap:6px}
+.opt{background:#fff;border:2px solid rgba(26,58,92,.15);border-radius:7px;padding:9px 12px;font-size:12px;text-align:left;cursor:pointer;transition:all .15s;font-family:Arial,sans-serif;width:100%}
+.opt:hover{border-color:#1A3A5C}
+.opt.correct{background:#e8f5e9;border-color:#00796B;color:#1b5e20;font-weight:700}
+.opt.wrong{background:#fce4ec;border-color:#b5294e;color:#880e4f}
+.opt:disabled{cursor:default}
+.quiz-fb{display:none;margin-top:8px;padding:8px 12px;border-radius:6px;font-size:12px}
+.quiz-fb.show{display:block}
+.quiz-fb.ok{background:#e8f5e9;color:#1b5e20}
+.quiz-fb.bad{background:#fce4ec;color:#880e4f}
+
+/* scramble */
+.scramble-list{list-style:none;margin:0;padding:0}
+.scramble-item{background:#fff;border:1px solid rgba(26,58,92,.12);border-radius:7px;padding:12px 14px;margin-bottom:8px;cursor:grab;font-size:13px;line-height:1.6;display:flex;align-items:flex-start;gap:10px;transition:all .2s;-webkit-user-select:none;user-select:none}
+.scramble-item:active{cursor:grabbing}
+.scramble-item.dragging{opacity:.5;transform:scale(.98)}
+.scramble-item.over{border-color:#1A3A5C;background:#e8f0f8}
+.drag-handle{color:#aaa;font-size:14px;margin-top:1px;flex-shrink:0}
+.item-label{font-size:10px;font-weight:700;color:#1A3A5C;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:3px}
+.drop-zone{min-height:40px;border:2px dashed rgba(26,58,92,.2);border-radius:8px;margin-bottom:8px;padding:6px;display:flex;flex-direction:column;gap:4px}
+.drop-zone.drag-active{border-color:#1A3A5C;background:#e8f0f8}
+.scramble-label-row{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-bottom:6px}
+.slab{background:#1A3A5C;color:#fff;text-align:center;padding:5px 4px;border-radius:5px;font-size:10px;font-weight:700}
+.check-order-btn{background:#1A3A5C;color:#fff;border:none;border-radius:7px;padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;margin-top:8px;font-family:Arial,sans-serif}
+.check-order-btn:hover{background:#2d6a9f}
+.order-result{display:none;margin-top:10px;padding:10px 14px;border-radius:7px;font-size:13px}
+.order-result.show{display:block}
+
+/* res cards */
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:10px 0}
+.res-card{background:#fff;border:1px solid rgba(26,58,92,.15);border-radius:7px;padding:11px 13px;display:block;text-decoration:none;color:inherit;transition:all .15s}
+.res-card:hover{border-color:#1A3A5C;transform:translateY(-1px)}
+.res-type{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#00796B;display:block;margin-bottom:3px}
+.res-name{font-size:13px;font-weight:600;display:block;margin-bottom:2px;color:#1a1025}
+.res-desc{font-size:11px;color:#555;display:block}
+
+/* exit / create */
+.exit-box{background:#e8f0f8;border-radius:8px;padding:14px 18px}
+.exit-box h4{font-family:Georgia,serif;font-size:13px;color:#1A3A5C;margin-bottom:10px}
+.eq{font-size:13px;font-weight:600;margin:0 0 4px}
+.exit-box textarea,.create-box textarea{width:100%;background:#fff;border:1px solid rgba(26,58,92,.2);border-radius:6px;padding:8px;font-family:Arial,sans-serif;font-size:12px;resize:vertical;min-height:44px;margin-bottom:10px}
+.create-box{background:#e8f0f8;border-radius:8px;padding:14px 18px}
+.create-box label{font-size:12px;font-weight:600;display:block;margin:8px 0 3px}
+.create-box label:first-child{margin-top:0}
+
+/* nav */
+.lesson-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:20px;border-top:1px solid rgba(26,58,92,.1)}
+.nav-prev{background:#fff;color:#1A3A5C;border:2px solid #1A3A5C;border-radius:8px;padding:10px 18px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s}
+.nav-prev:hover{background:#e8f0f8}
+.nav-next{background:#1A3A5C;color:#fff;border:none;border-radius:8px;padding:10px 18px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s}
+.nav-next:hover{background:#2d6a9f}
+.complete-badge{background:#00796B;color:#fff;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:700}
+
+/* footer */
+.footer{background:#1A3A5C;color:rgba(255,255,255,.6);text-align:center;padding:16px 20px;font-size:11px}
+.footer strong{color:rgba(255,255,255,.9)}
+
+/* two-col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+@media(max-width:520px){.two-col{grid-template-columns:1fr}}
+
+/* reaction journal */
+.journal-box{background:#fff3e0;border-radius:8px;padding:14px 18px}
+.journal-box h4{font-size:13px;font-weight:700;color:#c55a00;margin-bottom:10px}
+.journal-box label{font-size:12px;font-weight:600;display:block;margin:8px 0 3px;color:#1a1025}
+.journal-box label:first-child{margin-top:0}
+.journal-box textarea{width:100%;background:#fff;border:1px solid rgba(197,90,0,.2);border-radius:6px;padding:8px;font-family:Arial,sans-serif;font-size:12px;resize:vertical;min-height:44px;margin-bottom:2px}
+
+/* analysis table */
+.analysis-table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
+.analysis-table th{background:#00796B;color:#fff;padding:8px 10px;text-align:left;font-weight:600}
+.analysis-table td{padding:8px 10px;border-bottom:1px solid #eee;vertical-align:top}
+.analysis-table tr:nth-child(even) td{background:#e0f2f1}
+.analysis-table input[type=text]{width:100%;border:1px solid #ccc;border-radius:4px;padding:5px 7px;font-family:Arial,sans-serif;font-size:12px;background:#fafafa}
+.analysis-table input[type=text]:focus{outline:none;border-color:#00796B}
+
+/* ── Portal collector styles ── */
+@keyframes shake {
+  0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-6px)} 40%,80%{transform:translateX(6px)}
+}
+.portal-id-bar{background:#1a1025;padding:10px 22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-bottom:3px solid #5B2C8D;position:sticky;top:0;z-index:100}
+.portal-id-bar label{font-size:12px;color:rgba(255,255,255,.7);font-weight:600;white-space:nowrap}
+.portal-id-bar input{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:5px;color:#fff;padding:5px 10px;font-size:13px;font-family:Arial,sans-serif;width:155px}
+.portal-id-bar input::placeholder{color:rgba(255,255,255,.35)}
+.portal-id-bar input:focus{outline:none;border-color:#22c55e}
+.portal-confirm-btn{background:#5B2C8D;color:#fff;border:none;border-radius:6px;padding:6px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;white-space:nowrap}
+.portal-confirm-btn:hover{background:#7b3fba}
+.portal-id-status{font-size:11px;padding:3px 10px;border-radius:100px;font-weight:600;background:rgba(255,255,255,.15);color:rgba(255,255,255,.8)}
+.portal-submit-btn{display:block;width:100%;background:#1565c0;color:#fff;border:none;border-radius:8px;padding:12px 20px;font-size:14px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;margin:16px 0 8px;text-align:center;transition:background .15s}
+.portal-submit-btn:hover{background:#1976d2}
+.portal-submit-btn:disabled{background:#888;cursor:not-allowed}
+.portal-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#1a1025;color:#fff;padding:12px 24px;border-radius:8px;font-size:13px;font-weight:600;font-family:Arial,sans-serif;z-index:9999;transition:transform .3s ease;max-width:420px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.4);pointer-events:none}
+.portal-toast.show{transform:translateX(-50%) translateY(0)}
+.portal-toast.ok{background:#1b5e20}
+.portal-toast.err{background:#b71c1c}
+
+</style>
+</head>
+<body>
+<div class="shell">
+<div class="portal-id-bar" id="portal-id-bar">
+  <label>Your name:</label>
+  <input type="text" id="portal-name" placeholder="First Last">
+  <label>Class:</label>
+  <input type="text" id="portal-class" placeholder="9A" style="width:55px">
+  <button class="portal-confirm-btn" onclick="confirmIdentity()">Confirm</button>
+  <span class="portal-id-status" id="portal-id-status">Enter your name then click Confirm</span>
+</div>
+<div class="portal-toast" id="portal-toast"></div>
+
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">
+    <span class="bcc-pill">BCC</span>
+    <div>
+      <div class="nav-title">Powerful Persuasion — Week 2</div>
+      <div class="nav-sub">Year 9 English · Unit 2 · Term 2</div>
+    </div>
+  </div>
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="goLesson(1)">Lesson 1</button>
+    <button class="tab-btn" onclick="goLesson(2)">Lesson 2</button>
+    <button class="tab-btn" onclick="goLesson(3)">Lesson 3</button>
+  </div>
+</nav>
+
+<!-- PROGRESS -->
+<div class="prog-bar">
+  <span class="prog-label">Your progress</span>
+  <div class="prog-track"><div class="prog-fill" id="pf"></div></div>
+  <span class="prog-pct" id="pp">0%</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Unit 2 · Week 2 · 3 Lessons</div>
+  <h1>The Art of the <em>Argument</em></h1>
+  <p class="hero-sub">This week you learn how persuasive speeches are structured, how to analyse a real speech under the microscope, and how to master the five core rhetorical devices.</p>
+  <div class="hero-pills">
+    <div class="hero-pill active" onclick="goLesson(1)">Lesson 1 · Speech Structure</div>
+    <div class="hero-pill" onclick="goLesson(2)">Lesson 2 · Analysing a Real Speech</div>
+    <div class="hero-pill" onclick="goLesson(3)">Lesson 3 · Rhetorical Devices</div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ══════════ LESSON 1 ══════════ -->
+<div id="l1" class="lesson active">
+
+  <div class="lesson-hd l1-hd">
+    <div class="lesson-num">Lesson 1 · 70 min</div>
+    <h2>The Architecture of Argument: Speech Structure</h2>
+    <p>A powerful speech isn't improvised — it's built. Today you learn the blueprint every great speaker follows.</p>
+    <div class="badge-row">
+      <span class="badge">AC9E9LY02</span>
+      <span class="badge">70 minutes</span>
+      <span class="badge">Analyse · Identify</span>
+    </div>
+  </div>
+
+  <div class="intentions">
+    <h3>By the end of this lesson you can…</h3>
+    <div class="check-item">Name and describe the purpose of each section of a persuasive speech</div>
+    <div class="check-item">Identify signposting language (structural markers) in a text</div>
+    <div class="check-item">Analyse how the introduction hooks an audience and establishes contention</div>
+    <div class="check-item">Explain why a rebuttal section strengthens rather than weakens an argument</div>
+  </div>
+
+  <div class="checklist">
+    <h4>Lesson 1 checklist — tap each task to tick it off</h4>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Participate in the hook discussion about sleep</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Copy the Speech Blueprint table into your notes</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Annotate and complete the Blueprint poster with your partner</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Complete Worksheet 2A: Blueprint Builder</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Submit your Exit Ticket on Canvas</div></div>
+  </div>
+
+  <!-- Hook -->
+  <div class="phase ph-hook open">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">😴</span>
+      <div class="phase-meta"><span class="phase-tag">Hook · 0–8 min</span><span class="phase-title">The Sleep Question</span></div>
+      <span class="phase-time">0–8 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Your teacher will ask the class: <strong>"Raise your hand if you got 8+ hours of sleep last night and felt genuinely rested."</strong></p>
+      <p style="font-size:13px;margin-bottom:12px;">Then: <strong>"What gets in the way of sleep on school nights?"</strong> — share your answer.</p>
+      <div class="quiz">
+        <h4>Before we start — what do you think?</h4>
+        <p class="quiz-q">If you were going to argue that school should start later, which would be the strongest opening line?</p>
+        <div class="quiz-opts" id="q1">
+          <button class="opt" onclick="answer('q1',this,false,'This is an argument (logos) -- but it lacks emotional pull as an opening. A hook needs to grab attention FIRST.')">School start times should be changed based on the available research evidence.</button>
+          <button class="opt" onclick="answer('q1',this,true,'Correct! This hooks the audience by making them personally implicated before you\'ve stated your argument. The question positions them as someone who already knows the answer.')">Did you know that asking a teenager to focus at 8 am is the biological equivalent of asking an adult to work at 4 in the morning?</button>
+          <button class="opt" onclick="answer('q1',this,false,'This is a contention -- it states the position. A hook comes BEFORE the contention and grabs attention first.')">I believe that school should start at 9 am.</button>
+        </div>
+        <div class="quiz-fb" id="q1-fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blueprint -->
+  <div class="phase ph-teach">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🏗️</span>
+      <div class="phase-meta"><span class="phase-tag">Key concepts · 8–23 min</span><span class="phase-title">The Speech Blueprint</span></div>
+      <span class="phase-time">8–23 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;"><strong>Think of a persuasive speech as a building.</strong> Every part has a purpose — and the structure is what makes it stand. Copy this blueprint into your notes.</p>
+      <table class="vtable vtable-navy">
+        <tr><th>Section</th><th>Purpose</th><th>Key signposting language</th></tr>
+        <tr><td class="term">Hook</td><td>Grab attention. Make the audience care about the issue before you've stated your position.</td><td>A question, statistic, anecdote, or bold claim.</td></tr>
+        <tr><td class="term">Contention</td><td>State your position clearly — no ambiguity.</td><td>"I contend…", "I argue…", "It is clear that…"</td></tr>
+        <tr><td class="term">Arguments (×3)</td><td>Build your case with evidence. Each is a PEEL paragraph.</td><td>"First…", "Furthermore…", "Finally…", "The evidence shows…"</td></tr>
+        <tr><td class="term">Rebuttal</td><td>Acknowledge the opposing view — then dismantle it. Shows intellectual honesty.</td><td>"Some argue… however…", "While it may seem… in fact…"</td></tr>
+        <tr><td class="term">Conclusion</td><td>Reinforce your contention. Issue a call to action. Return to the hook's emotion.</td><td>"In conclusion…", "The evidence is clear…", "I urge you to…"</td></tr>
+      </table>
+      <div class="callout callout-faith"><strong>Why the rebuttal matters</strong>Addressing the opposing view doesn't weaken your argument — it strengthens it. Proverbs 18:17 says "In a lawsuit the first to speak seems right, until someone comes forward and cross-examines." A speaker who anticipates objections demonstrates integrity and depth of thinking.</div>
+      <div class="quiz" style="margin-top:14px">
+        <h4>Check your understanding</h4>
+        <p class="quiz-q">A student finishes their three arguments and then says: "Now I know some people think this is too expensive — but let me explain why that concern doesn't hold up." Which section is this?</p>
+        <div class="quiz-opts" id="q1b">
+          <button class="opt" onclick="answer('q1b',this,false,'The conclusion comes AFTER the rebuttal and reinforces the contention with a call to action -- it doesn\'t address opposing views.')">Conclusion</button>
+          <button class="opt" onclick="answer('q1b',this,true,'Correct! The phrase "some people think… but let me explain why" is a classic rebuttal move — acknowledge then dismantle.')">Rebuttal</button>
+          <button class="opt" onclick="answer('q1b',this,false,'Arguments present YOUR case with evidence. The rebuttal specifically responds to the opposing position.')">Argument 3</button>
+        </div>
+        <div class="quiz-fb" id="q1b-fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scramble activity -->
+  <div class="phase ph-guided">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🧩</span>
+      <div class="phase-meta"><span class="phase-tag">Guided practice · 23–43 min</span><span class="phase-title">Scrambled Speech — Sort &amp; Label</span></div>
+      <span class="phase-time">23–43 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Below are <strong>six sections from a speech about school start times</strong> — in the wrong order. Drag them into the correct order, then label each section.</p>
+      <p style="font-size:12px;color:#555;margin-bottom:14px;font-style:italic;">On your worksheet, complete the full annotation. Here, practise identifying the correct order.</p>
+
+      <div class="scramble-label-row">
+        <div class="slab">Hook</div><div class="slab">Contention</div><div class="slab">Arg 1</div><div class="slab">Arg 2</div><div class="slab">Rebuttal</div><div class="slab">Conclusion</div>
+      </div>
+
+      <ul class="scramble-list" id="scramble">
+        <li class="scramble-item" draggable="true" data-section="conclusion" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="drop(event)">
+          <span class="drag-handle">⠿</span>
+          <div><span class="item-label">Section D</span>"In conclusion, the evidence is overwhelming and the solution is straightforward. A 9 am start would improve academic outcomes, support student mental health, and reflect what science has told us for decades. I urge every parent and administrator in this room to consider what truly serves our young people — and to act on that conviction today."</div>
+        </li>
+        <li class="scramble-item" draggable="true" data-section="arg2" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="drop(event)">
+          <span class="drag-handle">⠿</span>
+          <div><span class="item-label">Section A</span>"Furthermore, the mental health data is impossible to ignore. Schools that have trialled later start times report significant reductions in student anxiety, depression, and chronic absenteeism. When students arrive rested, they engage — and when they engage, they thrive."</div>
+        </li>
+        <li class="scramble-item" draggable="true" data-section="rebuttal" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="drop(event)">
+          <span class="drag-handle">⠿</span>
+          <div><span class="item-label">Section F</span>"Some will raise concerns about working parents and transport logistics. These are real concerns — but they are practical problems with practical solutions. What is not practical is continuing to ignore decades of scientific evidence because changing a timetable is inconvenient."</div>
+        </li>
+        <li class="scramble-item" draggable="true" data-section="contention" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="drop(event)">
+          <span class="drag-handle">⠿</span>
+          <div><span class="item-label">Section B</span>"I contend that our school community should immediately implement a 9 am school start time. The benefits to student wellbeing, academic performance, and mental health are too significant — and the cost of inaction too great — to delay further."</div>
+        </li>
+        <li class="scramble-item" draggable="true" data-section="arg1" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="drop(event)">
+          <span class="drag-handle">⠿</span>
+          <div><span class="item-label">Section C</span>"First, consider the science. Research consistently shows that adolescent circadian rhythms shift during puberty. Teenagers are biologically wired to fall asleep later and wake later — asking them to be alert at 8 am is asking them to operate against their own biology."</div>
+        </li>
+        <li class="scramble-item" draggable="true" data-section="hook" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="drop(event)">
+          <span class="drag-handle">⠿</span>
+          <div><span class="item-label">Section E</span>"How many of you hit your alarm this morning and felt truly rested? How many of you remember sitting in your first class, processing almost nothing? If that sounds familiar — you are not alone, and you are not lazy. The science says you were simply awake at the wrong time."</div>
+        </li>
+      </ul>
+      <button class="check-order-btn" onclick="checkOrder()">Check My Order</button>
+      <div class="order-result" id="order-result"></div>
+
+      <div class="callout callout-ext" style="margin-top:12px"><strong>Extension (GATEWAY)</strong>Evaluate the speech: which argument is strongest? Which transition between sections is weakest? What would you add or change — and why?</div>
+      <div class="callout callout-supp"><strong>Support</strong>Look for the signposting language in each section — "First…", "Furthermore…", "I contend…", "Some will argue…", "In conclusion…" — to identify where each section begins.</div>
+    </div>
+  </div>
+
+  <!-- Independent -->
+  <div class="phase ph-indep">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">✍️</span>
+      <div class="phase-meta"><span class="phase-tag">Independent practice · 43–58 min</span><span class="phase-title">Worksheet 2A: Blueprint Builder</span></div>
+      <span class="phase-time">43–58 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Work through <strong>Worksheet 2A</strong>. You will label and sort the scrambled speech, identify signposting language, and write your own contention and argument paragraph.</p>
+      <div class="res-grid">
+        <a class="res-card" href="https://www.literacyideas.com/persuasive-speech" target="_blank"><span class="res-type">Guide</span><span class="res-name">Literacy Ideas — Persuasive Speech Structure</span><span class="res-desc">Clear guide to each section with student-friendly examples.</span></a>
+        <a class="res-card" href="https://www.qcaa.qld.edu.au/p-10/aciq/version-9/cognitive-verbs-in-version-9.0/cognitive-verb-resources" target="_blank"><span class="res-type">Reference</span><span class="res-name">QCAA Cognitive Verbs (v9.0)</span><span class="res-desc">Definitions of "analyse" and "identify" for QCAA tasks.</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exit -->
+  <div class="phase ph-exit">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🎟️</span>
+      <div class="phase-meta"><span class="phase-tag">Exit ticket · 58–70 min</span><span class="phase-title">Before you leave</span></div>
+      <span class="phase-time">58–70 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="exit-box">
+        <h4>Three questions before the end of class</h4>
+        <p class="eq">1. In the box below, sketch a quick labelled diagram of the five sections of a persuasive speech in order:</p>
+        <textarea placeholder="Hook → Contention → Arguments (×3) → Rebuttal → Conclusion (describe each section briefly)..." style="min-height:60px" data-field-id="w2_l1_f1" data-label="Hook → Contention → Arguments (×3) → Rebuttal → Conclusion ("></textarea>
+        <p class="eq">2. Write ONE signposting phrase you could use to begin a rebuttal section:</p>
+        <textarea placeholder="e.g. Some may argue that... however..." style="min-height:36px" data-field-id="w2_l1_f2" data-label="e.g. Some may argue that... however..."></textarea>
+        <p class="eq">3. Why is it important to have THREE body arguments rather than one? Think about balance, credibility, and how audiences respond.</p>
+        <textarea placeholder="Your answer..." style="min-height:52px" data-field-id="w2_l1_f3" data-label="Your answer..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <button class="portal-submit-btn" id="submit-btn-l1" onclick="submitLesson(1)">Submit Lesson 1 to Teacher</button>
+  <div class="lesson-nav">
+    <span></span>
+    <button class="nav-next" onclick="goLesson(2)">Lesson 2 — Analysing a Real Speech →</button>
+  </div>
+</div>
+
+<!-- ══════════ LESSON 2 ══════════ -->
+<div id="l2" class="lesson">
+
+  <div class="lesson-hd l2-hd">
+    <div class="lesson-num">Lesson 2 · 70 min</div>
+    <h2>Under the Microscope: Analysing a Real Speech</h2>
+    <p>Today you apply your knowledge to a real, high-stakes speech — and develop the evaluative language you need for your assessment.</p>
+    <div class="badge-row">
+      <span class="badge">AC9E9LY02</span>
+      <span class="badge">70 minutes</span>
+      <span class="badge">Evaluate · Analyse</span>
+    </div>
+  </div>
+
+  <div class="intentions">
+    <h3>By the end of this lesson you can…</h3>
+    <div class="check-item">Annotate a real speech, identifying structure, language devices, and audience positioning</div>
+    <div class="check-item">Evaluate the effectiveness of specific sections using evidence from the text</div>
+    <div class="check-item">Analyse how delivery choices (pace, pause, tone) amplify language</div>
+    <div class="check-item">Apply the evaluation sentence stem fluently</div>
+  </div>
+
+  <div class="checklist">
+    <h4>Lesson 2 checklist</h4>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Watch/listen to the Thunberg speech and write your reaction journal</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Copy the Evaluation Sentence Stem into your notes</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Annotate the speech transcript with your partner (Worksheet 2B)</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Write your independent evaluative response</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Complete and submit your Exit Ticket</div></div>
+  </div>
+
+  <!-- Hook -->
+  <div class="phase ph-hook open">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🎧</span>
+      <div class="phase-meta"><span class="phase-tag">Hook · 0–10 min</span><span class="phase-title">First Listen — Reaction Journal</span></div>
+      <span class="phase-time">0–10 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Your teacher will play the speech <strong>without any introduction</strong>. Watch and listen — then record your immediate reactions below before discussing anything.</p>
+      <div class="journal-box">
+        <h4>Reaction Journal — write continuously, don't stop to edit</h4>
+        <label>What did you FEEL while watching/listening?</label>
+        <textarea placeholder="Write your immediate emotional reaction..." data-field-id="w2_l2_f4" data-label="Write your immediate emotional reaction..."></textarea>
+        <label>What SURPRISED you about the speech?</label>
+        <textarea placeholder="Something unexpected, unusual, or powerful..." data-field-id="w2_l2_f5" data-label="Something unexpected, unusual, or powerful..."></textarea>
+        <label>What ONE moment made you sit up and really pay attention?</label>
+        <textarea placeholder="A specific line, word, or moment..." data-field-id="w2_l2_f6" data-label="A specific line, word, or moment..."></textarea>
+      </div>
+      <p style="font-size:12px;color:#555;margin-top:10px;font-style:italic;">After sharing reactions as a class, your teacher will tell you who this speaker is, where she spoke, and to whom. Does knowing the context change how you hear it?</p>
+    </div>
+  </div>
+
+  <!-- Evaluation Stem -->
+  <div class="phase ph-teach">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">📐</span>
+      <div class="phase-meta"><span class="phase-tag">Key concepts · 10–22 min</span><span class="phase-title">The Evaluation Sentence Stem</span></div>
+      <span class="phase-time">10–22 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">This is the most important analytical tool in your unit. <strong>Copy it into your notes now.</strong> You will use it in your assessment.</p>
+      <div class="callout-stem">
+        <strong>Evaluation Sentence Stem</strong>
+        In the [section], the speaker uses [technique/device] to position the audience to feel/think [effect]. This is effective for [audience] because [reason], as it [elaboration].
+      </div>
+      <p style="font-size:13px;margin:12px 0 8px;font-weight:600;">Model example — read carefully:</p>
+      <div class="callout-stem">
+        <strong>Example</strong>
+        In the introduction, Thunberg uses the rhetorical question "How dare you!" to position the audience to feel directly accused and morally responsible. This is effective for a world leaders audience because it collapses the distance between the speaker and the powerful — forcing them to confront the gap between their rhetoric and their action, rather than remaining comfortable observers.
+      </div>
+      <div class="quiz" style="margin-top:14px">
+        <h4>Practise the stem</h4>
+        <p class="quiz-q">Which of these best applies the evaluation stem to the line: "You say you love your children above all else, and yet you are stealing their future"?</p>
+        <div class="quiz-opts" id="q2">
+          <button class="opt" onclick="answer('q2',this,false,'This identifies the technique but doesn\'t explain the effect on the audience or why it works for THIS specific audience.')">Thunberg uses pathos in this line.</button>
+          <button class="opt" onclick="answer('q2',this,true,'Correct! This applies the stem: names the technique (pathos/contradiction), states the effect (guilt), identifies the audience (world leaders), and explains why it works (power gap).')">In the body of the speech, Thunberg uses pathos and direct address to position the world leaders to feel guilty and hypocritical. This is effective because it exploits the contradiction between what they claim to value (their children) and what they are choosing to do.</button>
+          <button class="opt" onclick="answer('q2',this,false,'This is a personal reaction, not an analytical evaluation. You need to identify the technique and explain its effect on the audience.')">This line is very emotional and makes me feel sad.</button>
+        </div>
+        <div class="quiz-fb" id="q2-fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Guided Annotation -->
+  <div class="phase ph-guided">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🔬</span>
+      <div class="phase-meta"><span class="phase-tag">Guided analysis · 22–44 min</span><span class="phase-title">Annotating the Transcript — Worksheet 2B</span></div>
+      <span class="phase-time">22–44 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:10px;">Read the transcript with your partner. Use <strong>four highlighter colours</strong> as shown below, then complete the analysis table on Worksheet 2B.</p>
+      <div class="hl-guide">
+        <span class="hl-item hl-1">Colour 1 — Structural sections</span>
+        <span class="hl-item hl-2">Colour 2 — Language devices</span>
+        <span class="hl-item hl-3">Colour 3 — Emotive / evaluative words</span>
+        <span class="hl-item hl-4">Colour 4 — Rhetorical questions</span>
+      </div>
+      <div class="transcript">
+        <span class="transcript-label">Greta Thunberg — UN Climate Action Summit, 23 September 2019 (excerpt, public domain)</span>
+        <p>"My message is that we'll be watching you. This is all wrong. I shouldn't be up here. I should be back in school on the other side of the ocean. Yet you all come to us young people for hope. How dare you!"</p>
+        <p>"You say you love your children above all else, and yet you are stealing their future in front of their very eyes."</p>
+        <p>"For more than 30 years, the science has been crystal clear. How dare you continue to look away and come here saying that you're doing enough, when the politics and solutions needed are still nowhere in sight."</p>
+        <p>"You are failing us. But the young people are starting to understand your betrayal. The eyes of all future generations are upon you. And if you choose to fail us, I say: We will never forgive you."</p>
+        <p>"We are in the beginning of a mass extinction, and all you can talk about is money and fairy tales of eternal economic growth. How dare you!"</p>
+      </div>
+      <p style="font-size:13px;margin:12px 0 8px;font-weight:600;">Complete the analysis table — find at least 5 features:</p>
+      <table class="analysis-table">
+        <tr><th style="width:40%">Feature / Technique Identified</th><th>Effect on audience (use the evaluation stem)</th></tr>
+        <tr><td><input type="text" placeholder="e.g. Rhetorical question: 'How dare you!'"></td><td><input type="text" placeholder="In the introduction, Thunberg uses..."></td></tr>
+        <tr><td><input type="text" placeholder="e.g. Pathos: 'stealing their future'"></td><td><input type="text" placeholder="In the body, the speaker uses..."></td></tr>
+        <tr><td><input type="text" placeholder="Feature 3"></td><td><input type="text" placeholder="Effect of feature 3..."></td></tr>
+        <tr><td><input type="text" placeholder="Feature 4"></td><td><input type="text" placeholder="Effect of feature 4..."></td></tr>
+        <tr><td><input type="text" placeholder="Feature 5"></td><td><input type="text" placeholder="Effect of feature 5..."></td></tr>
+      </table>
+      <div class="callout callout-ext"><strong>Extension (GATEWAY)</strong>Who is the REAL audience for this speech? Is it the world leaders in the room — or the billions watching at home? How does Thunberg's language change (or not change) if you consider both audiences? Write a short paragraph.</div>
+      <div class="callout callout-supp"><strong>Support</strong>Use Worksheet 2B which has some techniques already labelled. You only need to write the effect for each one using the sentence stem.</div>
+    </div>
+  </div>
+
+  <!-- Independent -->
+  <div class="phase ph-indep">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">📝</span>
+      <div class="phase-meta"><span class="phase-tag">Independent evaluation · 44–60 min</span><span class="phase-title">Written Evaluative Response</span></div>
+      <span class="phase-time">44–60 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="callout-stem" style="margin-bottom:12px">
+        <strong>Task</strong>
+        Evaluate the effectiveness of ONE section of Thunberg's speech for its intended audience. Write 3–5 sentences. Use specific evidence and the evaluation sentence stem.
+      </div>
+      <div class="create-box">
+        <label>Which section are you evaluating? (type it here)</label>
+        <textarea placeholder="e.g. The introduction / the rebuttal / the conclusion..." style="min-height:32px" data-field-id="w2_l2_f7" data-label="e.g. The introduction / the rebuttal / the conclusion..."></textarea>
+        <label>Your evaluative response (3–5 sentences using the stem):</label>
+        <textarea placeholder="In the [section], the speaker uses [technique]..." style="min-height:100px" data-field-id="w2_l2_f8" data-label="In the [section], the speaker uses [technique]..."></textarea>
+      </div>
+      <p style="font-size:12px;color:#555;margin-top:8px;font-style:italic;">Check: Did you name a specific technique? Did you state its effect? Did you explain WHY it works for THAT audience?</p>
+    </div>
+  </div>
+
+  <!-- Exit -->
+  <div class="phase ph-exit">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🎟️</span>
+      <div class="phase-meta"><span class="phase-tag">Exit ticket · 60–70 min</span><span class="phase-title">Before you leave</span></div>
+      <span class="phase-time">60–70 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="exit-box">
+        <h4>Exit ticket</h4>
+        <p class="eq">1. Write ONE evaluation sentence about Thunberg's speech using the full stem:</p>
+        <textarea placeholder="In the [section], Thunberg uses [technique] to position..." data-field-id="w2_l2_f9" data-label="In the [section], Thunberg uses [technique] to position..."></textarea>
+        <p class="eq">2. Why does Thunberg direct her speech at world leaders rather than the general public? How does this affect her language choices?</p>
+        <textarea placeholder="Your answer..." data-field-id="w2_l2_f10" data-label="Your answer..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <button class="portal-submit-btn" id="submit-btn-l2" onclick="submitLesson(2)">Submit Lesson 2 to Teacher</button>
+  <div class="lesson-nav">
+    <button class="nav-prev" onclick="goLesson(1)">← Lesson 1</button>
+    <button class="nav-next" onclick="goLesson(3)">Lesson 3 — Rhetorical Devices →</button>
+  </div>
+</div>
+
+<!-- ══════════ LESSON 3 ══════════ -->
+<div id="l3" class="lesson">
+
+  <div class="lesson-hd l3-hd">
+    <div class="lesson-num">Lesson 3 · 70 min</div>
+    <h2>The Persuader's Toolkit: Rhetorical Devices</h2>
+    <p>Five devices. Every great speech uses them. By the end of today you'll be able to spot them instantly — and use them yourself.</p>
+    <div class="badge-row">
+      <span class="badge">AC9E9LE05</span>
+      <span class="badge">70 minutes</span>
+      <span class="badge">Identify · Explain · Analyse</span>
+    </div>
+  </div>
+
+  <div class="intentions">
+    <h3>By the end of this lesson you can…</h3>
+    <div class="check-item">Define and distinguish between ethos, pathos, logos, tricolon, and rhetorical questions</div>
+    <div class="check-item">Identify each device in unfamiliar texts with justification</div>
+    <div class="check-item">Explain the intended effect of each device on a specific audience</div>
+    <div class="check-item">Use each device in an original sentence arguing a persuasive position</div>
+  </div>
+
+  <div class="checklist">
+    <h4>Lesson 3 checklist</h4>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Vote on the Greatest Opening Lines (hook activity)</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Copy the five device definitions into your Reference Card</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Play and complete the Spot-It Game</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Complete Worksheet 2C including your original sentences</div></div>
+    <div class="ck-row" onclick="tick(this)"><div class="ck-box">✓</div><div class="ck-text">Complete your Reference Card and Exit Ticket</div></div>
+  </div>
+
+  <!-- Hook -->
+  <div class="phase ph-hook open">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🏆</span>
+      <div class="phase-meta"><span class="phase-tag">Hook · 0–8 min</span><span class="phase-title">The Greatest Opening Lines</span></div>
+      <span class="phase-time">0–8 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Five opening lines. Which is the most powerful — and why? Vote with your class, then check what technique each uses.</p>
+      <div class="quiz">
+        <h4>Which opening line do you think is most powerful?</h4>
+        <p class="quiz-q">Pick the one you find most memorable or effective:</p>
+        <div class="quiz-opts" id="q3-hook">
+          <button class="opt" onclick="revealLine('q3-hook', this, 'tricolon', 'JFK\'s "Ask not…" uses antithesis (opposites) and a tricolon-style rhythm. It positions the audience as citizens with obligations, not just recipients of government services.')">1. "Ask not what your country can do for you — ask what you can do for your country." (JFK, 1961)</button>
+          <button class="opt" onclick="revealLine('q3-hook', this, 'anaphora', 'MLK\'s repeated "I have a dream" is anaphora — a structural device using repetition. It builds emotional momentum and makes the speech unforgettable.')">2. "I have a dream." (Martin Luther King Jr., 1963)</button>
+          <button class="opt" onclick="revealLine('q3-hook', this, 'rhetorical question', 'Thunberg\'s "How dare you!" is a rhetorical question turned into an accusation. It positions the audience as perpetrators rather than observers — extraordinarily confrontational.')">3. "How dare you!" (Greta Thunberg, 2019)</button>
+          <button class="opt" onclick="revealLine('q3-hook', this, 'tricolon', 'Churchill\'s "fight on the beaches" passage uses tricolon — a list of three — repeated multiple times. The rhythm creates momentum and a sense of inevitability.')">4. "We shall fight on the beaches." (Churchill, 1940)</button>
+          <button class="opt" onclick="revealLine('q3-hook', this, 'metaphor + ethos', 'MLK\'s "arc" quote uses extended metaphor (arc of the universe) and ethos — drawing on a moral authority beyond just himself. It\'s a statement of faith in historical progress.')">5. "The arc of the moral universe is long, but it bends toward justice." (MLK)</button>
+        </div>
+        <div class="quiz-fb" id="q3-hook-fb"></div>
+      </div>
+      <p style="font-size:12px;color:#555;margin-top:10px;font-style:italic;">By the end of this lesson you'll know exactly what technique each of these uses and why it works.</p>
+    </div>
+  </div>
+
+  <!-- Five Devices -->
+  <div class="phase ph-teach">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🧰</span>
+      <div class="phase-meta"><span class="phase-tag">Key concepts · 8–28 min</span><span class="phase-title">Five Rhetorical Devices — Your Reference Card</span></div>
+      <span class="phase-time">8–28 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;"><strong>Copy these definitions into your Reference Card (Worksheet 2C reverse side)</strong> — you'll use it for your own speech.</p>
+      <div class="device-grid">
+        <div class="device-card dc-navy">
+          <span class="dnum">Device 1</span>
+          <h4>Ethos</h4>
+          <p>Appeals to <strong>credibility and trustworthiness</strong>. Why should the audience believe the speaker?</p>
+          <div class="ex">"As a scientist with 30 years of research in this field, I have seen the data firsthand."</div>
+          <div class="ex" style="margin-top:4px;"><strong>Effect:</strong> Builds trust. Establishes authority. Makes the audience think: "This person knows what they're talking about."</div>
+        </div>
+        <div class="device-card dc-teal">
+          <span class="dnum">Device 2</span>
+          <h4>Pathos</h4>
+          <p>Appeals to <strong>emotion</strong>. Targets the heart, not the head.</p>
+          <div class="ex">"Think of the children in our community who go to sleep hungry tonight."</div>
+          <div class="ex" style="margin-top:4px;"><strong>Effect:</strong> Creates empathy, urgency, moral responsibility. The audience feels — and feeling precedes action.</div>
+        </div>
+        <div class="device-card dc-green">
+          <span class="dnum">Device 3</span>
+          <h4>Logos</h4>
+          <p>Appeals to <strong>logic and reason</strong>. Data, facts, evidence, and sound argument.</p>
+          <div class="ex">"Studies show a 40% reduction in accidents when speed limits were lowered by 10 km/h."</div>
+          <div class="ex" style="margin-top:4px;"><strong>Effect:</strong> Demonstrates the argument is rational and researched. Satisfies the sceptical audience member.</div>
+        </div>
+        <div class="device-card dc-purple">
+          <span class="dnum">Device 4</span>
+          <h4>Tricolon</h4>
+          <p>A <strong>list of three</strong> parallel phrases or clauses. Creates rhythm and makes ideas memorable.</p>
+          <div class="ex">"We came, we saw, we conquered." / "Invest in people, invest in future, invest in hope."</div>
+          <div class="ex" style="margin-top:4px;"><strong>Effect:</strong> Three feels complete. The rhythm sticks in the listener's memory long after the speech ends.</div>
+        </div>
+        <div class="device-card dc-amber">
+          <span class="dnum">Device 5</span>
+          <h4>Rhetorical Question</h4>
+          <p>A question asked for <strong>effect</strong> — no answer expected. Positions the audience as someone who already knows.</p>
+          <div class="ex">"How dare you?" / "Do we really want to leave this legacy for our children?"</div>
+          <div class="ex" style="margin-top:4px;"><strong>Effect:</strong> Creates urgency, implicates the audience, and invites agreement without demanding it.</div>
+        </div>
+      </div>
+      <div class="callout callout-faith"><strong>Rhetorical devices in scripture</strong>Paul is one of history's greatest rhetoricians. In 1 Corinthians 13:1 he uses pathos powerfully, and in Acts 17 he deploys ethos and logos in his address to the Areopagus. These aren't tricks — they're tools for communicating truth effectively. How we speak matters as much as what we say.</div>
+    </div>
+  </div>
+
+  <!-- Spot-It Game -->
+  <div class="phase ph-game">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">⚡</span>
+      <div class="phase-meta"><span class="phase-tag">Spot-it game · 28–43 min</span><span class="phase-title">Name That Device!</span></div>
+      <span class="phase-time">28–43 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Eight quotes. Select the correct device — and explain the effect. Your score is tracked below.</p>
+      <div class="score-bar">
+        <div>Score: <span class="score-num" id="scoreNum">0</span> / 8</div>
+        <div style="font-size:12px;color:#555;">Name the device AND explain its effect to earn each point.</div>
+      </div>
+
+      <!-- Game cards -->
+      <div class="game-card">
+        <div class="quote">"As a nurse who has worked in emergency departments for fifteen years, I have seen the consequences of this policy firsthand."</div>
+        <div class="game-opts" id="g1">
+          <button class="game-btn" onclick="spotIt('g1',this,'ethos','Correct! ETHOS -- the speaker\'s 15 years of nursing experience establishes their credibility. The audience is more likely to trust someone with lived professional experience.')">Ethos</button>
+          <button class="game-btn" onclick="spotIt('g1',this,'pathos','Not quite -- pathos appeals to emotion. This quote is about establishing the speaker\'s professional authority and credibility.')">Pathos</button>
+          <button class="game-btn" onclick="spotIt('g1',this,'logos','Not quite -- logos uses data and statistics. This quote uses professional experience, which is credibility, not numerical evidence.')">Logos</button>
+        </div>
+        <div class="game-fb" id="g1-fb"></div>
+      </div>
+
+      <div class="game-card">
+        <div class="quote">"Imagine your child, your grandchild, looking back at us from a future we chose to ignore."</div>
+        <div class="game-opts" id="g2">
+          <button class="game-btn" onclick="spotIt('g2',this,'ethos','Not quite -- ethos is about the speaker\'s credibility. This quote appeals to the audience\'s emotional connection to family.')">Ethos</button>
+          <button class="game-btn" onclick="spotIt('g2',this,'pathos','Correct! PATHOS -- the invitation to imagine your own child or grandchild creates personal emotional stakes. The audience is no longer a distant observer.')">Pathos</button>
+          <button class="game-btn" onclick="spotIt('g2',this,'logos','Not quite -- logos uses facts and data. This quote uses an emotional hypothetical scenario, not evidence.')">Logos</button>
+        </div>
+        <div class="game-fb" id="g2-fb"></div>
+      </div>
+
+      <div class="game-card">
+        <div class="quote">"The data shows a 73% increase in youth homelessness over the past three years."</div>
+        <div class="game-opts" id="g3">
+          <button class="game-btn" onclick="spotIt('g3',this,'pathos','Not quite -- while this statistic is upsetting, the technique here is logos: using data and evidence to build a logical case.')">Pathos</button>
+          <button class="game-btn" onclick="spotIt('g3',this,'logos','Correct! LOGOS -- a specific percentage and timeframe provide verifiable evidence. The audience can\'t easily dismiss a precise statistic.')">Logos</button>
+          <button class="game-btn" onclick="spotIt('g3',this,'ethos','Not quite -- ethos is about the speaker\'s credibility. This quote presents statistical evidence, which is logos.')">Ethos</button>
+        </div>
+        <div class="game-fb" id="g3-fb"></div>
+      </div>
+
+      <div class="game-card">
+        <div class="quote">"We need investment, we need action, we need change — and we need it now."</div>
+        <div class="game-opts" id="g4">
+          <button class="game-btn" onclick="spotIt('g4',this,'tricolon','Correct! TRICOLON -- three parallel "we need" phrases create rhythm, urgency, and memorability. The final "and we need it now" adds a punch after the three.')">Tricolon</button>
+          <button class="game-btn" onclick="spotIt('g4',this,'rhetorical question','Not quite -- a rhetorical question asks something for effect. This is a statement, not a question, repeated three times.')">Rhetorical question</button>
+          <button class="game-btn" onclick="spotIt('g4',this,'logos','Not quite -- logos uses evidence and data. This is a three-part parallel statement, which is tricolon.')">Logos</button>
+        </div>
+        <div class="game-fb" id="g4-fb"></div>
+      </div>
+
+      <div class="game-card">
+        <div class="quote">"Are we really going to sit here and do nothing?"</div>
+        <div class="game-opts" id="g5">
+          <button class="game-btn" onclick="spotIt('g5',this,'tricolon','Not quite -- tricolon is a list of three parallel phrases. This is a single question asked for effect.')">Tricolon</button>
+          <button class="game-btn" onclick="spotIt('g5',this,'pathos','Not quite -- while this creates emotional pressure, the technique is a rhetorical question. The form (asking for effect) defines it.')">Pathos</button>
+          <button class="game-btn" onclick="spotIt('g5',this,'rhetorical question','Correct! RHETORICAL QUESTION -- no answer is expected. The question implies the audience already knows what the right answer is: of course we shouldn\'t do nothing.')">Rhetorical question</button>
+        </div>
+        <div class="game-fb" id="g5-fb"></div>
+      </div>
+
+      <div class="game-card">
+        <div class="quote">"I have dedicated my career, my research, and my life to this cause."</div>
+        <div class="game-opts" id="g6">
+          <button class="game-btn" onclick="spotIt('g6',this,'ethos+tricolon','Correct! Both ETHOS and TRICOLON -- the three-part list (career, research, life) establishes deep credibility through sacrifice. The tricolon structure makes it rhythmically powerful.')">Ethos + Tricolon</button>
+          <button class="game-btn" onclick="spotIt('g6',this,'pathos','Not quite -- while this is personal, the primary technique is ethos (establishing credibility through commitment) with tricolon structure.')">Pathos</button>
+          <button class="game-btn" onclick="spotIt('g6',this,'logos','Not quite -- logos uses data and evidence. This builds the speaker\'s credibility through personal sacrifice, which is ethos.')">Logos</button>
+        </div>
+        <div class="game-fb" id="g6-fb"></div>
+      </div>
+
+      <div class="game-card">
+        <div class="quote">"Will history remember us as the generation that could have acted — and chose not to?"</div>
+        <div class="game-opts" id="g7">
+          <button class="game-btn" onclick="spotIt('g7',this,'rhetorical question','Correct! RHETORICAL QUESTION -- and a particularly powerful one: it positions the audience in the future, looking back at themselves. The implied answer is deeply uncomfortable.')">Rhetorical question</button>
+          <button class="game-btn" onclick="spotIt('g7',this,'ethos','Not quite -- ethos establishes the speaker\'s credibility. This question positions the audience, not the speaker.')">Ethos</button>
+          <button class="game-btn" onclick="spotIt('g7',this,'tricolon','Not quite -- tricolon is a list of three. This is a single question that asks the audience to consider their legacy.')">Tricolon</button>
+        </div>
+        <div class="game-fb" id="g7-fb"></div>
+      </div>
+
+      <div class="game-card">
+        <div class="quote">"Behind every statistic is a family. Behind every policy is a person. Behind every decision is a human life."</div>
+        <div class="game-opts" id="g8">
+          <button class="game-btn" onclick="spotIt('g8',this,'pathos+tricolon','Correct! PATHOS + TRICOLON -- the three-part anaphora (Behind every...) creates rhythm while the content reframes cold data as human stories. This is sophisticated: logos (statistics, policy, decisions) reframed as pathos.')">Pathos + Tricolon</button>
+          <button class="game-btn" onclick="spotIt('g8',this,'logos','Not quite -- while it mentions statistics and policies, the technique is to humanise those things, which is pathos. The three-part structure is tricolon.')">Logos</button>
+          <button class="game-btn" onclick="spotIt('g8',this,'ethos','Not quite -- ethos establishes speaker credibility. This quote is about reframing statistics as human stories.')">Ethos</button>
+        </div>
+        <div class="game-fb" id="g8-fb"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Independent -->
+  <div class="phase ph-indep">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">✍️</span>
+      <div class="phase-meta"><span class="phase-tag">Independent practice · 43–58 min</span><span class="phase-title">Worksheet 2C: The Persuader's Toolkit</span></div>
+      <span class="phase-time">43–58 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;margin-bottom:12px;">Work through <strong>Worksheet 2C</strong>. The key task: write ONE original sentence for each device, arguing that <em>young people should have the right to vote at 16.</em> Draft them here first.</p>
+      <div class="create-box">
+        <label>ETHOS sentence:</label>
+        <textarea placeholder="e.g. As a 16-year-old who already pays taxes on my part-time earnings, I have a direct stake in the decisions made by the government that collects them." data-field-id="w2_l3_f11" data-label="e.g. As a 16-year-old who already pays taxes on my part-time"></textarea>
+        <label>PATHOS sentence:</label>
+        <textarea placeholder="e.g. Imagine being 16, watching the decisions that will shape your entire adult life being made by people who will never have to live with the consequences..." data-field-id="w2_l3_f12" data-label="e.g. Imagine being 16, watching the decisions that will shap"></textarea>
+        <label>LOGOS sentence:</label>
+        <textarea placeholder="e.g. In countries where 16-year-olds can vote, such as Scotland and Austria, youth political engagement has measurably increased across all age groups." data-field-id="w2_l3_f13" data-label="e.g. In countries where 16-year-olds can vote, such as Scotl"></textarea>
+        <label>TRICOLON sentence:</label>
+        <textarea placeholder="e.g. We pay taxes, we drive cars, we bear the consequences — yet we have no say in the laws that govern all three." data-field-id="w2_l3_f14" data-label="e.g. We pay taxes, we drive cars, we bear the consequences —"></textarea>
+        <label>RHETORICAL QUESTION:</label>
+        <textarea placeholder="e.g. If a 16-year-old is old enough to work, pay tax, and enlist in the military — are they really not old enough to vote?" data-field-id="w2_l3_f15" data-label="e.g. If a 16-year-old is old enough to work, pay tax, and en"></textarea>
+      </div>
+      <div class="res-grid" style="margin-top:12px">
+        <a class="res-card" href="https://owl.purdue.edu/owl/general_writing/the_writing_process/rhetorical_situation/index.html" target="_blank"><span class="res-type">Reference</span><span class="res-name">Purdue OWL — Rhetorical Situation</span><span class="res-desc">Deeper reading on ethos, pathos, logos in context.</span></a>
+        <a class="res-card" href="https://www.americanrhetoric.com/top100speechesall.html" target="_blank"><span class="res-type">Speeches</span><span class="res-name">American Rhetoric — Top 100 Speeches</span><span class="res-desc">Spot devices in history's most analysed speeches.</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exit -->
+  <div class="phase ph-exit">
+    <div class="phase-hd" onclick="togglePhase(this)">
+      <span class="phase-icon">🎟️</span>
+      <div class="phase-meta"><span class="phase-tag">Exit ticket · 58–70 min</span><span class="phase-title">Before you leave</span></div>
+      <span class="phase-time">58–70 min</span><span class="chevron">▼</span>
+    </div>
+    <div class="phase-body">
+      <div class="exit-box">
+        <h4>Three questions</h4>
+        <p class="eq">1. Name ONE device and give an original example you created today:</p>
+        <textarea placeholder="Device: [name] / My example sentence: ..." data-field-id="w2_l3_f16" data-label="Device: [name] / My example sentence: ..."></textarea>
+        <p class="eq">2. Explain why LOGOS alone is not enough to persuade most audiences:</p>
+        <textarea placeholder="Your answer..." data-field-id="w2_l3_f17" data-label="Your answer..."></textarea>
+        <p class="eq">3. Which of the five devices appears most frequently in Thunberg's speech (from Lesson 2)? Why do you think she made that choice for that specific audience?</p>
+        <textarea placeholder="Device: [name] / Reason she chose it: ..." data-field-id="w2_l3_f18" data-label="Device: [name] / Reason she chose it: ..."></textarea>
+      </div>
+      <div class="callout callout-faith" style="margin-top:10px"><strong>Week 2 reflection</strong>This week you've seen how the world's most powerful speakers construct their arguments — piece by piece, device by device. As you prepare your own speech, ask: what combination of structure and devices will help you communicate your truth most effectively and most honestly? What responsibility comes with that power?</div>
+    </div>
+  </div>
+
+  <button class="portal-submit-btn" id="submit-btn-l3" onclick="submitLesson(3)">Submit Lesson 3 to Teacher</button>
+  <div class="lesson-nav">
+    <button class="nav-prev" onclick="goLesson(2)">← Lesson 2</button>
+    <div class="complete-badge">Week 2 Complete!</div>
+  </div>
+</div>
+
+</div><!-- end content -->
+
+<div class="footer">
+  <strong>Bundaberg Christian College</strong> · Year 9 English · Unit 2: Powerful Persuasion · Term 2, Week 2<br>
+  <span style="font-size:10px;font-style:italic;">"All the treasures of wisdom and knowledge" — Colossians 2:3</span>
+</div>
+
+</div><!-- end shell -->
+
+<script>
+var score = 0;
+var answered = {};
+
+function goLesson(n) {
+  document.querySelectorAll('.lesson').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById('l' + n).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(function(btn, i) { btn.classList.toggle('active', i + 1 === n); });
+  document.querySelectorAll('.hero-pill').forEach(function(pill, i) { pill.classList.toggle('active', i + 1 === n); });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  updateProgress();
+}
+
+function togglePhase(hd) {
+  hd.closest('.phase').classList.toggle('open');
+}
+
+function tick(row) {
+  row.classList.toggle('done');
+  updateProgress();
+}
+
+function updateProgress() {
+  var total = document.querySelectorAll('.ck-row').length;
+  var done = document.querySelectorAll('.ck-row.done').length;
+  var pct = total > 0 ? Math.round(done / total * 100) : 0;
+  document.getElementById('pf').style.width = pct + '%';
+  document.getElementById('pp').textContent = pct + '%';
+}
+
+function answer(qid, btn, correct, msg) {
+  var container = document.getElementById(qid);
+  var fb = document.getElementById(qid + '-fb');
+  container.querySelectorAll('.opt').forEach(function(b) { b.disabled = true; b.style.opacity = '0.55'; });
+  btn.style.opacity = '1';
+  if (correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✓ ' + msg;
+    fb.className = 'quiz-fb show ok';
+  } else {
+    btn.classList.add('wrong');
+    container.querySelectorAll('.opt').forEach(function(b) {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').indexOf(',true,') > -1) { b.classList.add('correct'); b.style.opacity = '1'; }
+    });
+    fb.textContent = msg;
+    fb.className = 'quiz-fb show bad';
+  }
+}
+
+function revealLine(qid, btn, device, msg) {
+  var container = document.getElementById(qid);
+  var fb = document.getElementById(qid + '-fb');
+  container.querySelectorAll('.opt').forEach(function(b) { b.style.border = '2px solid rgba(26,58,92,.15)'; });
+  btn.style.borderColor = '#1A3A5C';
+  btn.style.background = '#e8f0f8';
+  btn.style.fontWeight = '700';
+  fb.textContent = 'Device: ' + device.toUpperCase() + ' — ' + msg;
+  fb.className = 'quiz-fb show ok';
+}
+
+function spotIt(gid, btn, device, msg) {
+  if (answered[gid]) return;
+  answered[gid] = true;
+  var container = document.getElementById(gid);
+  var fb = document.getElementById(gid + '-fb');
+  container.querySelectorAll('.game-btn').forEach(function(b) { b.disabled = true; b.style.opacity = '0.55'; });
+  btn.style.opacity = '1';
+  var correct = device.indexOf('+') > -1 ? true : (msg.indexOf('Correct') === 0);
+  if (correct) {
+    btn.classList.add('correct');
+    score++;
+    document.getElementById('scoreNum').textContent = score;
+    fb.textContent = msg;
+    fb.className = 'game-fb show ok';
+  } else {
+    btn.classList.add('wrong');
+    container.querySelectorAll('.game-btn').forEach(function(b) {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').indexOf('Correct') > -1) { b.classList.add('correct'); b.style.opacity = '1'; }
+    });
+    fb.textContent = msg;
+    fb.className = 'game-fb show bad';
+  }
+}
+
+// Drag and drop for scramble
+var dragSrc = null;
+function dragStart(e) {
+  dragSrc = e.currentTarget;
+  e.dataTransfer.effectAllowed = 'move';
+  setTimeout(function() { dragSrc.classList.add('dragging'); }, 0);
+}
+function dragOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  var target = e.currentTarget;
+  if (target !== dragSrc && target.classList.contains('scramble-item')) {
+    document.querySelectorAll('.scramble-item').forEach(function(el) { el.classList.remove('over'); });
+    target.classList.add('over');
+  }
+}
+function drop(e) {
+  e.preventDefault();
+  var target = e.currentTarget;
+  if (dragSrc !== target) {
+    var list = document.getElementById('scramble');
+    var items = Array.from(list.children);
+    var srcIdx = items.indexOf(dragSrc);
+    var tgtIdx = items.indexOf(target);
+    if (srcIdx < tgtIdx) { list.insertBefore(dragSrc, target.nextSibling); }
+    else { list.insertBefore(dragSrc, target); }
+  }
+  document.querySelectorAll('.scramble-item').forEach(function(el) { el.classList.remove('over','dragging'); });
+  dragSrc = null;
+}
+document.addEventListener('dragend', function() {
+  document.querySelectorAll('.scramble-item').forEach(function(el) { el.classList.remove('over','dragging'); });
+});
+
+function checkOrder() {
+  var correctOrder = ['hook','contention','arg1','arg2','rebuttal','conclusion'];
+  var list = document.getElementById('scramble');
+  var items = Array.from(list.children);
+  var userOrder = items.map(function(el) { return el.getAttribute('data-section'); });
+  var correct = JSON.stringify(correctOrder) === JSON.stringify(userOrder);
+  var result = document.getElementById('order-result');
+  result.className = 'order-result show';
+  if (correct) {
+    result.style.background = '#e8f5e9';
+    result.style.color = '#1b5e20';
+    result.textContent = '✓ Perfect order! Hook → Contention → Argument 1 → Argument 2 → Rebuttal → Conclusion. You\'ve correctly identified the full speech blueprint.';
+  } else {
+    var names = { hook:'Hook', contention:'Contention', arg1:'Argument 1', arg2:'Argument 2', rebuttal:'Rebuttal', conclusion:'Conclusion' };
+    var feedback = 'Not quite yet. Your order: ' + userOrder.map(function(s){return names[s]||s;}).join(' → ') + '. Hint: look for the signposting words in each section to identify where it belongs.';
+    result.style.background = '#fce4ec';
+    result.style.color = '#880e4f';
+    result.textContent = feedback;
+  }
+}
+
+// Auto-open first phase in each lesson
+document.querySelectorAll('.lesson').forEach(function(lesson) {
+  var firstPhase = lesson.querySelector('.phase');
+  if (firstPhase) firstPhase.classList.add('open');
+});
+
+updateProgress();
+
+
+// ── COLLECTOR MODULE ─────────────────────────────────────────
+// Injected into every week portal. One find-and-replace to activate.
+// https://script.google.com/macros/s/AKfycby7k1gZT0JXh3WQrhjNHCHf1Qm5d9UDJbHqhc0FMazhDAust5K9dIjb1X-8Tv3mbhQ-/exec → your deployed Apps Script URL
+// ─────────────────────────────────────────────────────────────
+var PORTAL_URL = 'https://script.google.com/macros/s/AKfycby7k1gZT0JXh3WQrhjNHCHf1Qm5d9UDJbHqhc0FMazhDAust5K9dIjb1X-8Tv3mbhQ-/exec';
+var PORTAL_WEEK = '2';
+
+// Identity helpers
+function getIdentity() {
+  return {
+    name: (document.getElementById('portal-name')||{value:''}).value.trim(),
+    cls:  (document.getElementById('portal-class')||{value:''}).value.trim()
+  };
+}
+
+function confirmIdentity() {
+  var id = getIdentity();
+  var bar = document.getElementById('portal-id-bar');
+  var status = document.getElementById('portal-id-status');
+  if (!id.name) {
+    bar.style.borderBottomColor = '#ef4444';
+    bar.style.animation = 'shake 0.3s';
+    setTimeout(function(){ bar.style.animation=''; }, 300);
+    return false;
+  }
+  bar.style.borderBottomColor = '#22c55e';
+  status.textContent = 'Saved as: ' + id.name + ' (' + (id.cls||'no class') + ')';
+  status.style.background = '#22c55e';
+  // Persist in session storage
+  try {
+    sessionStorage.setItem('portal_name', id.name);
+    sessionStorage.setItem('portal_class', id.cls);
+  } catch(e){}
+  return true;
+}
+
+// Restore identity from session storage on load
+function restoreIdentity() {
+  try {
+    var n = sessionStorage.getItem('portal_name');
+    var c = sessionStorage.getItem('portal_class');
+    if (n) {
+      var ni = document.getElementById('portal-name');
+      var ci = document.getElementById('portal-class');
+      if (ni) ni.value = n;
+      if (ci) ci.value = c || '';
+      confirmIdentity();
+    }
+  } catch(e){}
+}
+
+// Collect all tagged textareas in a lesson and submit
+function submitLesson(lessonNum) {
+  var id = getIdentity();
+  if (!id.name) {
+    var bar = document.getElementById('portal-id-bar');
+    bar.style.borderBottomColor = '#ef4444';
+    bar.scrollIntoView({behavior:'smooth', block:'start'});
+    bar.style.animation = 'shake 0.3s';
+    setTimeout(function(){ bar.style.animation=''; }, 300);
+    showToast('Please enter your name and click Confirm first.', 'err');
+    return;
+  }
+
+  // Find the lesson container
+  var lessonEl = document.getElementById('l' + lessonNum);
+  if (!lessonEl) { showToast('Lesson not found.', 'err'); return; }
+
+  // Collect all tagged textareas in this lesson
+  var tagged = lessonEl.querySelectorAll('textarea[data-field-id]');
+  var collected = [];
+  tagged.forEach(function(ta) {
+    var val = ta.value.trim();
+    var label = ta.getAttribute('data-label') || ta.getAttribute('data-field-id');
+    collected.push(label + ': ' + (val || '(blank)'));
+    // Save to session storage as backup
+    try { sessionStorage.setItem('field_' + ta.getAttribute('data-field-id'), val); } catch(e){}
+  });
+
+  if (collected.length === 0) {
+    showToast('No response fields found in this lesson.', 'err');
+    return;
+  }
+
+  var fields = collected.join(' || ');
+  var btn = document.getElementById('submit-btn-l' + lessonNum);
+  var origText = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }
+
+  // Build URL and fire via image trick (bypasses CORS completely)
+  var params = [
+    'studentName=' + encodeURIComponent(id.name),
+    'className='   + encodeURIComponent(id.cls),
+    'week='        + encodeURIComponent(PORTAL_WEEK),
+    'lesson='      + encodeURIComponent(lessonNum),
+    'fields='      + encodeURIComponent(fields)
+  ].join('&');
+
+  var img = new Image();
+  img.onload = img.onerror = function() {
+    showToast('Lesson ' + lessonNum + ' submitted! Your teacher can now see your responses.', 'ok');
+    if (btn) { btn.textContent = 'Submitted'; btn.style.background = '#22c55e'; }
+  };
+  img.src = PORTAL_URL + '?' + params;
+}
+
+// Toast notification
+function showToast(msg, type) {
+  var t = document.getElementById('portal-toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.className = 'portal-toast show ' + type;
+  clearTimeout(t._timer);
+  t._timer = setTimeout(function(){ t.className = 'portal-toast'; }, 4000);
+}
+
+// Run on load
+document.addEventListener('DOMContentLoaded', function() {
+  restoreIdentity();
+});
+
+</script>
+</body>
+</html>
